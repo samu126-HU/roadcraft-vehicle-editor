@@ -1,0 +1,362 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>RoadCraft_Vehicle_Editorv2</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="vehicles\auto_alces_c400_concrete_mixer_new.cls" />
+    <None Remove="vehicles\auto_aramatsu_bowhead_heavy_dumptruck_new.cls" />
+    <None Remove="vehicles\auto_aramatsu_crayfish_harvester_new.cls" />
+    <None Remove="vehicles\auto_aramatsu_crayfish_wood_grapple_new.cls" />
+    <None Remove="vehicles\auto_aramatsu_kite3_stump_mulcher_new.cls" />
+    <None Remove="vehicles\auto_arling_120special_paver_new.cls" />
+    <None Remove="vehicles\auto_arling_750r_roller_new.cls" />
+    <None Remove="vehicles\auto_armiger_thunder_civilian_new.cls" />
+    <None Remove="vehicles\auto_armiger_thunder_scout_new.cls" />
+    <None Remove="vehicles\auto_azov_4317dl_cargo_old.cls" />
+    <None Remove="vehicles\auto_azov_4317dl_cargo_res.cls" />
+    <None Remove="vehicles\auto_baikal_5916_crane_old.cls" />
+    <None Remove="vehicles\auto_baikal_5916_crane_res.cls" />
+    <None Remove="vehicles\auto_baikal_65206_heavy_dumptruck_old.cls" />
+    <None Remove="vehicles\auto_baikal_65206_heavy_dumptruck_res.cls" />
+    <None Remove="vehicles\auto_don_71.cls" />
+    <None Remove="vehicles\auto_don_72malamute_scout_new.cls" />
+    <None Remove="vehicles\auto_ds_135bunker_paver_old.cls" />
+    <None Remove="vehicles\auto_ds_135bunker_paver_res.cls" />
+    <None Remove="vehicles\auto_ds_55katok_roller_old.cls" />
+    <None Remove="vehicles\auto_ds_55katok_roller_res.cls" />
+    <None Remove="vehicles\auto_epec_hwc945_heavy_crane_new.cls" />
+    <None Remove="vehicles\auto_epec_lt200_crane_cargo_new.cls" />
+    <None Remove="vehicles\auto_epec_lt200_dumptruck_new.cls" />
+    <None Remove="vehicles\auto_epec_tc305_heavy_crane_grabber_new.cls" />
+    <None Remove="vehicles\auto_epec_tc305_heavy_crane_new.cls" />
+    <None Remove="vehicles\auto_greenway_740cross_cargo_new.cls" />
+    <None Remove="vehicles\auto_greenway_740cross_forwarder_new.cls" />
+    <None Remove="vehicles\auto_invictus_typea_scout_new.cls" />
+    <None Remove="vehicles\auto_khan_lo_strannik_mob_old.cls" />
+    <None Remove="vehicles\auto_kronenwerk_l34_cargo_dozer_res.cls" />
+    <None Remove="vehicles\auto_kronenwerk_l34_dozer_old.cls" />
+    <None Remove="vehicles\auto_kronenwerk_l34_dozer_res.cls" />
+    <None Remove="vehicles\auto_kronenwerk_l34_forwarder_res.cls" />
+    <None Remove="vehicles\auto_kronenwerk_l34_wood_grabber_res.cls" />
+    <None Remove="vehicles\auto_minuteman_k350_civilian_new.cls" />
+    <None Remove="vehicles\auto_minuteman_k350_scout_new.cls" />
+    <None Remove="vehicles\auto_mtk_100m_stump_mulcher_old.cls" />
+    <None Remove="vehicles\auto_mtk_100m_stump_mulcher_res.cls" />
+    <None Remove="vehicles\auto_mtk_md76_harvester_old.cls" />
+    <None Remove="vehicles\auto_mtk_md76_harvester_res.cls" />
+    <None Remove="vehicles\auto_mtk_md76_wood_grapple_res.cls" />
+    <None Remove="vehicles\auto_mtk_proseka200_cargo_res.cls" />
+    <None Remove="vehicles\auto_mtk_proseka200_forwarder_old.cls" />
+    <None Remove="vehicles\auto_mtk_proseka200_forwarder_res.cls" />
+    <None Remove="vehicles\auto_mule_t1_cargo_old.cls" />
+    <None Remove="vehicles\auto_mule_t1_cargo_res.cls" />
+    <None Remove="vehicles\auto_mule_t1_crane_cargo_res.cls" />
+    <None Remove="vehicles\auto_mule_t1_utility_new.cls" />
+    <None Remove="vehicles\auto_nota_allegro_cargo_new.cls" />
+    <None Remove="vehicles\auto_nota_allegro_personnel_new.cls" />
+    <None Remove="vehicles\auto_n_and_s_260gantry_crane_railroad.cls" />
+    <None Remove="vehicles\auto_n_and_s_260gantry_crane_railroad_80m.cls" />
+    <None Remove="vehicles\auto_n_and_s_700r_tower_crane_railed.cls" />
+    <None Remove="vehicles\auto_n_and_s_700s_tower_crane.cls" />
+    <None Remove="vehicles\auto_n_and_s_loader20g_crane_grabber.cls" />
+    <None Remove="vehicles\auto_qa_don.cls" />
+    <None Remove="vehicles\auto_step_pike_light_transporter_old.cls" />
+    <None Remove="vehicles\auto_step_pike_light_transporter_res.cls" />
+    <None Remove="vehicles\auto_tayga_6455b_dumptruck_old.cls" />
+    <None Remove="vehicles\auto_tayga_6455b_dumptruck_res.cls" />
+    <None Remove="vehicles\auto_tuz_119lynx_scout_old.cls" />
+    <None Remove="vehicles\auto_tuz_119lynx_scout_res.cls" />
+    <None Remove="vehicles\auto_tuz_303karelian_scout_old.cls" />
+    <None Remove="vehicles\auto_tuz_303karelian_scout_res.cls" />
+    <None Remove="vehicles\auto_voron_3327_cargo_old.cls" />
+    <None Remove="vehicles\auto_voron_3327_cargo_res.cls" />
+    <None Remove="vehicles\auto_voron_3327_dumptruck_res.cls" />
+    <None Remove="vehicles\auto_vostok_atm53pioneer_dozer_old.cls" />
+    <None Remove="vehicles\auto_vostok_atm53pioneer_dozer_res.cls" />
+    <None Remove="vehicles\auto_vostok_etv89_crane_new.cls" />
+    <None Remove="vehicles\auto_vostok_tk53krot_cable_layer_old.cls" />
+    <None Remove="vehicles\auto_vostok_tk53krot_cable_layer_res.cls" />
+    <None Remove="vehicles\auto_warden_kochevnik_mob_new.cls" />
+    <None Remove="vehicles\auto_wayfarer_st7050_cargo_main.cls" />
+    <None Remove="vehicles\auto_wayfarer_st7050_new.cls" />
+    <None Remove="vehicles\auto_wayfarer_st7050_trailer_cargo_new.cls" />
+    <None Remove="vehicles\auto_wayfarer_st7050_trailer_fridge_new.cls" />
+    <None Remove="vehicles\auto_wayfarer_st7050_trailer_fuel_new.cls" />
+    <None Remove="vehicles\auto_wayfarer_st7050_trailer_tent_new.cls" />
+    <None Remove="vehicles\auto_zikz_605e_heavy_transporter_old.cls" />
+    <None Remove="vehicles\auto_zikz_605e_heavy_transporter_res.cls" />
+    <None Remove="vehicles\auto_zikz_605e_mobile_scalper_old.cls" />
+    <None Remove="vehicles\auto_zikz_605e_mobile_scalper_res.cls" />
+    <None Remove="vehicles\auto_zikz_612c_heavy_crane_old.cls" />
+    <None Remove="vehicles\auto_zikz_612c_heavy_crane_res.cls" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="vehicles\auto_alces_c400_concrete_mixer_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_aramatsu_bowhead_heavy_dumptruck_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_aramatsu_crayfish_harvester_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_aramatsu_crayfish_wood_grapple_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_aramatsu_kite3_stump_mulcher_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_arling_120special_paver_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_arling_750r_roller_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_armiger_thunder_civilian_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_armiger_thunder_scout_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_azov_4317dl_cargo_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_azov_4317dl_cargo_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_baikal_5916_crane_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_baikal_5916_crane_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_baikal_65206_heavy_dumptruck_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_baikal_65206_heavy_dumptruck_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_don_71.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_don_72malamute_scout_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_ds_135bunker_paver_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_ds_135bunker_paver_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_ds_55katok_roller_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_ds_55katok_roller_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_epec_hwc945_heavy_crane_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_epec_lt200_crane_cargo_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_epec_lt200_dumptruck_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_epec_tc305_heavy_crane_grabber_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_epec_tc305_heavy_crane_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_greenway_740cross_cargo_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_greenway_740cross_forwarder_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_invictus_typea_scout_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_khan_lo_strannik_mob_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_kronenwerk_l34_cargo_dozer_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_kronenwerk_l34_dozer_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_kronenwerk_l34_dozer_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_kronenwerk_l34_forwarder_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_kronenwerk_l34_wood_grabber_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_minuteman_k350_civilian_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_minuteman_k350_scout_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mtk_100m_stump_mulcher_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mtk_100m_stump_mulcher_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mtk_md76_harvester_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mtk_md76_harvester_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mtk_md76_wood_grapple_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mtk_proseka200_cargo_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mtk_proseka200_forwarder_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mtk_proseka200_forwarder_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mule_t1_cargo_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mule_t1_cargo_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mule_t1_crane_cargo_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_mule_t1_utility_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_nota_allegro_cargo_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_nota_allegro_personnel_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_n_and_s_260gantry_crane_railroad.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_n_and_s_260gantry_crane_railroad_80m.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_n_and_s_700r_tower_crane_railed.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_n_and_s_700s_tower_crane.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_n_and_s_loader20g_crane_grabber.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_qa_don.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_step_pike_light_transporter_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_step_pike_light_transporter_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_tayga_6455b_dumptruck_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_tayga_6455b_dumptruck_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_tuz_119lynx_scout_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_tuz_119lynx_scout_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_tuz_303karelian_scout_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_tuz_303karelian_scout_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_voron_3327_cargo_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_voron_3327_cargo_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_voron_3327_dumptruck_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_vostok_atm53pioneer_dozer_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_vostok_atm53pioneer_dozer_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_vostok_etv89_crane_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_vostok_tk53krot_cable_layer_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_vostok_tk53krot_cable_layer_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_warden_kochevnik_mob_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_wayfarer_st7050_cargo_main.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_wayfarer_st7050_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_wayfarer_st7050_trailer_cargo_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_wayfarer_st7050_trailer_fridge_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_wayfarer_st7050_trailer_fuel_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_wayfarer_st7050_trailer_tent_new.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_zikz_605e_heavy_transporter_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_zikz_605e_heavy_transporter_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_zikz_605e_mobile_scalper_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_zikz_605e_mobile_scalper_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_zikz_612c_heavy_crane_old.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vehicles\auto_zikz_612c_heavy_crane_res.cls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
