@@ -16,7 +16,7 @@ A modern, user-friendly Windows Forms application for editing vehicle `.cls` fil
 
 ### 1. **Installation**
 
-- Download the latest release from [GitHub Releases](https://github.com/yourusername/roadcraft-vehicle-editor/releases)
+- Download the latest release from [GitHub Releases](https://github.com/samu126HU/roadcraft-vehicle-editor/releases)
 - Extract the ZIP file to a folder of your choice
 
 ### 2. **Launching the Editor**
@@ -110,7 +110,7 @@ A: Check your JSON syntax and ensure the `Path` and `PrettyName` fields are set.
 
 ## 📣 Feedback & Contributions
 
-- Found a bug? Have a feature request? [Open an issue](https://github.com/yourusername/roadcraft-vehicle-editor/issues)
+- Found a bug? Have a feature request? [Open an issue](https://github.com/samu126HU/roadcraft-vehicle-editor/issues)
 - Pull requests are welcome!
 
 ---
