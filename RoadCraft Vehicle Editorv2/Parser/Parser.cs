@@ -244,13 +244,10 @@ namespace RoadCraft_Vehicle_Editorv2.Parser
                 }
             }
 
-            // *** FIX START ***
-            // This logic was incorrect. It needs to search within the children of objects in the current level, not just for properties directly.
             var propsFromCurrentLevel = currentLevel.OfType<ClsProperty>();
             var propsFromChildrenOfObjects = currentLevel.OfType<ClsObject>().SelectMany(o => o.Children.OfType<ClsProperty>());
             var allProps = propsFromCurrentLevel.Concat(propsFromChildrenOfObjects);
             var matchingProp = allProps.FirstOrDefault(p => p.Key == key);
-            // *** FIX END ***
 
             if (matchingProp == null) return Enumerable.Empty<ClsNode>();
 
@@ -365,26 +362,62 @@ namespace RoadCraft_Vehicle_Editorv2.Parser
         private ClsList ParseList(ref int lineIndex, string openingLine)
         {
             var list = new ClsList();
-            lineIndex++;
+
+            // First, check if the list is defined and closed on the same line.
+            int openBracketIndexOnLine = openingLine.IndexOf('[');
+            if (openBracketIndexOnLine != -1)
+            {
+                string partAfterOpenBracket = openingLine.Substring(openBracketIndexOnLine);
+                string trimmedPart = partAfterOpenBracket.Trim();
+
+                if (trimmedPart.EndsWith("]"))
+                {
+                    // It's a same-line list. Check if it's empty.
+                    string content = trimmedPart.Substring(1, trimmedPart.Length - 2).Trim();
+                    if (string.IsNullOrEmpty(content))
+                    {
+                        lineIndex++;
+                        return list;
+                    }
+
+                }
+            }
+
+            // If we are here, it's a multi-line list.
+            lineIndex++; // Move to the line after the opening bracket.
+
+            bool foundClosing = false;
             while (lineIndex < _lines.Length)
             {
-                var trimmedLine = _lines[lineIndex].Trim();
+                string currentLine = _lines[lineIndex];
+                string trimmedLine = currentLine.Trim();
+
                 if (trimmedLine.StartsWith("]"))
                 {
-                    list.ClosingBracketLine = _lines[lineIndex];
+                    list.ClosingBracketLine = currentLine;
                     lineIndex++;
+                    foundClosing = true;
                     break;
                 }
+
+                // This logic is preserved from the original implementation.
                 if (trimmedLine.StartsWith("{"))
                 {
-                    list.Items.Add(ParseObject(ref lineIndex, _lines[lineIndex]));
+                    list.Items.Add(ParseObject(ref lineIndex, currentLine));
                 }
                 else
                 {
-                    list.Items.Add(ParseValue(_lines[lineIndex]));
+                    // This will parse any line that isn't a closing bracket or opening brace as a value.
+                    list.Items.Add(ParseValue(currentLine));
                     lineIndex++;
                 }
             }
+
+            if (!foundClosing && list.Items.Count == 0)
+            {
+                list.ClosingBracketLine = "]";
+            }
+
             return list;
         }
 

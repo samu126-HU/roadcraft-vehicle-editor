@@ -39,7 +39,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                 // Steering Settings
                 new Setting("", "Steering Settings", Group.Steering, ValueType.Label),
                 new Setting("properties.prop_truck_rb.maxSteerSpeed", "Maximum Steering Speed", Group.Steering, ValueType.Float),
-                new Setting("properties.prop_truck_rb.backSteerSpeed", "Backs Steer Speed", Group.Steering, ValueType.Float),
+                new Setting("properties.prop_truck_rb.backSteerSpeed", "Back Steer Speed", Group.Steering, ValueType.Float),
                 new Setting("properties.prop_truck_rb.controllableSteeringConstraints[0].angularSpeed", "Steering Speed (Angular Speed)", Group.Steering, ValueType.Float),
                 new Setting("properties.prop_truck_rb.controllableSteeringConstraints[0].speed", "Steering Speed (Normal Speed?)", Group.Steering, ValueType.Float),
                 new Setting("properties.prop_truck_rb.controllableSteeringConstraints[0].minAngle", "Steering Minimum Angle", Group.Steering, ValueType.Float),
