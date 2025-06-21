@@ -29,7 +29,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                 new Setting("", "General Settings", Group.General, ValueType.Label),
                 new Setting("properties.prop_truck_rb.engine.params.torque", "Torque", Group.General),
                 new Setting("properties.prop_truck_gearbox_controller.awdMode", "AWD", Group.General),
-                new Setting("properties.prop_truck_gearbox_controller.diffLockMode", "Diff Lock", Group.General),
+                new Setting("properties.prop_truck_gearbox_controller.difflockMode", "Diff Lock", Group.General),
                 new Setting("properties.prop_truck_gearbox_controller.isLowGearAvailable", "Low Gear", Group.General, ForcedType: ValueType.Bool),
 
                 // Dumptruck Settings
