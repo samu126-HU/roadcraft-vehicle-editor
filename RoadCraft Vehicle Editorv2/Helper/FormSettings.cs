@@ -92,7 +92,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
         public static readonly Dictionary<string, string[]> PropertyDropdownOptions = new()
         {
             ["properties.prop_truck_gearbox_controller.awdMode"] = new[] { "ALWAYS_ON", "ALWAYS_OFF", "CONTROLLED" },
-            ["properties.prop_truck_gearbox_controller.diffLockMode"] = new[] { "ALWAYS_ON", "ALWAYS_OFF", "CONTROLLED" }
+            ["properties.prop_truck_gearbox_controller.difflockMode"] = new[] { "ALWAYS_ON", "ALWAYS_OFF", "CONTROLLED" }
         };
 
         public record Setting(
