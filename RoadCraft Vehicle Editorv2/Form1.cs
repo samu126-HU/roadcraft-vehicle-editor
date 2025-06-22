@@ -1,6 +1,7 @@
 ﻿using RoadCraft_Vehicle_Editorv2.Helper;
 using RoadCraft_Vehicle_Editorv2.Parser;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -17,6 +18,7 @@ namespace RoadCraft_Vehicle_Editorv2
         public Form1()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.Dpi;
             listBox1.DrawMode = DrawMode.OwnerDrawFixed;
             listBox1.DrawItem += ListBox1_DrawItem;
             checkBoxShowGears = new CheckBox
@@ -51,9 +53,23 @@ namespace RoadCraft_Vehicle_Editorv2
 
                 if (value != null)
                 {
+                    // Find the setting for this control
+                    var setting = FormSettings.SettingsToShow.FirstOrDefault(s => s.Path == ctrl.Name);
                     var forcedType = FormSettings.GetForcedTypeForPath(ctrl.Name);
                     value = ConvertToType(value, forcedType);
-                    parser.SetValue(path, value);
+
+                    // If MultiPaths is set, update all paths
+                    if (setting != null && setting.MultiPaths != null && setting.MultiPaths.Length > 0)
+                    {
+                        foreach (var multiPath in setting.MultiPaths)
+                        {
+                            parser.SetValue(multiPath, value);
+                        }
+                    }
+                    else
+                    {
+                        parser.SetValue(path, value);
+                    }
                 }
             }
         }
@@ -156,6 +172,9 @@ namespace RoadCraft_Vehicle_Editorv2
 
         private void Form1_Load(object? sender, EventArgs e)
         {
+            this.AutoScaleDimensions = new SizeF(96F, 96F);
+            this.PerformAutoScale();
+
             listBox1.Items.Clear();
             Label note = new Label { Text = "Select a vehicle to get started.", ForeColor = Color.Red, AutoSize = true, Font = new Font("Segoe UI", 16) };
             panel1.Controls.Add(note);
@@ -256,8 +275,21 @@ namespace RoadCraft_Vehicle_Editorv2
 
                 int controlsAddedForThisSetting = 0;
 
+                // MultiPaths: Show as a single control, but read/write all paths
+                if (setting.MultiPaths != null && setting.MultiPaths.Length > 0)
+                {
+                    // Read all values, if all are the same, show that value, else show empty/varies
+                    var values = setting.MultiPaths.Select(p => parser.GetValue(p)).ToList();
+                    object? displayValue = values.Distinct().Count() == 1 ? values.First() : null;
+
+                    panel1.Controls.Add(new Label { Text = setting.PrettyName, Location = new Point(10, y), Width = labelWidth, Height = height, TextAlign = ContentAlignment.MiddleLeft });
+                    Control editor = CreateEditorControl(setting.Path, setting.Path, displayValue, controlWidth, height, y);
+                    panel1.Controls.Add(editor);
+                    y += height + spacing;
+                    controlsAddedForThisSetting++;
+                }
                 // Handle settings that filter a list to find a specific object
-                if (!string.IsNullOrEmpty(setting.Filter) && !string.IsNullOrEmpty(setting.FilteredSubProperty))
+                else if (!string.IsNullOrEmpty(setting.Filter) && !string.IsNullOrEmpty(setting.FilteredSubProperty))
                 {
                     var filterParts = setting.Filter.Split(new[] { '=' }, 2);
                     if (filterParts.Length != 2) continue;

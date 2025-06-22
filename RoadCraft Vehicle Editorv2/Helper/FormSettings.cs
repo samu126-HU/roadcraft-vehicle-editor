@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Packaging;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace RoadCraft_Vehicle_Editorv2.Helper
@@ -52,9 +54,35 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
 
                 // Working Width Settings
                 new Setting("", "Working Width Settings", Group.Width, ValueType.Label),
-                new Setting("properties.prop_truck_flattener.flattener.size.x", "Dozer Working Width", Group.Width, ValueType.Float),
-                new Setting("properties.prop_truck_asphalt_roller.asphaltRoller.size.x", "Asphalt Roller Working Width", Group.Width, ValueType.Float),
-                new Setting("properties.prop_truck_asphalter.asphalter.size.x", "Asphalter Working Width", Group.Width, ValueType.Float),
+
+                //FIX: only show if name contains dozer
+                new Setting("properties.prop_truck_flattener.flattener.size.x", "Dozer Working Width", Group.Width, ValueType.Float,
+                ShowIf: parser =>
+                {
+                    var name = parser.GetValue("properties.prop_truck_view.truckName") as string;
+                    return name != null && name.Contains("dozer", StringComparison.OrdinalIgnoreCase);
+                }),
+
+                new Setting("properties.prop_truck_asphalt_roller.asphaltRoller.size.x", "Asphalt Roller Working Width", Group.Width, ValueType.Float,
+                ShowIf: parser =>
+                {
+                    var name = parser.GetValue("properties.prop_truck_view.truckName") as string;
+                    //MessageBox.Show(name ?? "null", "Debug Info");
+                    return name != null && name.Contains("roller", StringComparison.OrdinalIgnoreCase);
+                },
+                MultiPaths: new[] {
+                    "properties.prop_truck_asphalt_roller.asphaltRoller.size.x",
+                    "properties.prop_truck_asphalt_roller.asphaltRoller.rollUpRearSize.x",
+                    "properties.prop_truck_asphalt_roller.asphaltRoller.rollUpForwardSize.x"
+                }),
+
+                new Setting("properties.prop_truck_asphalter.asphalter.size.x", "Asphalter Working Width", Group.Width, ValueType.Float,
+                ShowIf: parser =>
+                {
+                    var name = parser.GetValue("properties.prop_truck_view.truckName") as string;
+                    //MessageBox.Show(name ?? "null", "Debug Info");
+                    return name != null && name.Contains("paver", StringComparison.OrdinalIgnoreCase);
+                }),
 
                 // Gear Settings
                 new Setting("", "Gear Settings", Group.Gear, ValueType.Label),
@@ -102,7 +130,8 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
             ValueType? ForcedType = null,
             Func<ClsParser, bool>? ShowIf = null,
             string? Filter = null,
-            string? FilteredSubProperty = null
+            string? FilteredSubProperty = null,
+            string[]? MultiPaths = null
         );
 
         public static ValueType? GetForcedTypeForPath(string path)
