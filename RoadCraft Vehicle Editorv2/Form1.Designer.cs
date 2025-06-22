@@ -64,12 +64,14 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1004, 661);
             Controls.Add(save);
             Controls.Add(panel1);
             Controls.Add(listBox1);
+            MaximumSize = new Size(1020, 700);
+            MinimumSize = new Size(1020, 700);
             Name = "Form1";
             Text = "RoadCraft Vehicle Editor";
             Load += Form1_Load;
