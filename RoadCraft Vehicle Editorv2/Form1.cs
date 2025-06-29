@@ -1,42 +1,138 @@
-﻿using RoadCraft_Vehicle_Editorv2.Helper;
+﻿using System.IO.Compression;
+using RoadCraft_Vehicle_Editorv2.Helper;
 using RoadCraft_Vehicle_Editorv2.Parser;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
+using RoadCraft_Vehicle_Editorv2.Properties;
 
 namespace RoadCraft_Vehicle_Editorv2
 {
     public partial class Form1 : Form
     {
-        private HelperBackend backend = new();
-        private CheckBox checkBoxShowGears;
+        const string RelativePakPath = @"root\paks\client\default\default_other.pak";
+        string? gameDir;
+        Button btnGameDir;
+        readonly HelperBackend backend = new();
+        CheckBox checkBoxShowGears;
 
         public Form1()
         {
             InitializeComponent();
-            this.AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleMode = AutoScaleMode.Dpi;
+
             listBox1.DrawMode = DrawMode.OwnerDrawFixed;
             listBox1.DrawItem += ListBox1_DrawItem;
+
             checkBoxShowGears = new CheckBox
             {
                 Text = "Show Gear Options",
-                Checked = false,
                 AutoSize = true,
                 Location = new Point(10, 10)
             };
             checkBoxShowGears.CheckedChanged += (s, e) => RefreshPropertyPanel();
+            Controls.Add(checkBoxShowGears);
+
+            btnGameDir = new Button
+            {
+                Text = "Game directory path",
+                AutoSize = true,
+                Location = new Point(10, 40)
+            };
+            btnGameDir.Click += BtnGameDir_Click;
+            Controls.Add(btnGameDir);
+
+            gameDir = Settings.Default.GameDirPath;
+            if (!string.IsNullOrEmpty(gameDir) && File.Exists(Path.Combine(gameDir, RelativePakPath)))
+                BuildVehicleList();
+            int top = btnGameDir.Bottom + 8;
+            listBox1.Location = new Point(12, top);
+            panel1.Location = new Point(291, top);
+            int margin = 35;
+            listBox1.Height = ClientSize.Height - top - margin;
+            panel1.Height = listBox1.Height;
+            panel1.Width = ClientSize.Width - panel1.Left - 12;
+            save.Location = new Point(ClientSize.Width - save.Width - 12, ClientSize.Height - save.Height - 12);
+            Resize += (s, _) =>
+            {
+                listBox1.Height = ClientSize.Height - top - margin;
+                panel1.Height = listBox1.Height;
+                panel1.Width = ClientSize.Width - panel1.Left - 12;
+                save.Location = new Point(ClientSize.Width - save.Width - 12, ClientSize.Height - save.Height - 12);
+            };
         }
 
-        private void RefreshPropertyPanel()
+        void BtnGameDir_Click(object? sender, EventArgs e)
         {
-            listBox1_SelectedIndexChanged(this, EventArgs.Empty);
+            using var fbd = new FolderBrowserDialog { Description = "Select RoadCraft folder" };
+            if (fbd.ShowDialog() != DialogResult.OK) return;
+
+            var dir = fbd.SelectedPath;
+            if (!File.Exists(Path.Combine(dir, RelativePakPath)))
+            {
+                MessageBox.Show("default_other.pak not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            gameDir = dir;
+            Settings.Default.GameDirPath = dir;
+            Settings.Default.Save();
+            BuildVehicleList();
         }
 
-        private void UpdateParserFromPanel(ClsParser parser)
+        void BuildVehicleList()
+        {
+            listBox1.Items.Clear();
+            panel1.Controls.Clear();
+
+            var vehiclesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vehicles");
+            Directory.CreateDirectory(vehiclesDir);
+            foreach (var f in Directory.GetFiles(vehiclesDir, "*.cls")) File.Delete(f);
+
+            using var pak = ZipFile.OpenRead(Path.Combine(gameDir!, RelativePakPath));
+            const string targetDir = "ssl/autogen_designer_wizard/trucks/";
+
+            foreach (var entry in pak.Entries.Where(x =>
+                         x.FullName.StartsWith(targetDir, StringComparison.OrdinalIgnoreCase) &&
+                         x.Name.EndsWith(".cls", StringComparison.OrdinalIgnoreCase)))
+            {
+                var rel = entry.FullName.Substring(targetDir.Length);
+                var slash = rel.IndexOf('/');
+                if (slash < 0) continue;
+
+                var folder = rel[..slash];
+                var file = rel[(slash + 1)..];
+
+                if (!file.Equals($"{folder}.cls", StringComparison.OrdinalIgnoreCase)) continue;
+                if (folder.StartsWith("wheel", StringComparison.OrdinalIgnoreCase)) continue;
+                if (folder.StartsWith("preview", StringComparison.OrdinalIgnoreCase)) continue;
+                if (HelperVisual.CategorizeVehicle(folder) == "Other") continue;
+
+                entry.ExtractToFile(Path.Combine(vehiclesDir, file), true);
+            }
+
+            var categorized = Directory.GetFiles(vehiclesDir, "*.cls")
+                .Select(f =>
+                {
+                    var name = Path.GetFileNameWithoutExtension(f);
+                    return new
+                    {
+                        FileName = name,
+                        Category = HelperVisual.CategorizeVehicle(name),
+                        PrettyName = HelperVisual.PrettyVehicleName(name)
+                    };
+                })
+                .GroupBy(x => x.Category)
+                .OrderBy(g => g.Key);
+
+            foreach (var group in categorized)
+            {
+                listBox1.Items.Add(new HelperVisual.CategoryHeaderItem(group.Key));
+                foreach (var item in group.OrderBy(x => x.PrettyName))
+                    listBox1.Items.Add(new HelperVisual.ListBoxItem(item.PrettyName, item.FileName));
+            }
+        }
+
+        void RefreshPropertyPanel() => listBox1_SelectedIndexChanged(this, EventArgs.Empty);
+
+        void UpdateParserFromPanel(ClsParser parser)
         {
             foreach (Control ctrl in panel1.Controls)
             {
@@ -51,30 +147,23 @@ namespace RoadCraft_Vehicle_Editorv2
                     _ => null
                 };
 
-                if (value != null)
-                {
-                    // Find the setting for this control
-                    var setting = FormSettings.SettingsToShow.FirstOrDefault(s => s.Path == ctrl.Name);
-                    var forcedType = FormSettings.GetForcedTypeForPath(ctrl.Name);
-                    value = ConvertToType(value, forcedType);
+                if (value == null) continue;
 
-                    // If MultiPaths is set, update all paths
-                    if (setting != null && setting.MultiPaths != null && setting.MultiPaths.Length > 0)
-                    {
-                        foreach (var multiPath in setting.MultiPaths)
-                        {
-                            parser.SetValue(multiPath, value);
-                        }
-                    }
-                    else
-                    {
-                        parser.SetValue(path, value);
-                    }
+                var setting = FormSettings.SettingsToShow.FirstOrDefault(s => s.Path == ctrl.Name);
+                var forcedType = FormSettings.GetForcedTypeForPath(ctrl.Name);
+                value = ConvertToType(value, forcedType);
+
+                if (setting != null && setting.MultiPaths is { Length: > 0 })
+                {
+                    foreach (var multiPath in setting.MultiPaths)
+                        parser.SetValue(multiPath, value);
                 }
+                else
+                    parser.SetValue(path, value);
             }
         }
 
-        private object ConvertToType(object value, FormSettings.ValueType? forcedType)
+        object ConvertToType(object value, FormSettings.ValueType? forcedType)
         {
             if (forcedType == null || forcedType == FormSettings.ValueType.Auto) return value;
             try
@@ -85,19 +174,17 @@ namespace RoadCraft_Vehicle_Editorv2
                     FormSettings.ValueType.Int => Convert.ToInt32(value),
                     FormSettings.ValueType.Float => Convert.ToSingle(value),
                     FormSettings.ValueType.Double => Convert.ToDouble(value),
-                    FormSettings.ValueType.Bool => value is bool b ? b : bool.TryParse(value.ToString(), out var result) && result,
-                    _ => value,
+                    FormSettings.ValueType.Bool => value is bool b ? b : bool.TryParse(value.ToString(), out var r) && r,
+                    _ => value
                 };
             }
-            catch (Exception ex)
+            catch
             {
-                // Log the error for easier debugging of faulty .cls files.
-                Debug.WriteLine($"Type conversion failed for value '{value}' to type '{forcedType}': {ex.Message}");
-                return value.ToString() ?? ""; // Fallback to string
+                return value.ToString() ?? "";
             }
         }
 
-        private void SaveButton_Click(object? sender, EventArgs e)
+        void SaveButton_Click(object? sender, EventArgs e)
         {
             if (listBox1.SelectedItem is not HelperVisual.ListBoxItem vehicle)
             {
@@ -111,7 +198,6 @@ namespace RoadCraft_Vehicle_Editorv2
             string vehiclesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vehicles");
             string fileName = vehicle.Value + ".cls";
             string filePath = Path.Combine(vehiclesDir, fileName);
-
             if (!File.Exists(filePath))
             {
                 MessageBox.Show("Vehicle file not found: " + filePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -170,43 +256,15 @@ namespace RoadCraft_Vehicle_Editorv2
             }
         }
 
-        private void Form1_Load(object? sender, EventArgs e)
-        {
-            this.AutoScaleDimensions = new SizeF(96F, 96F);
-            this.PerformAutoScale();
-
-            listBox1.Items.Clear();
-            Label note = new Label { Text = "Select a vehicle to get started.", ForeColor = Color.Red, AutoSize = true, Font = new Font("Segoe UI", 16) };
-            panel1.Controls.Add(note);
-            note.Location = new Point((panel1.Width - note.Width) / 2, 10);
-
-            string vehiclesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vehicles");
-            if (!Directory.Exists(vehiclesDir)) return;
-
-            var categorized = Directory.GetFiles(vehiclesDir, "*.cls")
-                .Select(f => new { FileName = Path.GetFileNameWithoutExtension(f), Category = HelperVisual.CategorizeVehicle(Path.GetFileNameWithoutExtension(f)), PrettyName = HelperVisual.PrettyVehicleName(Path.GetFileNameWithoutExtension(f)) })
-                .GroupBy(x => x.Category)
-                .OrderBy(g => g.Key == "Other" ? 1 : 0).ThenBy(g => g.Key);
-
-            foreach (var group in categorized)
-            {
-                listBox1.Items.Add(new HelperVisual.CategoryHeaderItem(group.Key));
-                foreach (var item in group.OrderBy(x => x.PrettyName))
-                {
-                    listBox1.Items.Add(new HelperVisual.ListBoxItem(item.PrettyName, item.FileName));
-                }
-            }
-        }
-
-        private void ListBox1_DrawItem(object? sender, DrawItemEventArgs e)
+        void ListBox1_DrawItem(object? sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
             var item = listBox1.Items[e.Index];
             e.DrawBackground();
             if (item is HelperVisual.CategoryHeaderItem header)
             {
-                using var bgBrush = new SolidBrush(Color.FromArgb(240, 240, 255));
-                e.Graphics.FillRectangle(bgBrush, e.Bounds);
+                using var bg = new SolidBrush(Color.FromArgb(240, 240, 255));
+                e.Graphics.FillRectangle(bg, e.Bounds);
                 using var font = new Font(e.Font ?? Font, FontStyle.Bold);
                 TextRenderer.DrawText(e.Graphics, $"★ {header.Category.ToUpper()}", font, e.Bounds, Color.MediumSlateBlue, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
             }
@@ -218,7 +276,7 @@ namespace RoadCraft_Vehicle_Editorv2
             e.DrawFocusRectangle();
         }
 
-        private void listBox1_SelectedIndexChanged(object? sender, EventArgs e)
+        void listBox1_SelectedIndexChanged(object? sender, EventArgs e)
         {
             panel1.AutoScroll = false;
             panel1.Controls.Clear();
@@ -243,21 +301,17 @@ namespace RoadCraft_Vehicle_Editorv2
 
             foreach (var setting in settings)
             {
-                // Skip settings that don't match conditions (e.g. gear settings when hidden).
                 if (setting.ShowIf != null && !setting.ShowIf(parser)) continue;
                 if (setting.Group == FormSettings.Group.Gear && !showGears) continue;
 
-                // If this is a new group label, finalize the previous group first.
                 if (setting.ForcedType == FormSettings.ValueType.Label)
                 {
                     if (currentGroupLabel != null && controlsAddedForCurrentGroup == 0)
                     {
-                        // The previous group had no visible controls, so remove its label.
-                        y -= (currentGroupLabel.Height + spacing);
+                        y -= currentGroupLabel.Height + spacing;
                         panel1.Controls.Remove(currentGroupLabel);
                     }
 
-                    // Create and add the new group label.
                     currentGroupLabel = new Label
                     {
                         Text = setting.PrettyName,
@@ -269,16 +323,14 @@ namespace RoadCraft_Vehicle_Editorv2
                     };
                     panel1.Controls.Add(currentGroupLabel);
                     y += height + spacing;
-                    controlsAddedForCurrentGroup = 0; // Reset counter for the new group.
+                    controlsAddedForCurrentGroup = 0;
                     continue;
                 }
 
                 int controlsAddedForThisSetting = 0;
 
-                // MultiPaths: Show as a single control, but read/write all paths
-                if (setting.MultiPaths != null && setting.MultiPaths.Length > 0)
+                if (setting.MultiPaths is { Length: > 0 })
                 {
-                    // Read all values, if all are the same, show that value, else show empty/varies
                     var values = setting.MultiPaths.Select(p => parser.GetValue(p)).ToList();
                     object? displayValue = values.Distinct().Count() == 1 ? values.First() : null;
 
@@ -288,7 +340,6 @@ namespace RoadCraft_Vehicle_Editorv2
                     y += height + spacing;
                     controlsAddedForThisSetting++;
                 }
-                // Handle settings that filter a list to find a specific object
                 else if (!string.IsNullOrEmpty(setting.Filter) && !string.IsNullOrEmpty(setting.FilteredSubProperty))
                 {
                     var filterParts = setting.Filter.Split(new[] { '=' }, 2);
@@ -310,7 +361,6 @@ namespace RoadCraft_Vehicle_Editorv2
                         }
                     }
                 }
-                // Handle settings that apply to every item in a list (wildcard)
                 else if (setting.Path.Contains('*'))
                 {
                     string parserPath = setting.Path.Replace(".*.", "[*].").Replace(".*", "[*]");
@@ -326,7 +376,6 @@ namespace RoadCraft_Vehicle_Editorv2
                         controlsAddedForThisSetting++;
                     }
                 }
-                // Handle all other simple settings
                 else
                 {
                     object? value = parser.GetValue(setting.Path);
@@ -342,16 +391,13 @@ namespace RoadCraft_Vehicle_Editorv2
                 controlsAddedForCurrentGroup += controlsAddedForThisSetting;
             }
 
-            // After the loop, perform a final check on the very last group.
             if (currentGroupLabel != null && controlsAddedForCurrentGroup == 0)
-            {
                 panel1.Controls.Remove(currentGroupLabel);
-            }
 
             panel1.PerformLayout();
         }
 
-        private Control CreateEditorControl(string originalPath, string actualPath, object? value, int width, int height, int y)
+        Control CreateEditorControl(string originalPath, string actualPath, object? value, int width, int height, int y)
         {
             var forcedType = FormSettings.GetForcedTypeForPath(originalPath);
             int xPos = 220;
@@ -370,8 +416,8 @@ namespace RoadCraft_Vehicle_Editorv2
                         Minimum = -1000000,
                         Maximum = 1000000,
                         Value = Convert.ToDecimal(value),
-                        DecimalPlaces = (forcedType == FormSettings.ValueType.Int) ? 0 : 4,
-                        Increment = (forcedType == FormSettings.ValueType.Int) ? 1 : 0.01M,
+                        DecimalPlaces = forcedType == FormSettings.ValueType.Int ? 0 : 4,
+                        Increment = forcedType == FormSettings.ValueType.Int ? 1 : 0.01M,
                         Location = new Point(xPos, y),
                         Width = width,
                         Height = height
@@ -386,15 +432,19 @@ namespace RoadCraft_Vehicle_Editorv2
                         control = comboBox;
                     }
                     else
-                    {
                         control = new TextBox { Text = value?.ToString() ?? "", Location = new Point(xPos, y), Width = width, Height = height };
-                    }
                     break;
             }
 
             control.Tag = actualPath;
             control.Name = originalPath;
             return control;
+        }
+        private void Form1_Load(object? sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(gameDir) &&
+                File.Exists(Path.Combine(gameDir, RelativePakPath)))
+                BuildVehicleList();
         }
     }
 }
