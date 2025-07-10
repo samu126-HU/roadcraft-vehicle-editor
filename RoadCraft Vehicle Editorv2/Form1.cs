@@ -49,6 +49,24 @@ namespace RoadCraft_Vehicle_Editorv2
         {
             base.OnShown(e);
 
+            string firstRunFlagPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "firstrun.flag");
+            if (!File.Exists(firstRunFlagPath))
+            {
+                MessageBox.Show(
+                    "Welcome to RoadCraft Vehicle Editor!\n\n" +
+                    "This tool lets you view and edit vehicle parameters for RoadCraft.\n" +
+                    "Make sure you read the mod's description on Nexus as it has important information in it and it may solve your issue.\n\n" +
+                    "• Edit from default values or select your own pak file to edit.\n" +
+                    "• Use the left list to select a vehicle.\n" +
+                    "• Edit properties on the right.\n" +
+                    "• Click Save to export your changes.\n\n",
+                    "Welcome",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                File.WriteAllText(firstRunFlagPath, "shown");
+            }
+
             if (!DesignMode && !this.IsDisposed && !this.Disposing)
             {
                 this.CenterToScreen();
@@ -67,7 +85,7 @@ namespace RoadCraft_Vehicle_Editorv2
 
                 var label = new Label
                 {
-                    Text = "Use default values or edit modded pak file?",
+                    Text = "Use default values or load values from your pak file?",
                     AutoSize = false,
                     TextAlign = ContentAlignment.MiddleCenter,
                     Dock = DockStyle.Top,
@@ -77,7 +95,7 @@ namespace RoadCraft_Vehicle_Editorv2
 
                 var btnDefault = new Button
                 {
-                    Text = "Default values",
+                    Text = "Load default values",
                     DialogResult = DialogResult.Yes,
                     Width = 160,
                     Height = 40,
@@ -85,7 +103,7 @@ namespace RoadCraft_Vehicle_Editorv2
                 };
                 var btnPak = new Button
                 {
-                    Text = "Edit modded pak file",
+                    Text = "Load your own pak file",
                     DialogResult = DialogResult.No,
                     Width = 160,
                     Height = 40,
@@ -130,8 +148,11 @@ namespace RoadCraft_Vehicle_Editorv2
 
             listBox1.Items.Clear();
             Label note = new Label { Text = "Select a vehicle to get started.", ForeColor = Color.Red, AutoSize = true, Font = new Font("Segoe UI", 16) };
+            Label note2 = new Label { Text = "Loading your own pak file may take a few seconds...", ForeColor = Color.Red, AutoSize = true, Font = new Font("Segoe UI", 16) };
             panel1.Controls.Add(note);
+            panel1.Controls.Add(note2);
             note.Location = new Point((panel1.Width - note.Width) / 2, 10);
+            note2.Location = new Point((panel1.Width - note2.Width) / 2, 10 + note.Height);
         }
 
         #endregion
