@@ -2340,7 +2340,6 @@ properties   =   {
       syncBodyNames   =   [
          "BoneCrane_cdt",
          "BoneCart_cdt",
-         "BoneCables_cdt",
          "BoneHook_cdt"
       ]
    }
@@ -2420,6 +2419,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -2722,6 +2723,35 @@ properties   =   {
          "cdt_BoneCrane_support_10"
       ]
    }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+   }
    prop_truck_phys_placing   =   {
       disableCollisionBodies   =   [
          "BoneCrane_cdt"
@@ -2786,13 +2816,12 @@ properties   =   {
          {
             uiActionDescription   =   "UID_HUD_CRANE_RAILS"
             inputLink   =   {
-               inputLink   =   "Game.FirstVerticalAxis"
+               inputLink   =   "Game.SecondHorizontalAxis"
                __type   =   "InputLinkVector"
             }
-            axisDirectionType   =   "Y_AXIS"
+            axisDirectionType   =   "X_AXIS"
             actionData   =   {
                actionType   =   "CRANE_Z"
-               strengthFactor   =   -1
                canWorkWithEngineOff   =   True
                __type   =   "AxisActionData"
             }
@@ -3073,6 +3102,7 @@ properties   =   {
          }
          __type   =   "RbVehicleCameraParams"
       }
+      craneCameraVerticalSpeed   =   4
    }
    prop_truck_fade_controller   =   {
       params   =   {

@@ -928,6 +928,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
                }
+               OnEngineRunningOnInit_F72c925G   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Fk5i/Stop",
+                     "TruckShaker_Dct2Fk5i1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] rpm and speed"   =   {
@@ -1577,7 +1588,7 @@ properties   =   {
                CloneSoundEmitter_E8rdv6bO   =   {
                   viewData   =   {
                      x   =   4400
-                     y   =   1650
+                     y   =   1500
                   }
                   GetSoundEmitter   =   [
                      "PlaySound_E8rdvKbE/emitterRef/cb",
@@ -1599,7 +1610,7 @@ properties   =   {
                CloneSoundEmitter_E8rdv6bO1   =   {
                   viewData   =   {
                      x   =   4400
-                     y   =   1850
+                     y   =   1700
                   }
                   GetSoundEmitter   =   [
                      "PlaySound_E5fh0Mcu2/emitterRef/cb",
@@ -1621,7 +1632,7 @@ properties   =   {
                PlaySound_E8rdvKbE   =   {
                   viewData   =   {
                      x   =   6000
-                     y   =   1650
+                     y   =   1500
                   }
                   OnSoundStart   =   [
                      "PlaySound_Eaecw35m/Play"
@@ -1638,7 +1649,7 @@ properties   =   {
                PlaySound_E8rdvKbE1   =   {
                   viewData   =   {
                      x   =   6000
-                     y   =   1850
+                     y   =   1700
                   }
                   OnSoundStart   =   [
                      "PlaySound_Eaecw35m1/Play"
@@ -1655,7 +1666,7 @@ properties   =   {
                CloneSoundEmitter_EaecvJeU   =   {
                   viewData   =   {
                      x   =   4400
-                     y   =   2050
+                     y   =   1850
                   }
                   GetSoundEmitter   =   [
                      "PlaySound_Eaecw35m/emitterRef/cb",
@@ -1677,7 +1688,7 @@ properties   =   {
                PlaySound_Eaecw35m   =   {
                   viewData   =   {
                      x   =   6700
-                     y   =   1650
+                     y   =   1500
                   }
                   soundDesc   =   {
                      type   =   {
@@ -1691,7 +1702,7 @@ properties   =   {
                PlaySound_Eaecw35m1   =   {
                   viewData   =   {
                      x   =   6700
-                     y   =   1850
+                     y   =   1700
                   }
                   soundDesc   =   {
                      type   =   {
@@ -3741,9 +3752,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   340
-      startFuelTankVolume   =   340
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   375
+      startFuelTankVolume   =   375
+      fuelConsumption   =   0.2
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_constraint_view   =   {
       constraintSequentialChains   =   {
@@ -5252,6 +5265,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -6340,6 +6355,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -6813,13 +6829,13 @@ properties   =   {
    prop_cargo_constraint   =   {
       constraintAreaSize   =   {
          x   =   7.5
-         y   =   7
+         y   =   6
          z   =   11
          __type   =   "Vector3d"
       }
       internalConstraintAreaSize   =   {
          x   =   2.332
-         y   =   5
+         y   =   3.5
          z   =   5.315
          __type   =   "Vector3d"
       }
@@ -6827,6 +6843,12 @@ properties   =   {
          x   =   -1.166
          y   =   0.43
          z   =   -2.751
+         __type   =   "Vector3d"
+      }
+      truckConstarintAreaSize   =   {
+         __type   =   "Vector3d"
+      }
+      truckConstraintAreaOffset   =   {
          __type   =   "Vector3d"
       }
       beltZPositions   =   [
@@ -6854,7 +6876,7 @@ properties   =   {
       }
       rightMidpointBoardXOffset   =   0.01
       leftMidpointBoardXOffset   =   0.01
-      beltBonesOffset   =   0.07
+      beltBonesOffset   =   0.04
       constraintBone   =   "BoneBodyRear_cdt"
       beltHandleDesc   =   {
          __type   =   "IactorDesc"
@@ -6865,6 +6887,41 @@ properties   =   {
       constraintInternalBeltDesc   =   {
          __type   =   "IactorDesc"
       }
+      isNeedTruckConstrainted   =   False
+      hookDesc   =   {
+         __type   =   "IactorDesc"
+      }
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_rigid_body_scanner   =   {
       shapes   =   [
@@ -7525,6 +7582,7 @@ properties   =   {
          __type   =   "RbVehicleCameraParams"
       }
       equipmentCameraType   =   "CRANE"
+      craneCameraVerticalSpeed   =   4
    }
    prop_covering   =   {
       voxelSize   =   0.4
@@ -8241,6 +8299,7 @@ properties   =   {
             platformVisibilityStage   =   -1
          }
       ]
+      fallingThreshold   =   20
       massScalers   =   [
          {
             bodyName   =   "BonePushLegR_cdt"

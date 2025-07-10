@@ -630,6 +630,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeCloneSoundEmitter"
                }
+               OnEngineRunningOnInit_F72bUSaO   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4850
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dcsl6K1a/Stop",
+                     "TruckShaker_2_Dcsl6K1a1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] rpm and speed"   =   {
@@ -2024,6 +2035,9 @@ properties   =   {
                      x   =   4500
                      y   =   3950
                   }
+                  OnExit   =   [
+                     "VFXStop_F19arPdR/Input"
+                  ]
                   vfxUidRef   =   {
                      def   =   "part_radiator_haze"
                      __type   =   "SfxStringRefParam"
@@ -2062,6 +2076,17 @@ properties   =   {
                   }
                   vfxUidRef   =   {
                      def   =   "part_exhaust_big_cars_acceleration_750r_01"
+                     __type   =   "SfxStringRefParam"
+                  }
+                  __type   =   "BlueprintNodeVfxStop"
+               }
+               VFXStop_F19arPdR   =   {
+                  viewData   =   {
+                     x   =   5050
+                     y   =   3950
+                  }
+                  vfxUidRef   =   {
+                     def   =   "part_exhaust_big_cars_neutral_750r_01"
                      __type   =   "SfxStringRefParam"
                   }
                   __type   =   "BlueprintNodeVfxStop"
@@ -2137,6 +2162,11 @@ properties   =   {
             desc   =   {
                __type   =   "RouteFollowingSavablePropDesc"
             }
+         },
+         {
+            desc   =   {
+               __type   =   "TruckAsphaltRollerSavablePropDesc"
+            }
          }
       ]
    }
@@ -2157,9 +2187,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   260
-      startFuelTankVolume   =   260
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   197
+      startFuelTankVolume   =   197
+      fuelConsumption   =   0.09
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -2686,7 +2718,7 @@ properties   =   {
    }
    prop_truck_rotator_native_controller   =   {
       rotators   =   {
-         BoneFlasherRotator   =   {
+         Flasher   =   {
             rotatorStartStopCondition   =   {
                __type   =   "RotatorStartStopConditionEngineOnOffNative"
             }
@@ -2695,18 +2727,18 @@ properties   =   {
             accelerationOverTime   =   [
                0,
                0,
-               5,
+               1,
                1
             ]
             deccelerationOverTime   =   [
                0,
                1,
-               5,
+               1,
                0
             ]
             velocityScalers   =   {
                Speed   =   {
-                  value   =   200
+                  value   =   500
                }
             }
             axis   =   [
@@ -2816,6 +2848,24 @@ properties   =   {
             offsetInBodySpace   =   {
                y   =   0
                z   =   1.93
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneRear_cdt"
+            offsetInBodySpace   =   {
+               x   =   0.738
+               y   =   0.627
+               z   =   1.041
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneRear_cdt"
+            offsetInBodySpace   =   {
+               x   =   -0.745
+               y   =   0.627
+               z   =   1.041
                __type   =   "Vector3d"
             }
          }
@@ -3415,6 +3465,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -3790,6 +3842,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_TO_START_POINT   =   {
             truckSettings   =   {
@@ -3924,6 +3977,48 @@ properties   =   {
          "BoneJunction_cdt",
          "BoneFront_cdt"
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      wheelLockOffsets   =   {
+         "0"   =   {
+            offsets   =   [
+               {
+                  x   =   -0.75
+               },
+               {
+                  x   =   0.75
+               }
+            ]
+            __type   =   "WheelLockOffsets"
+         }
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_trail_remover   =   {
       trailRemoverDescs   =   [
@@ -4241,6 +4336,10 @@ properties   =   {
       ]
       firstAction   =   {
          actionMappingType   =   "GENERIC_ACTION"
+         uiActionDescription   =   "UID_START_ROLLING_ASPHALT"
+         isToggleable   =   True
+         altUiActionDescription   =   "UID_STOP_ROLLING_ASPHALT"
+         namedActionType   =   "TOGGLE_ASPHALT_ROLLER"
          __type   =   "ActionMapping"
       }
       secondAction   =   {
@@ -4320,7 +4419,9 @@ properties   =   {
          }
       ]
       truckInputConfiguration   =   {
+         isMainActionsMapped   =   True
          isSecondaryActionsMapped   =   True
+         isFirstActionModeNeeded   =   True
          isSecondActionModeNeeded   =   True
          useToggleForFirstMode   =   True
          useToggleForSecondMode   =   True

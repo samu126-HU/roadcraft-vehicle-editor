@@ -87,7 +87,7 @@ properties   =   {
                   }
                },
                {
-                  angularVelocity   =   18
+                  angularVelocity   =   16
                   targetSpeedRangeKmh   =   {
                      x   =   40
                      y   =   60
@@ -1023,6 +1023,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodePlaySoundOnEmitter"
                }
+               OnEngineRunningOnInit_F72bWJ9c   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_E1baMh4L/Stop",
+                     "TruckShaker_2_E1baMh4L1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] gear update"   =   {
@@ -1564,7 +1575,7 @@ properties   =   {
                      "PlaySound_E4jckd233/Play"
                   ]
                   animationIdxRef   =   {
-                     def   =   1
+                     def   =   0
                      __type   =   "IntRefParam"
                   }
                   __type   =   "BlueprintNodeTplAnimOnEnd"
@@ -1672,7 +1683,6 @@ properties   =   {
                   OnGearUpdated   =   [
                      "PlaySound_3_1_Ec48bg9t2/Play"
                   ]
-                  GetLastGear   =   [  ]
                   __type   =   "BlueprintNodeOnGearUpdate"
                }
                PlaySound_3_1_Ec48bg9t2   =   {
@@ -2849,7 +2859,9 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   210
       startFuelTankVolume   =   210
-      fuelConsumption   =   0
+      fuelConsumption   =   0.1
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -3965,6 +3977,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -4463,6 +4477,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -4834,6 +4849,12 @@ properties   =   {
          z   =   -2.519
          __type   =   "Vector3d"
       }
+      truckConstarintAreaSize   =   {
+         __type   =   "Vector3d"
+      }
+      truckConstraintAreaOffset   =   {
+         __type   =   "Vector3d"
+      }
       beltZPositions   =   [
          4.158,
          3.568,
@@ -4865,7 +4886,7 @@ properties   =   {
       }
       rightMidpointBoardXOffset   =   0.01
       leftMidpointBoardXOffset   =   0.01
-      beltBonesOffset   =   0.07
+      beltBonesOffset   =   0.04
       constraintBone   =   "BoneChassis_cdt"
       beltHandleDesc   =   {
          __type   =   "IactorDesc"
@@ -4876,6 +4897,39 @@ properties   =   {
       constraintInternalBeltDesc   =   {
          __type   =   "IactorDesc"
       }
+      isNeedTruckConstrainted   =   False
+      hookDesc   =   {
+         __type   =   "IactorDesc"
+      }
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }

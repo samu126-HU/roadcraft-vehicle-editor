@@ -1128,6 +1128,17 @@ properties   =   {
                   ]
                   __type   =   "BlueprintMathLibraryFloatsum"
                }
+               OnEngineRunningOnInit_F72cj45r   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dcsmf50e/Stop",
+                     "TruckShaker_Dcsmf50e1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] gear update"   =   {
@@ -3858,9 +3869,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   360
-      startFuelTankVolume   =   360
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   840
+      startFuelTankVolume   =   840
+      fuelConsumption   =   0.4
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_constraint_view   =   {
       constraintSequentialChains   =   {
@@ -4707,8 +4720,8 @@ properties   =   {
             bodyName   =   "BoneTrailer_cdt"
             offsetInBodySpace   =   {
                x   =   -9.913
-               y   =   -0.3
-               z   =   -1.491
+               y   =   -0.263
+               z   =   -1.563
                __type   =   "Vector3d"
             }
          },
@@ -4716,8 +4729,8 @@ properties   =   {
             bodyName   =   "BoneTrailer_cdt"
             offsetInBodySpace   =   {
                x   =   -9.913
-               y   =   -0.3
-               z   =   1.491
+               y   =   -0.263
+               z   =   1.563
                __type   =   "Vector3d"
             }
          },
@@ -5435,6 +5448,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -7881,6 +7896,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -8386,6 +8402,37 @@ properties   =   {
             shaftFasteningPositionB   =   "shaft_6_b"
          }
       ]
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_mobile_sand_screen   =   {
       chainName   =   "Ramp"
@@ -10140,6 +10187,7 @@ properties   =   {
             platformVisibilityStage   =   -1
          }
       ]
+      fallingThreshold   =   20
       massScalers   =   [
          {
             bodyName   =   "BoneLegLeft_1_cdt"

@@ -946,6 +946,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
                }
+               OnEngineRunningOnInit_F72c2jcf   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Fk5i/Stop",
+                     "TruckShaker_Dct2Fk5i1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] rpm and speed"   =   {
@@ -2446,6 +2457,103 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodePhysSystemSetGravityFactor"
                }
+               OnLogCranesClawsRotationChanged_F5mdA1bb   =   {
+                  viewData   =   {
+                     x   =   4550
+                     y   =   5700
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  OnStart   =   [
+                     "ActivateForceFeedbackIfTruckIsCurrent_1_2_1_1_F5mdA1bb3/Input"
+                  ]
+                  OnStop   =   [
+                     "DeactivateForceFeedback_F5mdOM9l/Input"
+                  ]
+                  stopDelay   =   100
+                  __type   =   "BlueprintNodeOnCranesClawsRotationChanged"
+               }
+               ActivateForceFeedbackIfTruckIsCurrent_1_2_1_F5mdA1bb1   =   {
+                  viewData   =   {
+                     x   =   5050
+                     y   =   5500
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  nameRef   =   {
+                     def   =   "claws"
+                     __type   =   "StringRefParamForcefeedbackUid"
+                  }
+                  catalogRef   =   {
+                     def   =   "auto"
+                     __type   =   "StringRefParamForcefeedbackCatalog"
+                  }
+                  __type   =   "BlueprintNodeActivateForcefeedbackIfTruckIsCurrent"
+               }
+               OnSequentialChainConstraintStateChange_F5mdA1bb2   =   {
+                  viewData   =   {
+                     x   =   4550
+                     y   =   5500
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  OnStartOpeningChain   =   [
+                     "ActivateForceFeedbackIfTruckIsCurrent_1_2_1_F5mdA1bb1/Input"
+                  ]
+                  OnStartClosingChain   =   [
+                     "ActivateForceFeedbackIfTruckIsCurrent_1_2_1_F5mdA1bb1/Input"
+                  ]
+                  inputChainNameRef   =   {
+                     def   =   [
+                        "Claw_L"
+                     ]
+                  }
+                  __type   =   "BlueprintNodeOnSequentialChainConstraintStateChanged"
+               }
+               ActivateForceFeedbackIfTruckIsCurrent_1_2_1_1_F5mdA1bb3   =   {
+                  viewData   =   {
+                     x   =   5000
+                     y   =   5650
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  nameRef   =   {
+                     def   =   "claws_rotation"
+                     __type   =   "StringRefParamForcefeedbackUid"
+                  }
+                  catalogRef   =   {
+                     def   =   "auto"
+                     __type   =   "StringRefParamForcefeedbackCatalog"
+                  }
+                  __type   =   "BlueprintNodeActivateForcefeedbackIfTruckIsCurrent"
+               }
+               DeactivateForceFeedback_F5mdOM9l   =   {
+                  viewData   =   {
+                     x   =   5005.062
+                     y   =   5789.324
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  nameRef   =   {
+                     def   =   "claws_rotation"
+                     __type   =   "StringRefParamForcefeedbackUid"
+                  }
+                  catalogRef   =   {
+                     def   =   "auto"
+                     __type   =   "StringRefParamForcefeedbackCatalog"
+                  }
+                  __type   =   "BlueprintNodeDeactivateForcefeedbackPreset"
+               }
             }
             __type   =   "BlueprintActiveByProjectCondition"
          }
@@ -3203,7 +3311,9 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   178
       startFuelTankVolume   =   178
-      fuelConsumption   =   0
+      fuelConsumption   =   0.09
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_constraint_view   =   {
       constraintSequentialChains   =   {
@@ -4440,6 +4550,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -6054,7 +6166,7 @@ properties   =   {
    prop_cargo_constraint   =   {
       constraintAreaSize   =   {
          x   =   7
-         y   =   6.2
+         y   =   6
          z   =   11
          __type   =   "Vector3d"
       }
@@ -6068,6 +6180,12 @@ properties   =   {
          x   =   -1.518
          y   =   0.04
          z   =   -2.338
+         __type   =   "Vector3d"
+      }
+      truckConstarintAreaSize   =   {
+         __type   =   "Vector3d"
+      }
+      truckConstraintAreaOffset   =   {
          __type   =   "Vector3d"
       }
       beltZPositions   =   [
@@ -6097,7 +6215,7 @@ properties   =   {
       }
       rightMidpointBoardXOffset   =   0.01
       leftMidpointBoardXOffset   =   0.01
-      beltBonesOffset   =   0.07
+      beltBonesOffset   =   0.04
       constraintBone   =   "BoneBodyRear_cdt"
       beltHandleDesc   =   {
          __type   =   "IactorDesc"
@@ -6108,6 +6226,41 @@ properties   =   {
       constraintInternalBeltDesc   =   {
          __type   =   "IactorDesc"
       }
+      isNeedTruckConstrainted   =   False
+      hookDesc   =   {
+         __type   =   "IactorDesc"
+      }
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_rigid_body_scanner   =   {
       shapes   =   [
@@ -6852,6 +7005,7 @@ properties   =   {
          __type   =   "RbVehicleCameraParams"
       }
       equipmentCameraType   =   "CRANE"
+      craneCameraVerticalSpeed   =   4
    }
    prop_covering   =   {
       voxelSize   =   0.4

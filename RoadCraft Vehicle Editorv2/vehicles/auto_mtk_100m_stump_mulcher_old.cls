@@ -3388,6 +3388,9 @@ properties   =   {
                         "#00FFFFFF"
                      ]
                   }
+                  OnSoundStart   =   [
+                     "PlaySound_F3jdB5bC/Play"
+                  ]
                   soundDesc   =   {
                      type   =   {
                         name   =   "addon_grinder_touching_stop"
@@ -3434,7 +3437,8 @@ properties   =   {
                      "PlaySound_4_E32coJ2rc/emitterRef/cb",
                      "PlaySound_E5dbM6cO/emitterRef/cb",
                      "PlaySound_E9qfOo9I3/emitterRef/cb",
-                     "SetSoundSwitch_E9qfOo9I2/emitterRef/cb"
+                     "SetSoundSwitch_E9qfOo9I2/emitterRef/cb",
+                     "PlaySound_F3jdB5bC/emitterRef/cb"
                   ]
                   positionRef   =   {
                      def   =   {
@@ -3552,6 +3556,24 @@ properties   =   {
                   ]
                   __type   =   "BlueprintNodeOnMulcherStateChanged"
                }
+               PlaySound_F3jdB5bC   =   {
+                  viewData   =   {
+                     x   =   10000
+                     y   =   6350
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  soundDesc   =   {
+                     type   =   {
+                        name   =   "sfx_destr_tree_cut_break"
+                        __type   =   "GameSound"
+                     }
+                     __type   =   "GameSoundDesc"
+                  }
+                  __type   =   "BlueprintNodePlaySoundOnEmitter"
+               }
             }
             groups   =   {
                "[SOUND] addon - mech and tourching"   =   {
@@ -3662,9 +3684,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   120
-      startFuelTankVolume   =   120
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   235
+      startFuelTankVolume   =   235
+      fuelConsumption   =   0.13
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       powerConstraints   =   [
@@ -5081,6 +5105,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5634,6 +5660,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_STUCK_CANCEL   =   {
             truckSettings   =   {
@@ -5861,6 +5888,58 @@ properties   =   {
          "BoneDozer_cdt",
          "BoneFrame_cdt",
          "BoneGrinder_cdt"
+      ]
+   }
+   prop_truck_constraint   =   {
+      isNeedWheelLocks   =   False
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+      strapPoints   =   [
+         {
+            x   =   -0.54
+            y   =   -0.454
+            z   =   1.924
+         },
+         {
+            x   =   0.54
+            y   =   -0.454
+            z   =   1.924
+         },
+         {
+            x   =   0.329
+            y   =   -0.677
+            z   =   -2.029
+         },
+         {
+            x   =   -0.326
+            y   =   -0.677
+            z   =   -2.029
+         }
       ]
    }
    prop_truck_view_stump_grinder_controller   =   {

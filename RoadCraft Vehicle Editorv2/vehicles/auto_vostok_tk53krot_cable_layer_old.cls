@@ -1369,6 +1369,17 @@ properties   =   {
                   ]
                   __type   =   "BlueprintMathLibraryFloatsum"
                }
+               OnEngineRunningOnInit_F72cgo6K   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2yIdi/Stop",
+                     "TruckShaker_Dct2yIdi1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] Tracks - Playback"   =   {
@@ -4854,9 +4865,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   260
-      startFuelTankVolume   =   260
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   1746
+      startFuelTankVolume   =   1746
+      fuelConsumption   =   0.9
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       constraintSequentialChains   =   {
@@ -5577,7 +5590,8 @@ properties   =   {
          "BoneWheel_cdt",
          "BoneArmRight_cdt",
          "BoneArmLeft_cdt",
-         "BoneWireFeedPoint_cdt"
+         "BoneWireFeedPoint_cdt",
+         "BoneDumperFront_cdt"
       ]
    }
    prop_truck_track   =   {
@@ -6334,6 +6348,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -7767,6 +7783,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_STUCK_CANCEL   =   {
             truckSettings   =   {
@@ -8040,7 +8057,67 @@ properties   =   {
          }
       ]
    }
+   prop_truck_constraint   =   {
+      isNeedWheelLocks   =   False
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+      strapPoints   =   [
+         {
+            x   =   -0.613
+            y   =   0.479
+            z   =   3.165
+         },
+         {
+            x   =   0.613
+            y   =   0.479
+            z   =   3.165
+         }
+      ]
+      strapGroups   =   [
+         {
+            bone   =   "BoneRoot_cdt"
+            points   =   [
+               {
+                  x   =   -0.613
+                  y   =   0.515
+                  z   =   -2.867
+               },
+               {
+                  x   =   0.613
+                  y   =   0.515
+                  z   =   -2.867
+               }
+            ]
+         }
+      ]
+   }
    prop_truck_view_trench_digger_controller   =   {
+      wheelGeomObject   =   "cdt_BoneWheel_1"
       trenchDigger   =   {
          wheelSize   =   {
             x   =   1.5
@@ -8073,6 +8150,7 @@ properties   =   {
       }
       diggerRotatorName   =   "Digger"
       spoolRotatorName   =   "Spool"
+      sliderBoneName   =   "BoneSlider_cdt"
       trenchDiggerSfxs   =   [
          {
             material   =   "mud"
@@ -8293,7 +8371,6 @@ properties   =   {
       wireUncoilVelocityCoef   =   0.2
       wireGeomObject   =   "cable"
       wireFeedPoint   =   "WireFeedPoint"
-      wheelGeomObject   =   "cdt_BoneWheel_1"
       wheelRbName   =   "BoneWheel_cdt"
       heightSpread   =   3
       shouldClampMaxVelocity   =   True

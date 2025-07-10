@@ -2963,9 +2963,12 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   80
-      startFuelTankVolume   =   80
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   90
+      startFuelTankVolume   =   90
+      fuelConsumption   =   0.04
+      reverseFuelConsumptionCoeff   =   1.2
+      awdFuelConsumptionCoeff   =   1.5
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -3535,37 +3538,6 @@ properties   =   {
             __type   =   "Vector2d"
          }
          followChangeDirectionSpeedThreshold   =   3.35
-         scrollPoints   =   {
-            "0"   =   {
-               distance   =   8.5
-               followTerrainOffset   =   2
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "1"   =   {
-               distance   =   10.5
-               followTerrainOffset   =   2.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "2"   =   {
-               distance   =   12.5
-               followTerrainOffset   =   3
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "3"   =   {
-               distance   =   14.5
-               followTerrainOffset   =   3.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "4"   =   {
-               distance   =   16.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "5"   =   {
-               distance   =   18.5
-               followTerrainOffset   =   4.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-         }
          interestPoints   =   [
             {
                angles   =   {
@@ -4111,6 +4083,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -4531,6 +4505,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -4969,6 +4944,35 @@ properties   =   {
          }
       ]
    }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+   }
    prop_truck_customization   =   {
    }
    prop_customization_materials   =   {
@@ -5014,6 +5018,15 @@ properties   =   {
             __type   =   "DashboardElementCockpit"
          }
          "4"   =   {
+            nameBone   =   "ctrl_pedal_drive"
+            axis   =   "Y"
+            maxRotationAngle   =   5
+            dashboardSubtype   =   "RPM"
+            damping   =   0.1
+            increase   =   -5
+            __type   =   "DashboardElementCockpit"
+         }
+         "5"   =   {
             nameBone   =   "ctrl_steering_wheel"
             axis   =   "Y"
             minRotationAngle   =   -360
@@ -5021,28 +5034,28 @@ properties   =   {
             steeringSubtype   =   "WHEEL"
             __type   =   "SteerigElementCockpit"
          }
-         "5"   =   {
+         "6"   =   {
             nameBone   =   "ctrl_gear_stick_high_start"
             axis   =   "Y"
             maxRotationAngle   =   15
             switcherSubtype   =   "ENGINE_ENABLED"
             __type   =   "SwitcherElementCockpit"
          }
-         "6"   =   {
+         "7"   =   {
             nameBone   =   "ctrl_switch_difflock"
             axis   =   "Y"
             maxRotationAngle   =   30
             switcherSubtype   =   "DIFFLOCK"
             __type   =   "SwitcherElementCockpit"
          }
-         "7"   =   {
+         "8"   =   {
             nameBone   =   "ctrl_switch_handbrake"
             axis   =   "Y"
             maxRotationAngle   =   40
             switcherSubtype   =   "HANDBRAKE"
             __type   =   "SwitcherElementCockpit"
          }
-         "8"   =   {
+         "9"   =   {
             nameBone   =   "ctrl_gear_stick_low"
             axis   =   "Y"
             maxRotationAngle   =   30
@@ -5050,7 +5063,7 @@ properties   =   {
             switcherSubtype   =   "LOW_GEAR"
             __type   =   "SwitcherElementCockpit"
          }
-         "9"   =   {
+         "10"   =   {
             nameBone   =   "ctrl_switch_awd"
             axis   =   "Y"
             maxRotationAngle   =   30
@@ -5058,7 +5071,7 @@ properties   =   {
             switcherSubtype   =   "AWD"
             __type   =   "SwitcherElementCockpit"
          }
-         "10"   =   {
+         "11"   =   {
             nameBone   =   "ctrl_gear_stick"
             rotationSpeed   =   50
             states   =   {

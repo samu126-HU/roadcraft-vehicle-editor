@@ -1056,6 +1056,18 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeCloneSoundEmitter"
                }
+               OnEngineRunningOnInit_F72bmd5e   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4900
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_E1bb7Q0l/Stop",
+                     "TruckShaker_2_E1bb7Q0l1/Stop",
+                     "TruckShaker_2_E1bb7Q0l2/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
                PlaySound_9_7_1_Ea8g138g   =   {
                   viewData   =   {
                      x   =   4750
@@ -1710,7 +1722,6 @@ properties   =   {
                   OnGearUpdated   =   [
                      "PlaySound_3_Ec48jS612/Play"
                   ]
-                  GetLastGear   =   [  ]
                   __type   =   "BlueprintNodeOnGearUpdate"
                }
                PlaySound_3_Ec48jS612   =   {
@@ -1722,7 +1733,6 @@ properties   =   {
                         "#00FFFFFF"
                      ]
                   }
-                  OnSoundStart   =   [  ]
                   soundDesc   =   {
                      type   =   {
                         name   =   "vhc_body_gear_truck"
@@ -2742,9 +2752,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   240
-      startFuelTankVolume   =   240
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   275
+      startFuelTankVolume   =   275
+      fuelConsumption   =   0.1
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -3987,6 +3999,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -5247,6 +5261,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -5647,6 +5662,35 @@ properties   =   {
             ]
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }

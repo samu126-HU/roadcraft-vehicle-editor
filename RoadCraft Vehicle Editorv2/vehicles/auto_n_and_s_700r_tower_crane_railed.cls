@@ -2748,6 +2748,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -3057,6 +3059,37 @@ properties   =   {
          "cdt_rail_1",
          "cdt_rail_2"
       ]
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_phys_placing   =   {
       disableCollisionBodies   =   [
@@ -3431,6 +3464,7 @@ properties   =   {
          }
          __type   =   "RbVehicleCameraParams"
       }
+      craneCameraVerticalSpeed   =   4
    }
    prop_truck_fade_controller   =   {
       params   =   {

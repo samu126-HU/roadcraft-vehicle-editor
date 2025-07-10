@@ -17,14 +17,14 @@ properties   =   {
             max   =   0
             height   =   0.23
             strength   =   0.014
-            damping   =   0.2
+            damping   =   0.15
          },
          {
             min   =   -0.45
             max   =   0
             height   =   0.24
             strength   =   0.014
-            damping   =   0.2
+            damping   =   0.15
          }
       ]
       softContactSettings   =   {
@@ -898,7 +898,8 @@ properties   =   {
                      "PlaySound_2_1_1_1_Ea89HJ343/Play"
                   ]
                   OnStopPulling   =   [
-                     "PlaySound_2_1_1_2_Ea89HJ344/Play"
+                     "PlaySound_2_1_1_2_Ea89HJ344/Play",
+                     "PlaySound_2_1_1_1_Ea89HJ343/Stop"
                   ]
                   __type   =   "BlueprintNodeOnWinchStateChanged"
                }
@@ -973,6 +974,17 @@ properties   =   {
                      __type   =   "GameSoundDesc"
                   }
                   __type   =   "BlueprintNodePlaySoundOnEmitter"
+               }
+               OnEngineRunningOnInit_F72c6RbQ   =   {
+                  viewData   =   {
+                     x   =   3050
+                     y   =   4987.708
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Xz5x/Stop",
+                     "TruckShaker_Dct2Xz5x1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
                }
             }
             groups   =   {
@@ -2922,9 +2934,12 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   150
-      startFuelTankVolume   =   150
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   80
+      startFuelTankVolume   =   80
+      fuelConsumption   =   0.04
+      reverseFuelConsumptionCoeff   =   1.2
+      awdFuelConsumptionCoeff   =   1.5
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -4087,6 +4102,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -4467,6 +4484,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -4907,6 +4925,35 @@ properties   =   {
             shaftFasteningPositionB   =   "shaft_2_b"
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }

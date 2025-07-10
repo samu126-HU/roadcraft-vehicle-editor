@@ -972,6 +972,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeCloneSoundEmitter"
                }
+               OnEngineRunningOnInit_F72ccV7z   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_DcsmrX6A/Stop",
+                     "TruckShaker_DcsmrX6A1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] acceleration input"   =   {
@@ -1621,7 +1632,6 @@ properties   =   {
                   OnGearUpdated   =   [
                      "PlaySound_3_Ec27xF6C2/Play"
                   ]
-                  GetLastGear   =   [  ]
                   __type   =   "BlueprintNodeOnGearUpdate"
                }
                PlaySound_3_Ec27xF6C2   =   {
@@ -2538,93 +2548,6 @@ properties   =   {
             }
             __type   =   "BlueprintActiveByProjectCondition"
          }
-         Cargo   =   {
-            nodes   =   {
-               OnCargoAttachmentChanged_E26ggybe   =   {
-                  viewData   =   {
-                     x   =   2800
-                     y   =   5250
-                  }
-                  OnAttached   =   [
-                     "PlaySound_9_E26ggybe1/Play"
-                  ]
-                  OnDetached   =   [
-                     "PlaySound_9_E26ggybe2/Play"
-                  ]
-                  __type   =   "BlueprintNodeOnCargoAttachmentChanged"
-               }
-               PlaySound_9_E26ggybe1   =   {
-                  viewData   =   {
-                     x   =   3600
-                     y   =   5250
-                     colors   =   [
-                        "#00FFFFFF",
-                        "#00FFFFFF"
-                     ]
-                  }
-                  soundDesc   =   {
-                     type   =   {
-                        name   =   "vhc_body_cargo_pack"
-                        __type   =   "GameSound"
-                     }
-                     __type   =   "GameSoundDesc"
-                  }
-                  __type   =   "BlueprintNodePlaySoundOnEmitter"
-               }
-               PlaySound_9_E26ggybe2   =   {
-                  viewData   =   {
-                     x   =   3600
-                     y   =   5450
-                     colors   =   [
-                        "#00FFFFFF",
-                        "#00FFFFFF"
-                     ]
-                  }
-                  soundDesc   =   {
-                     type   =   {
-                        name   =   "vhc_body_cargo_unpack"
-                        __type   =   "GameSound"
-                     }
-                     __type   =   "GameSoundDesc"
-                  }
-                  __type   =   "BlueprintNodePlaySoundOnEmitter"
-               }
-               CloneSoundEmitter_E26ggybe3   =   {
-                  viewData   =   {
-                     x   =   2800
-                     y   =   5450
-                  }
-                  GetSoundEmitter   =   [
-                     "PlaySound_9_E26ggybe1/emitterRef/cb",
-                     "PlaySound_9_E26ggybe2/emitterRef/cb"
-                  ]
-                  positionRef   =   {
-                     def   =   {
-                        __type   =   "Vector3d"
-                     }
-                     __type   =   "Vector3dRefParam"
-                  }
-                  tracker   =   {
-                     locator   =   "cdt_BoneFriction_1"
-                     owner   =   "<OWNER>"
-                     __type   =   "Tracker"
-                  }
-                  __type   =   "BlueprintNodeCloneSoundEmitter"
-               }
-            }
-            groups   =   {
-               "[SOUND] cargo"   =   {
-                  x   =   2750
-                  y   =   5100
-                  width   =   1496
-                  height   =   631.0732
-                  comment   =   ""
-                  isCollapsed   =   False
-                  __type   =   "NodeGroup"
-               }
-            }
-            __type   =   "BlueprintActiveByProjectCondition"
-         }
          SFX   =   {
             nodes   =   {
                OnEngineStarted   =   {
@@ -2967,6 +2890,91 @@ properties   =   {
             }
             __type   =   "BlueprintActiveByProjectCondition"
          }
+         Cargo   =   {
+            nodes   =   {
+               OnCargoAttachmentChanged_E26ggybe   =   {
+                  viewData   =   {
+                     x   =   2800
+                     y   =   5250
+                  }
+                  OnAttached   =   [
+                     "PlaySound_9_E26ggybe1/Play"
+                  ]
+                  OnDetached   =   [
+                     "PlaySound_9_E26ggybe2/Play"
+                  ]
+                  __type   =   "BlueprintNodeOnCargoAttachmentChanged"
+               }
+               PlaySound_9_E26ggybe1   =   {
+                  viewData   =   {
+                     x   =   3600
+                     y   =   5250
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  soundDesc   =   {
+                     type   =   {
+                        name   =   "vhc_body_cargo_pack"
+                        __type   =   "GameSound"
+                     }
+                     __type   =   "GameSoundDesc"
+                  }
+                  __type   =   "BlueprintNodePlaySoundOnEmitter"
+               }
+               PlaySound_9_E26ggybe2   =   {
+                  viewData   =   {
+                     x   =   3600
+                     y   =   5450
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  soundDesc   =   {
+                     type   =   {
+                        name   =   "vhc_body_cargo_unpack"
+                        __type   =   "GameSound"
+                     }
+                     __type   =   "GameSoundDesc"
+                  }
+                  __type   =   "BlueprintNodePlaySoundOnEmitter"
+               }
+               CloneSoundEmitter_E26ggybe3   =   {
+                  viewData   =   {
+                     x   =   2800
+                     y   =   5450
+                  }
+                  GetSoundEmitter   =   [
+                     "PlaySound_9_E26ggybe1/emitterRef/cb",
+                     "PlaySound_9_E26ggybe2/emitterRef/cb"
+                  ]
+                  positionRef   =   {
+                     def   =   {
+                        __type   =   "Vector3d"
+                     }
+                     __type   =   "Vector3dRefParam"
+                  }
+                  tracker   =   {
+                     locator   =   "cdt_BoneFriction_1"
+                     owner   =   "<OWNER>"
+                     __type   =   "Tracker"
+                  }
+                  __type   =   "BlueprintNodeCloneSoundEmitter"
+               }
+            }
+            groups   =   {
+               "[SOUND] cargo"   =   {
+                  x   =   2750
+                  y   =   5100
+                  width   =   1496
+                  height   =   631.0732
+                  __type   =   "NodeGroup"
+               }
+            }
+            __type   =   "BlueprintClient"
+         }
       }
    }
    prop_savable_object   =   {
@@ -3068,9 +3076,12 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   240
-      startFuelTankVolume   =   240
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   175
+      startFuelTankVolume   =   175
+      fuelConsumption   =   0.08
+      reverseFuelConsumptionCoeff   =   1.2
+      awdFuelConsumptionCoeff   =   1.5
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       constraintSequentialChains   =   {
@@ -3584,17 +3595,18 @@ properties   =   {
             rotatorStartStopCondition   =   {
                __type   =   "RotatorStartStopConditionEngineOnOffNative"
             }
+            isSmoothStart   =   True
             rotatorBone   =   "BoneFlasher_L_Rotator"
             accelerationOverTime   =   [
                0,
                0,
-               5,
+               1,
                1
             ]
             deccelerationOverTime   =   [
                0,
                1,
-               5,
+               1,
                0
             ]
             velocityScalers   =   {
@@ -3613,17 +3625,18 @@ properties   =   {
             rotatorStartStopCondition   =   {
                __type   =   "RotatorStartStopConditionEngineOnOffNative"
             }
+            isSmoothStart   =   True
             rotatorBone   =   "BoneFlasher_R_Rotator"
             accelerationOverTime   =   [
                0,
                0,
-               5,
+               1,
                1
             ]
             deccelerationOverTime   =   [
                0,
                1,
-               5,
+               1,
                0
             ]
             velocityScalers   =   {
@@ -3769,38 +3782,6 @@ properties   =   {
          firstLaunchCameraAngles   =   {
             x   =   20
             __type   =   "Vector2d"
-         }
-         scrollPoints   =   {
-            "0"   =   {
-               distance   =   13
-               followTerrainOffset   =   3
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "1"   =   {
-               distance   =   15
-               followTerrainOffset   =   3.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "2"   =   {
-               distance   =   17
-               followTerrainOffset   =   4
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "3"   =   {
-               distance   =   19
-               followTerrainOffset   =   4.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "4"   =   {
-               distance   =   21
-               followTerrainOffset   =   5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "5"   =   {
-               distance   =   23
-               followTerrainOffset   =   5.25
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
          }
          interestPoints   =   [
             {
@@ -4353,6 +4334,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -5142,13 +5125,25 @@ properties   =   {
       internalConstraintAreaSize   =   {
          x   =   2.66
          y   =   4.7
-         z   =   6.2
+         z   =   5
          __type   =   "Vector3d"
       }
       internalConstraintAreaOffset   =   {
          x   =   -1.33
          y   =   0.082
-         z   =   -3.8
+         z   =   -2.6
+         __type   =   "Vector3d"
+      }
+      truckConstarintAreaSize   =   {
+         x   =   4.06
+         y   =   4.7
+         z   =   6.1
+         __type   =   "Vector3d"
+      }
+      truckConstraintAreaOffset   =   {
+         x   =   -2.03
+         y   =   -0.05
+         z   =   -3.7
          __type   =   "Vector3d"
       }
       beltZPositions   =   [
@@ -5162,12 +5157,10 @@ properties   =   {
          -2.405
       ]
       upBorderOffset   =   {
-         x   =   0
          y   =   0
          __type   =   "Vector2d"
       }
       downBorderOffset   =   {
-         x   =   0
          y   =   0
          __type   =   "Vector2d"
       }
@@ -5178,7 +5171,7 @@ properties   =   {
       }
       rightMidpointBoardXOffset   =   0.01
       leftMidpointBoardXOffset   =   0.01
-      beltBonesOffset   =   0.07
+      beltBonesOffset   =   0.04
       constraintBone   =   "BoneFriction_cdt"
       beltHandleDesc   =   {
          __type   =   "IactorDesc"
@@ -5189,6 +5182,94 @@ properties   =   {
       constraintInternalBeltDesc   =   {
          __type   =   "IactorDesc"
       }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      transporterStrapPoints   =   [
+         {
+            x   =   1.093
+            y   =   0.053
+            z   =   1.644
+         },
+         {
+            x   =   -1.087
+            y   =   0.053
+            z   =   1.649
+         },
+         {
+            x   =   1.093
+            y   =   0.053
+            z   =   0.047
+         },
+         {
+            x   =   -1.101
+            y   =   0.053
+            z   =   0.046
+         },
+         {
+            x   =   0.335
+            y   =   -0.336
+            z   =   -3.899
+         },
+         {
+            x   =   -0.319
+            y   =   -0.336
+            z   =   -3.916
+         },
+         {
+            x   =   1.34
+            y   =   0.298
+            z   =   2.305
+         },
+         {
+            x   =   -1.34
+            y   =   0.298
+            z   =   2.305
+         }
+      ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_transporter_recovery   =   {
       linkedAreaSize   =   {
@@ -5524,6 +5605,7 @@ properties   =   {
       fifthAction   =   {
          actionMappingType   =   "GENERIC_ACTION"
          uiActionDescription   =   "UID_HUD_TOWING_ACTIVATE"
+         isToggleable   =   True
          altUiActionDescription   =   "UID_HUD_TOWING_DEACTIVATE"
          namedActionType   =   "TOGGLE_TOWING"
          canWorkWithEngineOff   =   True

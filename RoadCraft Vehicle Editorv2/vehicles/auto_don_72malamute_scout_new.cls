@@ -658,7 +658,8 @@ properties   =   {
                      "PlaySound_2_1_1_1_1/Play"
                   ]
                   OnStopPulling   =   [
-                     "PlaySound_2_1_1_2_1/Play"
+                     "PlaySound_2_1_1_2_1/Play",
+                     "PlaySound_2_1_1_1_1/Stop"
                   ]
                   __type   =   "BlueprintNodeOnWinchStateChanged"
                }
@@ -797,6 +798,17 @@ properties   =   {
                      __type   =   "GameSoundDesc"
                   }
                   __type   =   "BlueprintNodePlaySoundOnEmitter"
+               }
+               OnEngineRunningOnInit_F72bXHfb   =   {
+                  viewData   =   {
+                     x   =   3050
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dcqg5d3u/Stop",
+                     "TruckShaker_Dcqgb8fa/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
                }
             }
             groups   =   {
@@ -2732,7 +2744,10 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   80
       startFuelTankVolume   =   80
-      fuelConsumption   =   0
+      fuelConsumption   =   0.04
+      reverseFuelConsumptionCoeff   =   1.1
+      awdFuelConsumptionCoeff   =   1.4
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -3798,6 +3813,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -4275,6 +4292,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -4688,6 +4706,35 @@ properties   =   {
             ]
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }

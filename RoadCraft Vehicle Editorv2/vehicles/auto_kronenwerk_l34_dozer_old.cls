@@ -13,15 +13,19 @@ properties   =   {
    prop_truck_rb   =   {
       suspensionSet   =   {
          front   =   {
+            min   =   -0.1
             max   =   0
-            strength   =   1
-            damping   =   0.9
+            height   =   0.05
+            strength   =   0.04
+            damping   =   0.85
          }
          rearDiffers   =   True
          rear   =   {
+            min   =   -0.1
             max   =   0
-            strength   =   1
-            damping   =   0.9
+            height   =   0.05
+            strength   =   0.04
+            damping   =   0.85
          }
       }
       engine   =   {
@@ -628,6 +632,18 @@ properties   =   {
                      __type   =   "BoolRefParam"
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
+               }
+               OnEngineRunningOnInit_F72c6r7Q   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4992.627
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Lfd3/Stop",
+                     "TruckShaker_Dct2Lfd31/Stop",
+                     "TruckShaker_F6r9HL50/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
                }
                CloneSoundEmitter_E8ebO3f1   =   {
                   viewData   =   {
@@ -3108,7 +3124,7 @@ properties   =   {
                      "SetSoundParameter_E4qdGVfJc/SetParameter"
                   ]
                   period   =   {
-                     def   =   0.1
+                     def   =   0
                      __type   =   "FloatRefParam"
                   }
                   __type   =   "BlueprintTimeLibrarySchedule"
@@ -3199,19 +3215,6 @@ properties   =   {
                      __type   =   "SoundParameterStringRefParam"
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
-               }
-               OnHandbrakeStateChanged_E4qdGVfJ6   =   {
-                  viewData   =   {
-                     x   =   5250
-                     y   =   6500
-                  }
-                  OnHandbrakeOn   =   [
-                     "Schedule_E4qdGVfJ/Stop"
-                  ]
-                  OnHandbrakeOff   =   [
-                     "Schedule_E4qdGVfJ/Start"
-                  ]
-                  __type   =   "BlueprintNodeOnHandbrakeStateChanged"
                }
                PlaySound_1_E4qdGVfJ7   =   {
                   viewData   =   {
@@ -3755,6 +3758,19 @@ properties   =   {
                   ]
                   __type   =   "BlueprintMathLibraryFloatmultiplication"
                }
+               OnTruckOccupied_F63cmL0g   =   {
+                  viewData   =   {
+                     x   =   5450
+                     y   =   6500
+                  }
+                  OnEnterTruck   =   [
+                     "Schedule_E4qdGVfJ/Start"
+                  ]
+                  OnLeaveTruck   =   [
+                     "Schedule_E4qdGVfJ/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnTruckOccupied"
+               }
             }
             groups   =   {
                "[SOUND] digging ground"   =   {
@@ -3869,7 +3885,9 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   320
       startFuelTankVolume   =   320
-      fuelConsumption   =   0
+      fuelConsumption   =   0.16
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       controllableConstraints   =   [
@@ -5152,6 +5170,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -6081,6 +6101,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_WITH_TASKS   =   {
             truckSettings   =   {
@@ -6597,6 +6618,35 @@ properties   =   {
             shaftFasteningPositionB   =   "shaft_3_b"
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_terraforming_bucket   =   {
       emptyBladeAngle   =   30

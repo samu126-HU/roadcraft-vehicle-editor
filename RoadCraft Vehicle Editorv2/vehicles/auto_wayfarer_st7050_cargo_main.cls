@@ -1055,6 +1055,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeCloneSoundEmitter"
                }
+               OnEngineRunningOnInit_F72chbci   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4943.773
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_2_E1bb7Q0l1/Stop",
+                     "TruckShaker_2_E1bb7Q0l2/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] gear update"   =   {
@@ -2850,9 +2861,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   240
-      startFuelTankVolume   =   240
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   378
+      startFuelTankVolume   =   378
+      fuelConsumption   =   0.2
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -4139,6 +4152,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -5514,6 +5529,12 @@ properties   =   {
          z   =   -12.12
          __type   =   "Vector3d"
       }
+      truckConstarintAreaSize   =   {
+         __type   =   "Vector3d"
+      }
+      truckConstraintAreaOffset   =   {
+         __type   =   "Vector3d"
+      }
       beltZPositions   =   [
          0.959,
          0.278,
@@ -5553,7 +5574,7 @@ properties   =   {
       }
       rightMidpointBoardXOffset   =   0.01
       leftMidpointBoardXOffset   =   0.01
-      beltBonesOffset   =   0.07
+      beltBonesOffset   =   0.04
       constraintBone   =   "Trailer_cdt"
       beltHandleDesc   =   {
          __type   =   "IactorDesc"
@@ -5564,6 +5585,41 @@ properties   =   {
       constraintInternalBeltDesc   =   {
          __type   =   "IactorDesc"
       }
+      isNeedTruckConstrainted   =   False
+      hookDesc   =   {
+         __type   =   "IactorDesc"
+      }
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }
@@ -5723,7 +5779,7 @@ properties   =   {
       }
    }
    prop_truck_view_actions_mapper   =   {
-      firstControlSectionUiName   =   "UID_HUD_FIRST_SECTION_VEHICLE_CONTROLS"
+      firstControlSectionUiName   =   "UID_HUD_FIRST_SECTION_CARGO_CONTROL"
       secondControlSectionUiName   =   "UID_HUD_SECOND_SECTION_VEHICLE_CONTROLS"
       alternativeActionsInCraneControlMode   =   [
          {

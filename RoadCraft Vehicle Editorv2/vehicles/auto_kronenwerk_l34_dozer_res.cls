@@ -635,6 +635,18 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
                }
+               OnEngineRunningOnInit_F72c6r7Q   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4992.627
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Lfd3/Stop",
+                     "TruckShaker_Dct2Lfd31/Stop",
+                     "TruckShaker_F6r9HL50/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
                CloneSoundEmitter_E8ecHebq   =   {
                   viewData   =   {
                      x   =   4750
@@ -2908,7 +2920,7 @@ properties   =   {
                      "SetSoundParameter_E4qe8s5sc/SetParameter"
                   ]
                   period   =   {
-                     def   =   0.1
+                     def   =   0
                      __type   =   "FloatRefParam"
                   }
                   __type   =   "BlueprintTimeLibrarySchedule"
@@ -2999,19 +3011,6 @@ properties   =   {
                      __type   =   "SoundParameterStringRefParam"
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
-               }
-               OnHandbrakeStateChanged_E4qe8s5s6   =   {
-                  viewData   =   {
-                     x   =   5250
-                     y   =   6500
-                  }
-                  OnHandbrakeOn   =   [
-                     "Schedule_E4qe8s5s/Stop"
-                  ]
-                  OnHandbrakeOff   =   [
-                     "Schedule_E4qe8s5s/Start"
-                  ]
-                  __type   =   "BlueprintNodeOnHandbrakeStateChanged"
                }
                PlaySound_1_E4qe8s5s7   =   {
                   viewData   =   {
@@ -3555,6 +3554,19 @@ properties   =   {
                   ]
                   __type   =   "BlueprintMathLibraryFloatmultiplication"
                }
+               OnTruckOccupied_F63cn62B   =   {
+                  viewData   =   {
+                     x   =   5450
+                     y   =   6500
+                  }
+                  OnEnterTruck   =   [
+                     "Schedule_E4qe8s5s/Start"
+                  ]
+                  OnLeaveTruck   =   [
+                     "Schedule_E4qe8s5s/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnTruckOccupied"
+               }
             }
             groups   =   {
                "[SOUND] digging ground"   =   {
@@ -3669,7 +3681,9 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   320
       startFuelTankVolume   =   320
-      fuelConsumption   =   0
+      fuelConsumption   =   0.15
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       controllableConstraints   =   [
@@ -4952,6 +4966,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5881,6 +5897,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_WITH_TASKS   =   {
             truckSettings   =   {
@@ -6115,6 +6132,35 @@ properties   =   {
             shaftFasteningPositionB   =   "shaft_3_b"
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_terraforming_bucket   =   {
       emptyBladeAngle   =   30

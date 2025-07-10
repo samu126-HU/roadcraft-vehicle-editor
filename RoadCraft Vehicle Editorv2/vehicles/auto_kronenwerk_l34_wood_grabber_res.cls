@@ -636,6 +636,18 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
                }
+               OnEngineRunningOnInit_F72c6r7Q   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4992.627
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Lfd3/Stop",
+                     "TruckShaker_Dct2Lfd31/Stop",
+                     "TruckShaker_F6r9HL50/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
                CloneSoundEmitter_E8ecM4aY   =   {
                   viewData   =   {
                      x   =   4750
@@ -3072,7 +3084,9 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   320
       startFuelTankVolume   =   320
-      fuelConsumption   =   0
+      fuelConsumption   =   0.15
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       controllableConstraints   =   [
@@ -4231,6 +4245,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5283,6 +5299,35 @@ properties   =   {
             shaftFasteningPositionB   =   "shaft_3_b"
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }

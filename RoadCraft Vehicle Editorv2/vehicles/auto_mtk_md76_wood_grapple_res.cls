@@ -1176,6 +1176,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodePlaySoundOnEmitter"
                }
+               OnEngineRunningOnInit_F72c8BcN   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2T00W/Stop",
+                     "TruckShaker_Dct2T00W1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
                CloneSoundEmitter_E8ed8v4D   =   {
                   viewData   =   {
                      x   =   4800
@@ -3585,9 +3596,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   420
-      startFuelTankVolume   =   420
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   640
+      startFuelTankVolume   =   640
+      fuelConsumption   =   0.32
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_constraint_view   =   {
       constraintSequentialChains   =   {
@@ -5006,6 +5019,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5924,6 +5939,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_STUCK_CANCEL   =   {
             truckSettings   =   {
@@ -6256,6 +6272,58 @@ properties   =   {
          z   =   0
          __type   =   "Vector3d"
       }
+   }
+   prop_truck_constraint   =   {
+      isNeedWheelLocks   =   False
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+      strapPoints   =   [
+         {
+            x   =   0.639
+            y   =   -0.327
+            z   =   2.171
+         },
+         {
+            x   =   -0.639
+            y   =   -0.327
+            z   =   2.171
+         },
+         {
+            x   =   -0.494
+            y   =   -0.357
+            z   =   -2.394
+         },
+         {
+            x   =   0.494
+            y   =   -0.357
+            z   =   -2.394
+         }
+      ]
    }
    prop_truck_reset_module_controller   =   {
       moduleRootBody   =   "BoneCraneSeg_1_cdt"
@@ -6827,6 +6895,7 @@ properties   =   {
          __type   =   "RbVehicleCameraParams"
       }
       equipmentCameraType   =   "CRANE"
+      craneCameraVerticalSpeed   =   4
    }
    prop_covering   =   {
       voxelSize   =   0.4

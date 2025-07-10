@@ -13,18 +13,18 @@ properties   =   {
    prop_truck_rb   =   {
       suspensionSet   =   {
          front   =   {
-            min   =   -0.45
-            max   =   0.42
+            min   =   -0.5
+            max   =   0.5
             height   =   0.12
-            strength   =   0.05
+            strength   =   0.025
             damping   =   0.35
          }
          rearDiffers   =   True
          rear   =   {
-            min   =   -0.4
-            max   =   0.42
+            min   =   -0.5
+            max   =   0.85
             height   =   0.12
-            strength   =   0.07
+            strength   =   0.035
             damping   =   0.35
          }
       }
@@ -76,7 +76,7 @@ properties   =   {
                },
                {
                   sslModule   =   "physics.truck.truck_components"
-                  angularVelocity   =   9
+                  angularVelocity   =   8
                   gearRatio   =   1.9
                   targetSpeedRangeKmh   =   {
                      x   =   25
@@ -86,7 +86,7 @@ properties   =   {
                },
                {
                   sslModule   =   "physics.truck.truck_components"
-                  angularVelocity   =   10
+                  angularVelocity   =   9
                   gearRatio   =   1.7
                   targetSpeedRangeKmh   =   {
                      x   =   29
@@ -973,6 +973,17 @@ properties   =   {
                      __type   =   "Tracker"
                   }
                   __type   =   "BlueprintNodeCloneSoundEmitter"
+               }
+               OnEngineRunningOnInit_F72cdtg0   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2C90m/Stop",
+                     "TruckShaker_Dct2C90m1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
                }
             }
             groups   =   {
@@ -2497,8 +2508,8 @@ properties   =   {
                }
                ActivateForceFeedbackIfTruckIsCurrent_1_2_1_E4bextaT   =   {
                   viewData   =   {
-                     x   =   5150
-                     y   =   7300
+                     x   =   4850
+                     y   =   7250
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -2516,8 +2527,8 @@ properties   =   {
                }
                ActivateForceFeedbackIfTruckIsCurrent_1_2_1_1_E4bextaT1   =   {
                   viewData   =   {
-                     x   =   5150
-                     y   =   7500
+                     x   =   4850
+                     y   =   7450
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -2532,58 +2543,6 @@ properties   =   {
                      __type   =   "StringRefParamForcefeedbackCatalog"
                   }
                   __type   =   "BlueprintNodeActivateForcefeedbackIfTruckIsCurrent"
-               }
-               OnPowerConstraintStateChange_E4bextaT2   =   {
-                  viewData   =   {
-                     x   =   4550
-                     y   =   7300
-                     colors   =   [
-                        "#00FFFFFF",
-                        "#00FFFFFF"
-                     ]
-                  }
-                  actorRef   =   {
-                     def   =   "<OWNER>"
-                     __type   =   "ActorRefParam"
-                  }
-                  OnStart   =   [
-                     "ActivateForceFeedbackIfTruckIsCurrent_1_2_1_E4bextaT/Input"
-                  ]
-                  inputNameRef   =   {
-                     def   =   "dump"
-                     __type   =   "StringRefParam"
-                  }
-                  inputStateNameRef   =   {
-                     def   =   "open"
-                     __type   =   "StringRefParam"
-                  }
-                  __type   =   "BlueprintNodeOnPowerConstraintStateChange"
-               }
-               OnPowerConstraintStateChange_E4bextaT3   =   {
-                  viewData   =   {
-                     x   =   4550
-                     y   =   7500
-                     colors   =   [
-                        "#00FFFFFF",
-                        "#00FFFFFF"
-                     ]
-                  }
-                  actorRef   =   {
-                     def   =   "<OWNER>"
-                     __type   =   "ActorRefParam"
-                  }
-                  OnStart   =   [
-                     "ActivateForceFeedbackIfTruckIsCurrent_1_2_1_1_E4bextaT1/Input"
-                  ]
-                  inputNameRef   =   {
-                     def   =   "dump"
-                     __type   =   "StringRefParam"
-                  }
-                  inputStateNameRef   =   {
-                     def   =   "close"
-                     __type   =   "StringRefParam"
-                  }
-                  __type   =   "BlueprintNodeOnPowerConstraintStateChange"
                }
                OnTruckPourSand_E5vaS95L   =   {
                   viewData   =   {
@@ -2656,6 +2615,42 @@ properties   =   {
                      __type   =   "StringRefParamForcefeedbackCatalog"
                   }
                   __type   =   "BlueprintNodeDeactivateForcefeedbackPreset"
+               }
+               OnControllableConstraintStateChangeNew_F5medG8X   =   {
+                  viewData   =   {
+                     x   =   4250
+                     y   =   7250
+                  }
+                  OnStartIncrease   =   [
+                     "ActivateForceFeedbackIfTruckIsCurrent_1_2_1_E4bextaT/Input"
+                  ]
+                  OnStartDecrease   =   [
+                     "ActivateForceFeedbackIfTruckIsCurrent_1_2_1_1_E4bextaT1/Input"
+                  ]
+                  OnStop   =   [
+                     "ActivateForceFeedbackIfTruckIsCurrent_1_2_1_F5mekT0b/Input"
+                  ]
+                  name   =   "dump"
+                  __type   =   "BlueprintNodeOnControllableStateChangeNew"
+               }
+               ActivateForceFeedbackIfTruckIsCurrent_1_2_1_F5mekT0b   =   {
+                  viewData   =   {
+                     x   =   4850
+                     y   =   7600
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  nameRef   =   {
+                     def   =   "claws"
+                     __type   =   "StringRefParamForcefeedbackUid"
+                  }
+                  catalogRef   =   {
+                     def   =   "auto"
+                     __type   =   "StringRefParamForcefeedbackCatalog"
+                  }
+                  __type   =   "BlueprintNodeActivateForcefeedbackIfTruckIsCurrent"
                }
             }
             __type   =   "BlueprintActiveByProjectCondition"
@@ -3386,9 +3381,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   240
-      startFuelTankVolume   =   240
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   330
+      startFuelTankVolume   =   330
+      fuelConsumption   =   0.19
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_constraint_view   =   {
       powerConstraints   =   [
@@ -3418,7 +3415,7 @@ properties   =   {
       controllableConstraints   =   [
          {
             constraintName   =   "dump"
-            angularSpeed   =   18
+            angularSpeed   =   10
             maxAngle   =   60
             inertiaInput   =   {
                inertiaRelaxationTime   =   0.15
@@ -4721,6 +4718,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5574,6 +5573,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -6208,6 +6208,35 @@ properties   =   {
             ]
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }

@@ -860,6 +860,17 @@ properties   =   {
                   ]
                   __type   =   "BlueprintNodeOnEngineShutdown"
                }
+               OnEngineRunningOnInit_F72c0G7m   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2O94u/Stop",
+                     "TruckShaker_Dct2O94u1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] acceleration input"   =   {
@@ -1458,7 +1469,6 @@ properties   =   {
                   OnGearUpdated   =   [
                      "PlaySound_3_Ec479n9G2/Play"
                   ]
-                  GetLastGear   =   [  ]
                   __type   =   "BlueprintNodeOnGearUpdate"
                }
                PlaySound_3_Ec479n9G2   =   {
@@ -3639,9 +3649,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   370
-      startFuelTankVolume   =   370
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   300
+      startFuelTankVolume   =   300
+      fuelConsumption   =   0.13
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -4214,17 +4226,18 @@ properties   =   {
             rotatorStartStopCondition   =   {
                __type   =   "RotatorStartStopConditionEngineOnOffNative"
             }
+            isSmoothStart   =   True
             rotatorBone   =   "BoneFlasher_L_Rotator"
             accelerationOverTime   =   [
                0,
                0,
-               5,
+               1,
                1
             ]
             deccelerationOverTime   =   [
                0,
                1,
-               5,
+               1,
                0
             ]
             velocityScalers   =   {
@@ -4243,17 +4256,18 @@ properties   =   {
             rotatorStartStopCondition   =   {
                __type   =   "RotatorStartStopConditionEngineOnOffNative"
             }
+            isSmoothStart   =   True
             rotatorBone   =   "BoneFlasher_R_Rotator"
             accelerationOverTime   =   [
                0,
                0,
-               5,
+               1,
                1
             ]
             deccelerationOverTime   =   [
                0,
                1,
-               5,
+               1,
                0
             ]
             velocityScalers   =   {
@@ -4272,17 +4286,18 @@ properties   =   {
             rotatorStartStopCondition   =   {
                __type   =   "RotatorStartStopConditionEngineOnOffNative"
             }
+            isSmoothStart   =   True
             rotatorBone   =   "BoneFlasher_Rear_Rotator"
             accelerationOverTime   =   [
                0,
                0,
-               5,
+               1,
                1
             ]
             deccelerationOverTime   =   [
                0,
                1,
-               5,
+               1,
                0
             ]
             velocityScalers   =   {
@@ -4307,25 +4322,6 @@ properties   =   {
             velocityScalers   =   {
                Speed   =   {
                   value   =   800
-               }
-            }
-            axis   =   [
-               0,
-               1,
-               0
-            ]
-            __type   =   "TruckRotatorNative"
-         }
-         Rope_Rotator   =   {
-            rotatorVelocityCondition   =   {
-               constraintName   =   "ArmHinge"
-               __type   =   "RotatorConditionConstraintNative"
-            }
-            isStartedOnInit   =   True
-            rotatorBone   =   "BoneRopeRotate"
-            velocityScalers   =   {
-               Speed   =   {
-                  value   =   60
                }
             }
             axis   =   [
@@ -5079,6 +5075,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5167,7 +5165,7 @@ properties   =   {
          },
          {
             ikChainBodies   =   [
-               "BoneCabin_cdt",
+               "BoneChassis_cdt",
                "Bone_IK_BoneAxle1_L_A",
                "Bone_IK_BoneAxle1_L_B"
             ]
@@ -5201,7 +5199,7 @@ properties   =   {
          },
          {
             ikChainBodies   =   [
-               "BoneCabin_cdt",
+               "BoneChassis_cdt",
                "Bone_IK_BoneAxle1_R_A",
                "Bone_IK_BoneAxle1_R_B"
             ]
@@ -5325,7 +5323,7 @@ properties   =   {
          },
          {
             ikChainBodies   =   [
-               "BoneCabin_cdt",
+               "BoneChassis_cdt",
                "Bone_IK_BoneAxle2_L_A",
                "Bone_IK_BoneAxle2_L_B"
             ]
@@ -5354,7 +5352,7 @@ properties   =   {
          },
          {
             ikChainBodies   =   [
-               "BoneCabin_cdt",
+               "BoneChassis_cdt",
                "Bone_IK_BoneAxle2_R_A",
                "Bone_IK_BoneAxle2_R_B"
             ]
@@ -6749,6 +6747,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -7042,7 +7041,6 @@ properties   =   {
       oilDragMultiplier   =   8.5
       bodies   =   [
          "BoneChassis_cdt",
-         "BoneCabin_cdt",
          "BoneTower_cdt",
          "BoneArmHinge_cdt",
          "BoneArm_cdt"
@@ -7222,6 +7220,37 @@ properties   =   {
          __type   =   "Vector3d"
       }
       constraintInertiaStabilizationAmount   =   0.02
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_rigid_body_scanner   =   {
       shapes   =   [
@@ -7620,6 +7649,15 @@ properties   =   {
             activationInputType   =   "RIGHT_MOUSE_BUTTON"
             axisDirectionType   =   "Y_AXIS"
             controlModeType   =   "WITH_BUTTONS"
+         },
+         {
+            uiActionDescription   =   "UID_HUD_CRANE_WINCH_ROTATE"
+            actionData   =   {
+               actionType   =   "CRANE_ROTATE"
+               __type   =   "AxisActionData"
+            }
+            activationInputType   =   "RIGHT_MOUSE_BUTTON"
+            controlModeType   =   "WITH_BUTTONS"
          }
       ]
       staticTruckAxisControls   =   [
@@ -8017,6 +8055,7 @@ properties   =   {
          __type   =   "RbVehicleCameraParams"
       }
       equipmentCameraType   =   "CRANE"
+      craneCameraVerticalSpeed   =   4
    }
    prop_truck_camera_equipment_cockpit_preset   =   {
       preset   =   {
@@ -8737,6 +8776,7 @@ properties   =   {
             platformVisibilityStage   =   1
          }
       ]
+      fallingThreshold   =   20
       massScalers   =   [
          {
             bodyName   =   "BoneLegFront_L_A_cdt"
@@ -8772,11 +8812,7 @@ properties   =   {
          },
          {
             bodyName   =   "BoneChassis_cdt"
-            scaler   =   2
-         },
-         {
-            bodyName   =   "BoneCabin_cdt"
-            scaler   =   2
+            scaler   =   4
          }
       ]
       anchorsNames   =   [

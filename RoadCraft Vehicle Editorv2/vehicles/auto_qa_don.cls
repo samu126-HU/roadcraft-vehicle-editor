@@ -766,7 +766,8 @@ properties   =   {
                      "PlaySound_2_1_1_1_E5fbI74w3/Play"
                   ]
                   OnStopPulling   =   [
-                     "PlaySound_2_1_1_2_E5fbI74w4/Play"
+                     "PlaySound_2_1_1_2_E5fbI74w4/Play",
+                     "PlaySound_2_1_1_1_E5fbI74w3/Stop"
                   ]
                   __type   =   "BlueprintNodeOnWinchStateChanged"
                }
@@ -2637,6 +2638,8 @@ properties   =   {
          __type   =   "RbVehicleCameraParams"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -2977,6 +2980,7 @@ properties   =   {
    prop_rear_view_mirror   =   {
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -3397,6 +3401,35 @@ properties   =   {
             ]
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }

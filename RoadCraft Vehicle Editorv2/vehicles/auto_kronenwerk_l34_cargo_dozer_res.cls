@@ -659,6 +659,18 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
                }
+               OnEngineRunningOnInit_F72c6r7Q   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4992.627
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Lfd3/Stop",
+                     "TruckShaker_Dct2Lfd31/Stop",
+                     "TruckShaker_F6r9HL50/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] rpm and speed"   =   {
@@ -2878,7 +2890,7 @@ properties   =   {
                      "SetSoundParameter_E4qex48hc/SetParameter"
                   ]
                   period   =   {
-                     def   =   0.1
+                     def   =   0
                      __type   =   "FloatRefParam"
                   }
                   __type   =   "BlueprintTimeLibrarySchedule"
@@ -2969,19 +2981,6 @@ properties   =   {
                      __type   =   "SoundParameterStringRefParam"
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
-               }
-               OnHandbrakeStateChanged_E4qex48h6   =   {
-                  viewData   =   {
-                     x   =   10250
-                     y   =   6500
-                  }
-                  OnHandbrakeOn   =   [
-                     "Schedule_E4qex48h/Stop"
-                  ]
-                  OnHandbrakeOff   =   [
-                     "Schedule_E4qex48h/Start"
-                  ]
-                  __type   =   "BlueprintNodeOnHandbrakeStateChanged"
                }
                PlaySound_1_E4qex48h7   =   {
                   viewData   =   {
@@ -3525,6 +3524,19 @@ properties   =   {
                   ]
                   __type   =   "BlueprintMathLibraryFloatmultiplication"
                }
+               OnTruckOccupied_F63cmp6I   =   {
+                  viewData   =   {
+                     x   =   10450
+                     y   =   6500
+                  }
+                  OnEnterTruck   =   [
+                     "Schedule_E4qex48h/Start"
+                  ]
+                  OnLeaveTruck   =   [
+                     "Schedule_E4qex48h/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnTruckOccupied"
+               }
             }
             groups   =   {
                "[SOUND] digging ground"   =   {
@@ -3645,9 +3657,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   300
-      startFuelTankVolume   =   300
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   320
+      startFuelTankVolume   =   320
+      fuelConsumption   =   0.15
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       controllableConstraints   =   [
@@ -4840,6 +4854,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -6005,6 +6021,12 @@ properties   =   {
          z   =   -2.381
          __type   =   "Vector3d"
       }
+      truckConstarintAreaSize   =   {
+         __type   =   "Vector3d"
+      }
+      truckConstraintAreaOffset   =   {
+         __type   =   "Vector3d"
+      }
       beltZPositions   =   [
          -2.2,
          -1.518,
@@ -6031,7 +6053,7 @@ properties   =   {
       }
       rightMidpointBoardXOffset   =   -0.01
       leftMidpointBoardXOffset   =   -0.01
-      beltBonesOffset   =   0.07
+      beltBonesOffset   =   0.04
       constraintBone   =   "BoneBodyRear_cdt"
       beltHandleDesc   =   {
          __type   =   "IactorDesc"
@@ -6042,6 +6064,39 @@ properties   =   {
       constraintInternalBeltDesc   =   {
          __type   =   "IactorDesc"
       }
+      isNeedTruckConstrainted   =   False
+      hookDesc   =   {
+         __type   =   "IactorDesc"
+      }
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_terraforming_bucket   =   {
       emptyBladeAngle   =   15
@@ -6059,8 +6114,7 @@ properties   =   {
       graderModesOrder   =   [
          "SAND_FLATTEN",
          "MARCHING",
-         "MANUAL",
-         "ASPHALT_REMOVER"
+         "MANUAL"
       ]
    }
    prop_grader_chain_controller   =   {
@@ -6082,6 +6136,39 @@ properties   =   {
          isAngle   =   True
          motorSpeed   =   15
          __type   =   "GraderConstraintData"
+      }
+   }
+   prop_truck_flattener   =   {
+      flattenerLocator   =   "BoneGraderBladeRotate_cdt"
+      flattener   =   {
+         size   =   {
+            x   =   5.15
+            y   =   4.5
+            z   =   4
+            __type   =   "Vector3d"
+         }
+         smoothRadius   =   0.25
+         velocityPowerMultiplier   =   10
+         maxPowerPerSecond   =   35
+         normalIgnoringPercent   =   1
+         borderHeight   =   0.025
+         borderRadius   =   0.35
+         borderSmoothRadius   =   0.55
+         borderOffset   =   -0.45
+         borderCheckOffset   =   1
+         needNoBorderHeightThreshold   =   0.05
+         needMaxBorderHeightThreshold   =   0.1
+         onlyChangeSand   =   True
+         onlyPushForward   =   False
+         __type   =   "TerraformingFlattener"
+      }
+      attach   =   {
+         posOffset   =   {
+            y   =   0
+            z   =   -1.5
+            __type   =   "Vector3d"
+         }
+         __type   =   "Tracker"
       }
    }
    prop_truck_customization   =   {

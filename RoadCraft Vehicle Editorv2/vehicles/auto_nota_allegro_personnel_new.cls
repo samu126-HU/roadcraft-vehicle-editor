@@ -573,7 +573,8 @@ properties   =   {
                      "PlaySound_2_1_1_1_1/Play"
                   ]
                   OnStopPulling   =   [
-                     "PlaySound_2_1_1_2_1/Play"
+                     "PlaySound_2_1_1_2_1/Play",
+                     "PlaySound_2_1_1_1_1/Stop"
                   ]
                   __type   =   "BlueprintNodeOnWinchStateChanged"
                }
@@ -1006,6 +1007,17 @@ properties   =   {
                      __type   =   "GameSoundDesc"
                   }
                   __type   =   "BlueprintNodePlaySoundOnEmitter"
+               }
+               OnEngineRunningOnInit_F72ccA4N   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2WL3D/Stop",
+                     "TruckShaker_Dct2WL3D1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
                }
             }
             groups   =   {
@@ -2719,9 +2731,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   80
-      startFuelTankVolume   =   80
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   90
+      startFuelTankVolume   =   90
+      fuelConsumption   =   0.05
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -3274,6 +3288,24 @@ properties   =   {
                x   =   -0.827
                y   =   -0.726
                z   =   2.523
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneChassis_cdt"
+            offsetInBodySpace   =   {
+               x   =   0.964
+               y   =   -0.65
+               z   =   0.574
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneChassis_cdt"
+            offsetInBodySpace   =   {
+               x   =   -0.964
+               y   =   -0.65
+               z   =   0.574
                __type   =   "Vector3d"
             }
          }
@@ -3890,6 +3922,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -4486,6 +4520,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -4618,8 +4653,9 @@ properties   =   {
          MOVE_STUCK_CANCEL   =   {
             truckSettings   =   {
                awd   =   True
-               maxSteerSpeed   =   0.03
-               backSteerSpeed   =   0.06
+               overrideSteerSpeed   =   True
+               maxSteerSpeed   =   0.033
+               backSteerSpeed   =   0.066
                lwiPoiValue   =   10
                __type   =   "AiTruckSettings"
             }
@@ -4924,6 +4960,35 @@ properties   =   {
             ]
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }

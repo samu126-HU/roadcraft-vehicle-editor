@@ -13,24 +13,24 @@ properties   =   {
    prop_truck_rb   =   {
       suspensionSet   =   {
          front   =   {
-            min   =   -0.02
+            min   =   -0.08
             max   =   0.02
             height   =   0.04
             strength   =   0.04
-            damping   =   0.5
+            damping   =   0.7
          }
          rearDiffers   =   True
          rear   =   {
-            min   =   -0.02
+            min   =   -0.08
             max   =   0.02
             height   =   0.04
-            strength   =   0.07
+            strength   =   0.04
             damping   =   0.7
          }
       }
       engine   =   {
          params   =   {
-            torque   =   305000
+            torque   =   330000
             brakesDelay   =   0.5
             maxDeltaAngVel   =   0.01
             responsiveness   =   0.04
@@ -122,7 +122,7 @@ properties   =   {
          }
          __type   =   "TruckGearbox"
       }
-      maxSteerSpeed   =   0.015
+      maxSteerSpeed   =   0.02
       backSteerSpeed   =   0.045
       pedalsResponsiveness   =   0.25
       isNeutralGearWheelResistanceEnabled   =   False
@@ -207,7 +207,7 @@ properties   =   {
       controllableSteeringConstraints   =   [
          {
             constraintName   =   "steering"
-            angularSpeed   =   40
+            angularSpeed   =   43
             minAngle   =   -60
             maxAngle   =   60
          },
@@ -988,6 +988,17 @@ properties   =   {
                      "SetSoundParameter_1_Eatdbe744/valueRef/cb"
                   ]
                   __type   =   "BlueprintMathLibraryFloatsum"
+               }
+               OnEngineRunningOnInit_F72bX43p   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Nbaw/Stop",
+                     "TruckShaker_Dct2Nbaw1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
                }
             }
             groups   =   {
@@ -2768,6 +2779,27 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeDeactivateForcefeedbackPreset"
                }
+               SetGravityFactorForPhysObject_F6ccKIbM   =   {
+                  viewData   =   {
+                     x   =   5000
+                     y   =   7800
+                  }
+                  factorRef   =   {
+                     def   =   1.2
+                     __type   =   "FloatRefParam"
+                  }
+                  __type   =   "BlueprintNodePhysSystemSetGravityFactor"
+               }
+               OnInit_F6ccKSbc   =   {
+                  viewData   =   {
+                     x   =   4800
+                     y   =   7800
+                  }
+                  OnExit   =   [
+                     "SetGravityFactorForPhysObject_F6ccKIbM/Input"
+                  ]
+                  __type   =   "BlueprintCommonLibraryOninit"
+               }
             }
             __type   =   "BlueprintActiveByProjectCondition"
          }
@@ -3711,7 +3743,9 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   250
       startFuelTankVolume   =   250
-      fuelConsumption   =   0
+      fuelConsumption   =   0.12
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -4952,6 +4986,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5789,6 +5825,37 @@ properties   =   {
          __type   =   "PhysIkSystem"
       }
    }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+   }
    prop_rigid_body_scanner   =   {
       shapes   =   [
          {
@@ -6116,6 +6183,15 @@ properties   =   {
             }
             activationInputType   =   "RIGHT_MOUSE_BUTTON"
             axisDirectionType   =   "Y_AXIS"
+            controlModeType   =   "WITH_BUTTONS"
+         },
+         {
+            uiActionDescription   =   "UID_HUD_CRANE_WINCH_ROTATE"
+            actionData   =   {
+               actionType   =   "CRANE_ROTATE"
+               __type   =   "AxisActionData"
+            }
+            activationInputType   =   "RIGHT_MOUSE_BUTTON"
             controlModeType   =   "WITH_BUTTONS"
          }
       ]
@@ -6515,6 +6591,7 @@ properties   =   {
          __type   =   "RbVehicleCameraParams"
       }
       equipmentCameraType   =   "CRANE"
+      craneCameraVerticalSpeed   =   4
    }
    prop_truck_camera_equipment_cockpit_preset   =   {
       preset   =   {
@@ -7265,6 +7342,7 @@ properties   =   {
             platformVisibilityStage   =   1
          }
       ]
+      fallingThreshold   =   20
       massScalers   =   [
          {
             bodyName   =   "BoneBody_cdt"

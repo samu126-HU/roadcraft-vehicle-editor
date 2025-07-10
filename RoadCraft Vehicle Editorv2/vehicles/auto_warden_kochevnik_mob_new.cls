@@ -1573,6 +1573,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
                }
+               OnEngineRunningOnInit_F72cgM5v   =   {
+                  viewData   =   {
+                     x   =   3050
+                     y   =   4850
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dcskqv4O/Stop",
+                     "TruckShaker_DcskqHbP/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] Tracks - Playback"   =   {
@@ -3295,9 +3306,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   420
-      startFuelTankVolume   =   420
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   1500
+      startFuelTankVolume   =   1500
+      fuelConsumption   =   0.8
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_constraint_view   =   {
       powerConstraints   =   [
@@ -4085,6 +4098,40 @@ properties   =   {
                z   =   2.615
                __type   =   "Vector3d"
             }
+         },
+         {
+            bodyName   =   "BoneTractor_cdt"
+            offsetInBodySpace   =   {
+               x   =   1.517
+               y   =   0.452
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneHingeZ_cdt"
+            offsetInBodySpace   =   {
+               x   =   1.455
+               y   =   0.422
+               z   =   -3.602
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneTractor_cdt"
+            offsetInBodySpace   =   {
+               x   =   -1.517
+               y   =   0.452
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneHingeZ_cdt"
+            offsetInBodySpace   =   {
+               x   =   -1.455
+               y   =   0.422
+               z   =   -3.602
+               __type   =   "Vector3d"
+            }
          }
       ]
       rotationFactor   =   2
@@ -4106,38 +4153,6 @@ properties   =   {
             __type   =   "Vector2d"
          }
          followChangeDirectionSpeedThreshold   =   2
-         scrollPoints   =   {
-            "0"   =   {
-               distance   =   12
-               followTerrainOffset   =   3.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "1"   =   {
-               distance   =   16
-               followTerrainOffset   =   4.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "2"   =   {
-               distance   =   20
-               followTerrainOffset   =   5.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "3"   =   {
-               distance   =   24
-               followTerrainOffset   =   6.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "4"   =   {
-               distance   =   28
-               followTerrainOffset   =   7.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-            "5"   =   {
-               distance   =   32
-               followTerrainOffset   =   8.5
-               __type   =   "RbVehicleCameraScrollPoint"
-            }
-         }
          interestPoints   =   [
             {
                angles   =   {
@@ -4715,6 +4730,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -6445,6 +6462,67 @@ properties   =   {
          }
       ]
    }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      isNeedWheelLocks   =   False
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+      strapPoints   =   [
+         {
+            x   =   -0.387
+            y   =   -0.254
+            z   =   3.382
+         },
+         {
+            x   =   0.397
+            y   =   -0.254
+            z   =   3.382
+         }
+      ]
+      strapGroups   =   [
+         {
+            bone   =   "BoneHingeZ_cdt"
+            points   =   [
+               {
+                  x   =   -0.752
+                  y   =   0.168
+                  z   =   -6.843
+               },
+               {
+                  x   =   0.74
+                  y   =   0.18
+                  z   =   -6.851
+               }
+            ]
+         }
+      ]
+   }
    prop_truck_customization   =   {
    }
    prop_customization_materials   =   {
@@ -6546,6 +6624,15 @@ properties   =   {
             __type   =   "DashboardElementCockpit"
          }
          "13"   =   {
+            nameBone   =   "ctrl_pedal_drive"
+            axis   =   "Y"
+            maxRotationAngle   =   10
+            dashboardSubtype   =   "RPM"
+            damping   =   0.1
+            increase   =   -10
+            __type   =   "DashboardElementCockpit"
+         }
+         "14"   =   {
             nameBone   =   "ctrl_steering_wheel"
             axis   =   "Y"
             minRotationAngle   =   -360
@@ -6553,7 +6640,7 @@ properties   =   {
             steeringSubtype   =   "WHEEL"
             __type   =   "SteerigElementCockpit"
          }
-         "14"   =   {
+         "15"   =   {
             nameBone   =   "ctrl_gear_stick_low"
             axis   =   "Y"
             maxRotationAngle   =   30
@@ -6561,7 +6648,7 @@ properties   =   {
             switcherSubtype   =   "LOW_GEAR"
             __type   =   "SwitcherElementCockpit"
          }
-         "15"   =   {
+         "16"   =   {
             nameBone   =   "ctrl_gear_stick"
             rotationSpeed   =   45
             states   =   {

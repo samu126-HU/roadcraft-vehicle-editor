@@ -94,7 +94,7 @@ properties   =   {
                },
                {
                   angularVelocity   =   15.5
-                  gearRatio   =   1.3
+                  gearRatio   =   1.5
                   targetSpeedRangeKmh   =   {
                      x   =   32
                      y   =   60
@@ -237,7 +237,8 @@ properties   =   {
                   }
                   OnEngineStarting   =   [
                      "TruckShaker_Dct2Xz5x/Play",
-                     "TruckShaker_Dct2Xz5x1/Stop"
+                     "TruckShaker_Dct2Xz5x1/Stop",
+                     "If/Input"
                   ]
                   __type   =   "BlueprintNodeOnEngineStarting"
                }
@@ -247,7 +248,7 @@ properties   =   {
                      y   =   4850
                   }
                   OnEngineStarted   =   [
-                     "If/Input"
+                     "PlaySound_1/Play"
                   ]
                   __type   =   "BlueprintNodeOnEngineStarted"
                }
@@ -318,8 +319,8 @@ properties   =   {
                }
                PlaySound_7   =   {
                   viewData   =   {
-                     x   =   4200
-                     y   =   4350
+                     x   =   4600
+                     y   =   4550
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -336,8 +337,8 @@ properties   =   {
                }
                FuelTank   =   {
                   viewData   =   {
-                     x   =   3200
-                     y   =   4400
+                     x   =   3350
+                     y   =   4500
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -350,8 +351,8 @@ properties   =   {
                }
                FloatCompare   =   {
                   viewData   =   {
-                     x   =   3400
-                     y   =   4400
+                     x   =   3600
+                     y   =   4500
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -364,16 +365,15 @@ properties   =   {
                }
                SetSoundSwitch   =   {
                   viewData   =   {
-                     x   =   3900
-                     y   =   4500
+                     x   =   4200
+                     y   =   4700
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
                      ]
                   }
                   OnExit   =   [
-                     "PlaySound_7/Play",
-                     "PlaySound_1/Play"
+                     "PlaySound_7/Play"
                   ]
                   switchGroup   =   {
                      def   =   "fuel"
@@ -387,8 +387,8 @@ properties   =   {
                }
                SetSoundSwitch_1   =   {
                   viewData   =   {
-                     x   =   3900
-                     y   =   4350
+                     x   =   4200
+                     y   =   4450
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -409,8 +409,8 @@ properties   =   {
                }
                If   =   {
                   viewData   =   {
-                     x   =   3700
-                     y   =   4450
+                     x   =   3900
+                     y   =   4550
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -426,15 +426,16 @@ properties   =   {
                }
                PlaySound   =   {
                   viewData   =   {
-                     x   =   4200
-                     y   =   4600
+                     x   =   3900
+                     y   =   5000
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
                      ]
                   }
                   OnSoundStart   =   [
-                     "PlaySound_1/Stop"
+                     "PlaySound_1/Stop",
+                     "PlaySound_7/Stop"
                   ]
                   soundDesc   =   {
                      type   =   {
@@ -447,8 +448,8 @@ properties   =   {
                }
                PlaySound_1   =   {
                   viewData   =   {
-                     x   =   4800
-                     y   =   4500
+                     x   =   4600
+                     y   =   4850
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -465,8 +466,8 @@ properties   =   {
                }
                PlaySound_2_1   =   {
                   viewData   =   {
-                     x   =   4200
-                     y   =   6050
+                     x   =   3900
+                     y   =   5750
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -483,8 +484,8 @@ properties   =   {
                }
                PlaySound_2_2   =   {
                   viewData   =   {
-                     x   =   4200
-                     y   =   6200
+                     x   =   3900
+                     y   =   6150
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -501,8 +502,8 @@ properties   =   {
                }
                OnGearUpdate   =   {
                   viewData   =   {
-                     x   =   5150
-                     y   =   5400
+                     x   =   5640
+                     y   =   4600
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -523,8 +524,8 @@ properties   =   {
                }
                SetSoundParameter_1   =   {
                   viewData   =   {
-                     x   =   5500
-                     y   =   5500
+                     x   =   5990
+                     y   =   4700
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -542,8 +543,8 @@ properties   =   {
                }
                PlaySound_3   =   {
                   viewData   =   {
-                     x   =   5500
-                     y   =   5300
+                     x   =   5990
+                     y   =   4500
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -560,8 +561,8 @@ properties   =   {
                }
                OnEngineAcceleration_2   =   {
                   viewData   =   {
-                     x   =   5169.002
-                     y   =   6734.34
+                     x   =   5650
+                     y   =   6000
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -574,8 +575,8 @@ properties   =   {
                }
                SetSoundParameter_1_1_1_1   =   {
                   viewData   =   {
-                     x   =   5619.002
-                     y   =   6734.34
+                     x   =   6100
+                     y   =   6000
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -597,8 +598,8 @@ properties   =   {
                }
                SetSoundParameter_1_1_1_1_1   =   {
                   viewData   =   {
-                     x   =   5619.002
-                     y   =   6934.34
+                     x   =   6100
+                     y   =   6200
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -616,8 +617,8 @@ properties   =   {
                }
                OnEngineInertia   =   {
                   viewData   =   {
-                     x   =   5169.002
-                     y   =   6934.34
+                     x   =   5650
+                     y   =   6200
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -630,7 +631,7 @@ properties   =   {
                }
                OnWinchStateChanged   =   {
                   viewData   =   {
-                     x   =   3400
+                     x   =   5650
                      y   =   6800
                      colors   =   [
                         "#00FFFFFF",
@@ -650,14 +651,15 @@ properties   =   {
                      "PlaySound_2_1_1_1_1/Play"
                   ]
                   OnStopPulling   =   [
-                     "PlaySound_2_1_1_2_1/Play"
+                     "PlaySound_2_1_1_2_1/Play",
+                     "PlaySound_2_1_1_1_1/Stop"
                   ]
                   __type   =   "BlueprintNodeOnWinchStateChanged"
                }
                PlaySound_2_1_1_1   =   {
                   viewData   =   {
-                     x   =   4200
-                     y   =   6600
+                     x   =   6100
+                     y   =   6500
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -674,8 +676,8 @@ properties   =   {
                }
                PlaySound_2_1_1_2   =   {
                   viewData   =   {
-                     x   =   4200
-                     y   =   6750
+                     x   =   6100
+                     y   =   6700
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -692,7 +694,7 @@ properties   =   {
                }
                PlaySound_2_1_1_1_1   =   {
                   viewData   =   {
-                     x   =   4200
+                     x   =   6100
                      y   =   6900
                      colors   =   [
                         "#00FFFFFF",
@@ -710,8 +712,8 @@ properties   =   {
                }
                PlaySound_2_1_1_2_1   =   {
                   viewData   =   {
-                     x   =   4200
-                     y   =   7050
+                     x   =   6100
+                     y   =   7100
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -728,8 +730,8 @@ properties   =   {
                }
                TruckShaker_Dct2Xz5x   =   {
                   viewData   =   {
-                     x   =   3600
-                     y   =   4800
+                     x   =   3700
+                     y   =   4750
                   }
                   duration   =   2
                   shakerName   =   "EngineStart"
@@ -737,8 +739,8 @@ properties   =   {
                }
                TruckShaker_Dct2Xz5x1   =   {
                   viewData   =   {
-                     x   =   3600
-                     y   =   4918.831
+                     x   =   3700
+                     y   =   4900
                   }
                   duration   =   2.8
                   shakerName   =   "EngineShutdown"
@@ -747,8 +749,8 @@ properties   =   {
                }
                GetTruckRpm_E78dQQaA   =   {
                   viewData   =   {
-                     x   =   5150
-                     y   =   6050
+                     x   =   5650
+                     y   =   5300
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -762,8 +764,8 @@ properties   =   {
                }
                OnInit_1_E78dQQaA1   =   {
                   viewData   =   {
-                     x   =   5150
-                     y   =   5950
+                     x   =   5650
+                     y   =   5200
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -776,8 +778,8 @@ properties   =   {
                }
                Schedule_1_E78dQQaA2   =   {
                   viewData   =   {
-                     x   =   5347.742
-                     y   =   5950
+                     x   =   5847.742
+                     y   =   5200
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -795,8 +797,8 @@ properties   =   {
                }
                TruckVelocity_1_E78dQQaA3   =   {
                   viewData   =   {
-                     x   =   5150
-                     y   =   6300
+                     x   =   5650
+                     y   =   5550
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -809,13 +811,16 @@ properties   =   {
                }
                SetSoundParameter_1_1_E78dQQaA4   =   {
                   viewData   =   {
-                     x   =   7000
-                     y   =   5950
+                     x   =   7500
+                     y   =   5200
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
                      ]
                   }
+                  OnExit   =   [
+                     "OnscreenLog_F5q7AcbB/Log"
+                  ]
                   nameRef   =   {
                      def   =   "rtpc_vehicle_rpm"
                      __type   =   "SoundParameterStringRefParam"
@@ -828,8 +833,8 @@ properties   =   {
                }
                SetSoundParameter_1_1_1_E78dQQaA5   =   {
                   viewData   =   {
-                     x   =   7000
-                     y   =   6200
+                     x   =   7500
+                     y   =   5450
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -847,8 +852,8 @@ properties   =   {
                }
                FloatCommutator_E78dQQaA6   =   {
                   viewData   =   {
-                     x   =   5850
-                     y   =   6200
+                     x   =   6350
+                     y   =   5450
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -861,8 +866,8 @@ properties   =   {
                }
                FloatSubtract_E78dQQaA7   =   {
                   viewData   =   {
-                     x   =   5950
-                     y   =   6100
+                     x   =   6450
+                     y   =   5350
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -876,8 +881,8 @@ properties   =   {
                }
                FloatSwitch_E78dQQaA8   =   {
                   viewData   =   {
-                     x   =   6350
-                     y   =   6050
+                     x   =   6850
+                     y   =   5300
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -899,8 +904,8 @@ properties   =   {
                }
                FloatCompare_E78dQQaA9   =   {
                   viewData   =   {
-                     x   =   6100
-                     y   =   6150
+                     x   =   6600
+                     y   =   5400
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -917,8 +922,8 @@ properties   =   {
                }
                SuspensionOscillations_E78dQQaAa   =   {
                   viewData   =   {
-                     x   =   5150
-                     y   =   6150
+                     x   =   5650
+                     y   =   5400
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -938,22 +943,23 @@ properties   =   {
                }
                FloatSubtract_E78dQQaAb   =   {
                   viewData   =   {
-                     x   =   6850
-                     y   =   6050
+                     x   =   7350
+                     y   =   5300
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
                      ]
                   }
                   Float   =   [
-                     "SetSoundParameter_1_1_E78dQQaA4/valueRef/cb"
+                     "SetSoundParameter_1_1_E78dQQaA4/valueRef/cb",
+                     "OnscreenLog_F5q7AcbB/message/cb"
                   ]
                   __type   =   "BlueprintMathLibraryFloatsubstract"
                }
                GetTruckAngularVelocity_E78dQQaAc   =   {
                   viewData   =   {
-                     x   =   6350
-                     y   =   6150
+                     x   =   6850
+                     y   =   5400
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -966,8 +972,8 @@ properties   =   {
                }
                FloatMultiplication_E78dQQaAd   =   {
                   viewData   =   {
-                     x   =   6700
-                     y   =   6150
+                     x   =   7200
+                     y   =   5400
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -984,8 +990,8 @@ properties   =   {
                }
                FloatAbs_E78dQQaAe   =   {
                   viewData   =   {
-                     x   =   6550
-                     y   =   6150
+                     x   =   7050
+                     y   =   5400
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -1001,15 +1007,15 @@ properties   =   {
                }
                FloatMultiplication_E78dQQaAf   =   {
                   viewData   =   {
-                     x   =   5650
-                     y   =   6250
+                     x   =   6150
+                     y   =   5500
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
                      ]
                   }
                   bFloat   =   {
-                     def   =   200
+                     def   =   120
                      __type   =   "FloatRefParam"
                   }
                   Float   =   [
@@ -1017,10 +1023,10 @@ properties   =   {
                   ]
                   __type   =   "BlueprintMathLibraryFloatmultiplication"
                }
-               CloneSoundEmitter_F237A567   =   {
+               CloneSoundEmitter_F3jjTQ6J   =   {
                   viewData   =   {
-                     x   =   3500
-                     y   =   6300
+                     x   =   4000
+                     y   =   5950
                   }
                   GetSoundEmitter   =   [
                      "PlaySound_2_1/emitterRef/cb",
@@ -1039,11 +1045,29 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeCloneSoundEmitter"
                }
+               OnEngineRunningOnInit_F72c5deW   =   {
+                  viewData   =   {
+                     x   =   3050
+                     y   =   4850
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Xz5x1/Stop",
+                     "TruckShaker_Dct2Xz5x/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
+               OnscreenLog_F5q7AcbB   =   {
+                  viewData   =   {
+                     x   =   8149.796
+                     y   =   4975.159
+                  }
+                  __type   =   "BlueprintNodeOnscreenLog"
+               }
             }
             groups   =   {
                "[SOUND] acceleration input"   =   {
-                  x   =   5119.002
-                  y   =   6634.34
+                  x   =   5600
+                  y   =   5900
                   width   =   1198.295
                   height   =   493
                   comment   =   ""
@@ -1051,10 +1075,10 @@ properties   =   {
                   __type   =   "NodeGroup"
                }
                "[SOUND] gear update"   =   {
-                  x   =   5110
-                  y   =   5229
+                  x   =   5600
+                  y   =   4400
                   width   =   1190
-                  height   =   442.96
+                  height   =   500
                   comment   =   ""
                   isCollapsed   =   False
                   __type   =   "NodeGroup"
@@ -1068,11 +1092,11 @@ properties   =   {
                   isCollapsed   =   False
                   __type   =   "NodeGroup"
                }
-               "[SOUND] rpm and speed_E78dQQaAg"   =   {
-                  x   =   5100
-                  y   =   5750
+               "[SOUND] rpm and speed"   =   {
+                  x   =   5600
+                  y   =   5000
                   width   =   2350
-                  height   =   786.179
+                  height   =   800
                   comment   =   ""
                   isCollapsed   =   False
                   __type   =   "NodeGroup"
@@ -1573,7 +1597,7 @@ properties   =   {
                OnTPLAnimationBegin_E4jdDb80   =   {
                   viewData   =   {
                      x   =   5050
-                     y   =   1800
+                     y   =   1600
                   }
                   OnAnimStart   =   [
                      "PlaySound_E4jdDb802/Play"
@@ -1583,13 +1607,13 @@ properties   =   {
                OnTPLAnimationEnd_E4jdDb801   =   {
                   viewData   =   {
                      x   =   5050
-                     y   =   1950
+                     y   =   1800
                   }
                   OnAnimStop   =   [
                      "PlaySound_E4jdDb803/Play"
                   ]
                   animationIdxRef   =   {
-                     def   =   1
+                     def   =   0
                      __type   =   "IntRefParam"
                   }
                   __type   =   "BlueprintNodeTplAnimOnEnd"
@@ -1597,7 +1621,7 @@ properties   =   {
                PlaySound_E4jdDb802   =   {
                   viewData   =   {
                      x   =   5350
-                     y   =   1800
+                     y   =   1600
                   }
                   OnSoundStart   =   [
                      "PlaySound_F239Ku30/Play"
@@ -1614,7 +1638,7 @@ properties   =   {
                PlaySound_E4jdDb803   =   {
                   viewData   =   {
                      x   =   5350
-                     y   =   1950
+                     y   =   1800
                   }
                   OnSoundStart   =   [
                      "PlaySound_F239Ku301/Play"
@@ -1631,7 +1655,7 @@ properties   =   {
                IntCheck_E4jdDb804   =   {
                   viewData   =   {
                      x   =   5350
-                     y   =   1550
+                     y   =   1350
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -1650,7 +1674,7 @@ properties   =   {
                OnHandbrakeStateChanged_E4jdDb805   =   {
                   viewData   =   {
                      x   =   5050
-                     y   =   1550
+                     y   =   1350
                   }
                   OnHandbrakeOn   =   [
                      "IntCheck_E4jdDb804/Input"
@@ -1660,7 +1684,7 @@ properties   =   {
                PlaySound_E4jdDb806   =   {
                   viewData   =   {
                      x   =   5785.13
-                     y   =   1550
+                     y   =   1350
                   }
                   soundDesc   =   {
                      type   =   {
@@ -1674,7 +1698,7 @@ properties   =   {
                GetTruckVelocity_E4jdDb807   =   {
                   viewData   =   {
                      x   =   5050
-                     y   =   1650
+                     y   =   1450
                   }
                   GetLinearVelocity   =   [
                      "IntCheck_E4jdDb804/intToCheck/cb"
@@ -1683,8 +1707,8 @@ properties   =   {
                }
                CloneSoundEmitter_F237Effi   =   {
                   viewData   =   {
-                     x   =   4350
-                     y   =   2000
+                     x   =   4300
+                     y   =   1800
                   }
                   GetSoundEmitter   =   [
                      "PlaySound_F239Ku30/emitterRef/cb",
@@ -1705,8 +1729,8 @@ properties   =   {
                }
                CloneSoundEmitter_F237Effi1   =   {
                   viewData   =   {
-                     x   =   4350
-                     y   =   1800
+                     x   =   4300
+                     y   =   1600
                   }
                   GetSoundEmitter   =   [
                      "PlaySound_E4jdDb802/emitterRef/cb",
@@ -1728,7 +1752,7 @@ properties   =   {
                PlaySound_F239Ku30   =   {
                   viewData   =   {
                      x   =   6000
-                     y   =   1800
+                     y   =   1600
                   }
                   soundDesc   =   {
                      type   =   {
@@ -1742,7 +1766,7 @@ properties   =   {
                PlaySound_F239Ku301   =   {
                   viewData   =   {
                      x   =   6000
-                     y   =   1950
+                     y   =   1800
                   }
                   soundDesc   =   {
                      type   =   {
@@ -2935,9 +2959,12 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   200
-      startFuelTankVolume   =   200
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   122
+      startFuelTankVolume   =   122
+      fuelConsumption   =   0.06
+      reverseFuelConsumptionCoeff   =   1.2
+      awdFuelConsumptionCoeff   =   1.6
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -3270,9 +3297,6 @@ properties   =   {
    }
    prop_driver   =   {
       boneOffset   =   {
-         x   =   0.06
-         y   =   -0.67
-         z   =   0.13
          __type   =   "Vector3d"
       }
    }
@@ -3965,6 +3989,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -4464,12 +4490,12 @@ properties   =   {
    }
    prop_truck_view_winch_controller   =   {
       winch   =   {
-         maxLength   =   20
+         maxLength   =   22
          minLength   =   1
          pullStrength   =   25000
          __type   =   "RbTruckWinch"
       }
-      winchPullSpeed   =   0.25
+      winchPullSpeed   =   0.5
       winchSourcePoints   =   [
          {
             bodyName   =   "BoneChassis_cdt"
@@ -4584,6 +4610,35 @@ properties   =   {
             shaftFasteningPositionB   =   "shaft_2_b"
          }
       ]
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }
@@ -4891,11 +4946,6 @@ properties   =   {
       }
       fifthAction   =   {
          actionMappingType   =   "GENERIC_ACTION"
-         uiActionDescription   =   "UID_HUD_TOWING_ACTIVATE"
-         isToggleable   =   True
-         altUiActionDescription   =   "UID_HUD_TOWING_DEACTIVATE"
-         namedActionType   =   "TOGGLE_TOWING"
-         canWorkWithEngineOff   =   True
          __type   =   "ActionMapping"
       }
       sixthAction   =   {
@@ -5655,7 +5705,7 @@ properties   =   {
                               emission   =   {
                                  source   =   {
                                     terrainExtrusionGrid   =   {
-                                       radOuter   =   30
+                                       radOuter   =   40
                                     }
                                     __type   =   "local__terrainExtrusionGrid"
                                  }
@@ -5666,7 +5716,7 @@ properties   =   {
                               emission   =   {
                                  source   =   {
                                     terrainExtrusionGrid   =   {
-                                       radOuter   =   30
+                                       radOuter   =   40
                                     }
                                     __type   =   "local__terrainExtrusionGrid"
                                  }
@@ -5677,7 +5727,7 @@ properties   =   {
                               emission   =   {
                                  source   =   {
                                     terrainExtrusionGrid   =   {
-                                       radOuter   =   30
+                                       radOuter   =   40
                                     }
                                     __type   =   "local__terrainExtrusionGrid"
                                  }
@@ -5685,13 +5735,13 @@ properties   =   {
                               __type   =   "GPU_EMITTER"
                            }
                            lwi_radar_objective_sphere   =   {
-                              emitScale   =   0.7
-                              timeScale   =   0.8
+                              emitScale   =   0.9
+                              timeScale   =   0.9
                               __type   =   "CPU_EMITTER"
                            }
                            lwi_radar_objective_sphere_border   =   {
-                              emitScale   =   0.7
-                              timeScale   =   0.8
+                              emitScale   =   0.9
+                              timeScale   =   0.9
                               __type   =   "CPU_EMITTER"
                            }
                         }

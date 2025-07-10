@@ -1053,6 +1053,18 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeCloneSoundEmitter"
                }
+               OnEngineRunningOnInit_F72bVk1U   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4900
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_2/Stop",
+                     "TruckShaker_2_1/Stop",
+                     "TruckShaker_2_2/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] rpm and speed"   =   {
@@ -3019,9 +3031,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   170
-      startFuelTankVolume   =   170
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   380
+      startFuelTankVolume   =   380
+      fuelConsumption   =   0.17
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       powerConstraints   =   [
@@ -4558,6 +4572,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5125,6 +5141,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_WITH_TASKS   =   {
             truckSettings   =   {
@@ -5133,8 +5150,10 @@ properties   =   {
                overrideSteerSpeed   =   True
                maxSteerSpeed   =   1
                backSteerSpeed   =   1
+               lwiPoiValue   =   7
                __type   =   "AiTruckSettings"
             }
+            waitForHandbrakeTime   =   500
             targetVelocity   =   2.5
             cinematicVelocity   =   500
             targetVelocityPedalControl   =   {
@@ -5223,16 +5242,17 @@ properties   =   {
             truckSettings   =   {
                awd   =   False
                diffLock   =   False
-               overrideSteerSpeed   =   False
-               maxSteerSpeed   =   0.8
+               overrideSteerSpeed   =   True
+               maxSteerSpeed   =   1
                backSteerSpeed   =   1
+               lwiPoiValue   =   7
                __type   =   "AiTruckSettings"
             }
             firstPointOffset   =   -0.8
-            thresholdDistSquare   =   1
-            cosThreshold   =   0.05
+            thresholdDistSquare   =   2
+            cosThreshold   =   0.06
             pedal   =   1
-            steerScale   =   1.5
+            steerScale   =   1.25
             minSteer   =   0.5
             __type   =   "MoveToStartPointCaterpillarsRouteBehaviourDesc"
          }
@@ -5447,6 +5467,58 @@ properties   =   {
          "BoneRake_cdt",
          "BoneExtention_l_cdt",
          "BoneExtention_r_cdt"
+      ]
+   }
+   prop_truck_constraint   =   {
+      isNeedWheelLocks   =   False
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+      strapPoints   =   [
+         {
+            x   =   -1.121
+            y   =   -1.769
+            z   =   3.466
+         },
+         {
+            x   =   1.121
+            y   =   -1.769
+            z   =   3.466
+         },
+         {
+            x   =   -0.776
+            y   =   -1.914
+            z   =   -1.211
+         },
+         {
+            x   =   0.776
+            y   =   -1.914
+            z   =   -1.211
+         }
       ]
    }
    prop_trail_remover   =   {

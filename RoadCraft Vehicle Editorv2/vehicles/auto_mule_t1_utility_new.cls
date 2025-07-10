@@ -963,6 +963,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeCloneSoundEmitter"
                }
+               OnEngineRunningOnInit_F72cbL80   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5050
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Hbef/Stop",
+                     "TruckShaker_Dct2Hbef1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] acceleration input"   =   {
@@ -2826,7 +2837,10 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   240
       startFuelTankVolume   =   240
-      fuelConsumption   =   0
+      fuelConsumption   =   0.095
+      reverseFuelConsumptionCoeff   =   1.2
+      awdFuelConsumptionCoeff   =   1.5
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -3326,17 +3340,18 @@ properties   =   {
             rotatorStartStopCondition   =   {
                __type   =   "RotatorStartStopConditionEngineOnOffNative"
             }
+            isSmoothStart   =   True
             rotatorBone   =   "BoneFlasher_L_Rotator"
             accelerationOverTime   =   [
                0,
                0,
-               5,
+               1,
                1
             ]
             deccelerationOverTime   =   [
                0,
                1,
-               5,
+               1,
                0
             ]
             velocityScalers   =   {
@@ -3355,17 +3370,18 @@ properties   =   {
             rotatorStartStopCondition   =   {
                __type   =   "RotatorStartStopConditionEngineOnOffNative"
             }
+            isSmoothStart   =   True
             rotatorBone   =   "BoneFlasher_R_Rotator"
             accelerationOverTime   =   [
                0,
                0,
-               5,
+               1,
                1
             ]
             deccelerationOverTime   =   [
                0,
                1,
-               5,
+               1,
                0
             ]
             velocityScalers   =   {
@@ -3503,6 +3519,24 @@ properties   =   {
             offsetInBodySpace   =   {
                y   =   -0.045
                z   =   -1.675
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneChassis_cdt"
+            offsetInBodySpace   =   {
+               x   =   1.259
+               y   =   -0.317
+               z   =   1.48
+               __type   =   "Vector3d"
+            }
+         },
+         {
+            bodyName   =   "BoneChassis_cdt"
+            offsetInBodySpace   =   {
+               x   =   -1.259
+               y   =   -0.317
+               z   =   1.48
                __type   =   "Vector3d"
             }
          }
@@ -4079,6 +4113,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -4974,6 +5010,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_BY_POINTS   =   {
             truckSettings   =   {
@@ -5364,6 +5401,35 @@ properties   =   {
          }
       ]
    }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+   }
    prop_truck_customization   =   {
    }
    prop_customization_materials   =   {
@@ -5376,22 +5442,25 @@ properties   =   {
          "0"   =   {
             nameBone   =   "ctrl_dashboard_speed"
             axis   =   "Y"
-            maxRotationAngle   =   270
+            maxRotationAngle   =   150
             dashboardSubtype   =   "SPEED"
+            damping   =   0.1
+            scale   =   2.2
             __type   =   "DashboardElementCockpit"
          }
          "1"   =   {
             nameBone   =   "ctrl_dashboard_rpm"
             axis   =   "Y"
-            maxRotationAngle   =   125
+            maxRotationAngle   =   195
             dashboardSubtype   =   "RPM"
-            damping   =   0.01
+            damping   =   0.05
+            increase   =   -50
             __type   =   "DashboardElementCockpit"
          }
          "2"   =   {
             nameBone   =   "ctrl_dashboard_fuel"
             axis   =   "Y"
-            maxRotationAngle   =   60
+            maxRotationAngle   =   50
             dashboardSubtype   =   "FUEL"
             damping   =   0.005
             __type   =   "DashboardElementCockpit"

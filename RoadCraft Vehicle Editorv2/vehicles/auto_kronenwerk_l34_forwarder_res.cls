@@ -656,6 +656,18 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
                }
+               OnEngineRunningOnInit_F72c6r7Q   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   4992.627
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_Dct2Lfd3/Stop",
+                     "TruckShaker_Dct2Lfd31/Stop",
+                     "TruckShaker_F6r9HL50/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "[SOUND] rpm and speed"   =   {
@@ -3283,7 +3295,9 @@ properties   =   {
    prop_fuel_tank   =   {
       maxFuelTankVolume   =   320
       startFuelTankVolume   =   320
-      fuelConsumption   =   0
+      fuelConsumption   =   0.15
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       constraintSequentialChains   =   {
@@ -4476,6 +4490,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -6274,13 +6290,13 @@ properties   =   {
    prop_cargo_constraint   =   {
       constraintAreaSize   =   {
          x   =   7
-         y   =   6.5
+         y   =   6
          z   =   10
          __type   =   "Vector3d"
       }
       internalConstraintAreaSize   =   {
          x   =   2.512
-         y   =   5
+         y   =   4.5
          z   =   4.725
          __type   =   "Vector3d"
       }
@@ -6288,6 +6304,12 @@ properties   =   {
          x   =   -1.256
          y   =   0.579
          z   =   -1.664
+         __type   =   "Vector3d"
+      }
+      truckConstarintAreaSize   =   {
+         __type   =   "Vector3d"
+      }
+      truckConstraintAreaOffset   =   {
          __type   =   "Vector3d"
       }
       beltZPositions   =   [
@@ -6315,7 +6337,7 @@ properties   =   {
       }
       rightMidpointBoardXOffset   =   0.01
       leftMidpointBoardXOffset   =   0.01
-      beltBonesOffset   =   0.07
+      beltBonesOffset   =   0.04
       constraintBone   =   "BoneBodyRear_cdt"
       beltHandleDesc   =   {
          __type   =   "IactorDesc"
@@ -6326,6 +6348,41 @@ properties   =   {
       constraintInternalBeltDesc   =   {
          __type   =   "IactorDesc"
       }
+      isNeedTruckConstrainted   =   False
+      hookDesc   =   {
+         __type   =   "IactorDesc"
+      }
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_rigid_body_scanner   =   {
       shapes   =   [
@@ -6983,6 +7040,7 @@ properties   =   {
          ]
          __type   =   "RbVehicleCameraParams"
       }
+      craneCameraVerticalSpeed   =   4
    }
    prop_covering   =   {
       voxelSize   =   0.4
@@ -7756,6 +7814,7 @@ properties   =   {
             platformVisibilityStage   =   -1
          }
       ]
+      fallingThreshold   =   20
       massScalers   =   [
          {
             bodyName   =   "BonePushLegL_cdt"

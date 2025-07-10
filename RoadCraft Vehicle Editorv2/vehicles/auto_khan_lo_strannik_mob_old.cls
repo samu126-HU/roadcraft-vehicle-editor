@@ -1478,6 +1478,17 @@ properties   =   {
                   }
                   __type   =   "BlueprintNodeSetSoundEmitterParameter"
                }
+               OnEngineRunningOnInit_F72c5H9R   =   {
+                  viewData   =   {
+                     x   =   3050
+                     y   =   4850
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_E1bbjK2w/Stop",
+                     "TruckShaker_E1bbjK2w1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
+               }
             }
             groups   =   {
                "SOUND] rpm and speed"   =   {
@@ -3375,9 +3386,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   180
-      startFuelTankVolume   =   180
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   200
+      startFuelTankVolume   =   200
+      fuelConsumption   =   0.1
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_teleporter   =   {
       waterHeightDelta   =   1.5
@@ -4014,8 +4027,6 @@ properties   =   {
    }
    prop_pre_soft_keyframe_updater   =   {
       syncBodyNames   =   [
-         "BoneHingeZ_cdt",
-         "BoneHingeX_cdt",
          "BoneHingeY_cdt"
       ]
    }
@@ -4879,6 +4890,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5640,6 +5653,7 @@ properties   =   {
       backwardDelay   =   0.05
    }
    prop_route_following   =   {
+      isBaseTruck   =   False
       supportedBehivours   =   {
          MOVE_STUCK_CANCEL   =   {
             truckSettings   =   {
@@ -5851,9 +5865,9 @@ properties   =   {
    }
    prop_truck_view_winch_controller   =   {
       winch   =   {
-         maxLength   =   22
+         maxLength   =   20
          minLength   =   1
-         pullStrength   =   45000
+         pullStrength   =   35000
          __type   =   "RbTruckWinch"
       }
       winchPullSpeed   =   0.5
@@ -6013,6 +6027,67 @@ properties   =   {
             ]
             shaftFasteningPositionA   =   "shaft_1_a"
             shaftFasteningPositionB   =   "shaft_1_b"
+         }
+      ]
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      isNeedWheelLocks   =   False
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+      strapPoints   =   [
+         {
+            x   =   -0.632
+            y   =   0.205
+            z   =   2.176
+         },
+         {
+            x   =   0.632
+            y   =   0.205
+            z   =   2.176
+         }
+      ]
+      strapGroups   =   [
+         {
+            bone   =   "BoneHingeY_cdt"
+            points   =   [
+               {
+                  x   =   -0.3
+                  y   =   -0.269
+                  z   =   -4.551
+               },
+               {
+                  x   =   0.3
+                  y   =   -0.269
+                  z   =   -4.551
+               }
+            ]
          }
       ]
    }

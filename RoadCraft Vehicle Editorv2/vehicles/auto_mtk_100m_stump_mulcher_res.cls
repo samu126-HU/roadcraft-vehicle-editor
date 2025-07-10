@@ -3182,6 +3182,9 @@ properties   =   {
                         "#00FFFFFF"
                      ]
                   }
+                  OnSoundStart   =   [
+                     "PlaySound_F3jdBw2Y/Play"
+                  ]
                   soundDesc   =   {
                      type   =   {
                         name   =   "addon_grinder_touching_stop"
@@ -3228,7 +3231,8 @@ properties   =   {
                      "PlaySound_4_E32dJ5dEc/emitterRef/cb",
                      "PlaySound_E5dbO46A/emitterRef/cb",
                      "PlaySound_E9qfOH5O3/emitterRef/cb",
-                     "SetSoundSwitch_E9qfOH5O2/emitterRef/cb"
+                     "SetSoundSwitch_E9qfOH5O2/emitterRef/cb",
+                     "PlaySound_F3jdBw2Y/emitterRef/cb"
                   ]
                   positionRef   =   {
                      def   =   {
@@ -3257,7 +3261,7 @@ properties   =   {
                VFXStop_E439y68q   =   {
                   viewData   =   {
                      x   =   11000
-                     y   =   6650
+                     y   =   6750
                   }
                   vfxUidRef   =   {
                      def   =   "part_stump_destruction_01"
@@ -3286,7 +3290,7 @@ properties   =   {
                OnMulcherParticlesEmitted_E9qfOH5O   =   {
                   viewData   =   {
                      x   =   10000
-                     y   =   6850
+                     y   =   6950
                   }
                   subscribeOnInitRef   =   {
                      def   =   True
@@ -3310,7 +3314,7 @@ properties   =   {
                SetSoundSwitch_E9qfOH5O2   =   {
                   viewData   =   {
                      x   =   11000
-                     y   =   7000
+                     y   =   7100
                      colors   =   [
                         "#00FFFFFF",
                         "#00FFFFFF"
@@ -3325,7 +3329,7 @@ properties   =   {
                PlaySound_E9qfOH5O3   =   {
                   viewData   =   {
                      x   =   11000
-                     y   =   6800
+                     y   =   6900
                   }
                   soundDesc   =   {
                      type   =   {
@@ -3339,19 +3343,37 @@ properties   =   {
                OnMulcherStateChanged_F1gcLs2M   =   {
                   viewData   =   {
                      x   =   10000
-                     y   =   6650
+                     y   =   6750
                   }
                   OnDisabled   =   [
                      "VFXStop_E439y68q/Input"
                   ]
                   __type   =   "BlueprintNodeOnMulcherStateChanged"
                }
+               PlaySound_F3jdBw2Y   =   {
+                  viewData   =   {
+                     x   =   11700
+                     y   =   6450
+                     colors   =   [
+                        "#00FFFFFF",
+                        "#00FFFFFF"
+                     ]
+                  }
+                  soundDesc   =   {
+                     type   =   {
+                        name   =   "sfx_destr_tree_cut_break"
+                        __type   =   "GameSound"
+                     }
+                     __type   =   "GameSoundDesc"
+                  }
+                  __type   =   "BlueprintNodePlaySoundOnEmitter"
+               }
             }
             groups   =   {
                "[SOUND] addon - mech and tourching"   =   {
                   x   =   9900
                   y   =   4500
-                  width   =   1900
+                  width   =   2500
                   height   =   2800
                   comment   =   ""
                   isCollapsed   =   False
@@ -3459,9 +3481,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   120
-      startFuelTankVolume   =   120
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   235
+      startFuelTankVolume   =   235
+      fuelConsumption   =   0.12
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.3
    }
    prop_truck_constraint_view   =   {
       powerConstraints   =   [
@@ -4807,6 +4831,8 @@ properties   =   {
          __type   =   "CockpitUnderwaterChecker"
       }
    }
+   prop_truck_cinematic_camera_settings   =   {
+   }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
          LOW   =   {
@@ -5373,6 +5399,58 @@ properties   =   {
          "BoneDozer_cdt",
          "BoneFrame_cdt",
          "BoneGrinder_cdt"
+      ]
+   }
+   prop_truck_constraint   =   {
+      isNeedWheelLocks   =   False
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
+      strapPoints   =   [
+         {
+            x   =   -0.54
+            y   =   -0.454
+            z   =   1.924
+         },
+         {
+            x   =   0.54
+            y   =   -0.454
+            z   =   1.924
+         },
+         {
+            x   =   0.329
+            y   =   -0.677
+            z   =   -2.029
+         },
+         {
+            x   =   -0.326
+            y   =   -0.677
+            z   =   -2.029
+         }
       ]
    }
    prop_truck_view_stump_grinder_controller   =   {

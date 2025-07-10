@@ -3359,9 +3359,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   320
-      startFuelTankVolume   =   320
-      fuelConsumption   =   0
+      maxFuelTankVolume   =   410
+      startFuelTankVolume   =   410
+      fuelConsumption   =   0.2
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_constraint_view   =   {
       powerConstraints   =   [
@@ -4144,12 +4146,25 @@ properties   =   {
       }
    }
    prop_pre_soft_keyframe_updater   =   {
+      movingParts   =   [
+         "BoneClawRollerLeft_cdt",
+         "BoneRollerLeft_cdt",
+         "BoneClawRollerRight_cdt",
+         "BoneRollerRight_cdt",
+         "BoneRollerLower_cdt",
+         "BoneClawTopLeft_cdt",
+         "BoneClawTopRight_cdt",
+         "BoneClawBottomLeft_cdt",
+         "BoneClawBottomRight_cdt",
+         "BoneSaw_cdt"
+      ]
       syncBodyNames   =   [
          "BoneBodyFront_cdt",
          "BoneTower_cdt",
          "BoneSegment1_cdt",
          "BoneSegment2_cdt",
          "BoneHeadNod_cdt",
+         "BoneHeadRotate_cdt",
          "BoneHeadSpin_cdt"
       ]
    }
@@ -4725,6 +4740,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -6113,6 +6130,8 @@ properties   =   {
          }
       ]
    }
+   prop_collision_disabler   =   {
+   }
    prop_multiple_ik   =   {
       ikBranches   =   {
          Arm   =   {
@@ -6391,6 +6410,37 @@ properties   =   {
          y   =   2
          __type   =   "Vector3d"
       }
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_truck_customization   =   {
    }
@@ -6754,6 +6804,7 @@ properties   =   {
          }
          __type   =   "RbVehicleCameraParams"
       }
+      craneCameraVerticalSpeed   =   4
    }
    prop_covering   =   {
       voxelSize   =   0.4

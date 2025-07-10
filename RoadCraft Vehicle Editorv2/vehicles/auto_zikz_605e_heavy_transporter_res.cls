@@ -62,7 +62,7 @@ properties   =   {
       }
       engine   =   {
          params   =   {
-            torque   =   480000
+            torque   =   650000
             brakesDelay   =   0.1
             maxDeltaAngVel   =   0.01
             responsiveness   =   0.04
@@ -1179,6 +1179,17 @@ properties   =   {
                      __type   =   "GameSoundDesc"
                   }
                   __type   =   "BlueprintNodePlaySoundOnEmitter"
+               }
+               OnEngineRunningOnInit_F72cjo8T   =   {
+                  viewData   =   {
+                     x   =   3100
+                     y   =   5000
+                  }
+                  OnEngineRunning   =   [
+                     "TruckShaker_DcslFL9H/Stop",
+                     "TruckShaker_DcslFL9H1/Stop"
+                  ]
+                  __type   =   "BlueprintNodeOnEngineRunningOnInit"
                }
             }
             groups   =   {
@@ -3203,9 +3214,11 @@ properties   =   {
       isLowGearAvailable   =   True
    }
    prop_fuel_tank   =   {
-      maxFuelTankVolume   =   360
-      startFuelTankVolume   =   360
+      maxFuelTankVolume   =   840
+      startFuelTankVolume   =   840
       fuelConsumption   =   0
+      reverseFuelConsumptionCoeff   =   1.2
+      lowRangeFuelConsumptionCoeff   =   1.4
    }
    prop_truck_constraint_view   =   {
       constraintSequentialChains   =   {
@@ -4517,6 +4530,8 @@ properties   =   {
          }
          __type   =   "CockpitUnderwaterChecker"
       }
+   }
+   prop_truck_cinematic_camera_settings   =   {
    }
    prop_lod_controller   =   {
       lodStepsMinDistance   =   {
@@ -6632,6 +6647,17 @@ properties   =   {
          z   =   -6.365
          __type   =   "Vector3d"
       }
+      truckConstarintAreaSize   =   {
+         x   =   5.1
+         y   =   5
+         z   =   11.61
+         __type   =   "Vector3d"
+      }
+      truckConstraintAreaOffset   =   {
+         x   =   -2.55
+         z   =   -6.365
+         __type   =   "Vector3d"
+      }
       beltZPositions   =   [
          4.753,
          3.846,
@@ -6648,12 +6674,10 @@ properties   =   {
          -6.131
       ]
       upBorderOffset   =   {
-         x   =   0
          y   =   0
          __type   =   "Vector2d"
       }
       downBorderOffset   =   {
-         x   =   0
          y   =   0
          __type   =   "Vector2d"
       }
@@ -6664,7 +6688,7 @@ properties   =   {
       }
       rightMidpointBoardXOffset   =   0.01
       leftMidpointBoardXOffset   =   0.01
-      beltBonesOffset   =   0.07
+      beltBonesOffset   =   0.04
       constraintBone   =   "BoneFriction_cdt"
       beltHandleDesc   =   {
          __type   =   "IactorDesc"
@@ -6675,6 +6699,136 @@ properties   =   {
       constraintInternalBeltDesc   =   {
          __type   =   "IactorDesc"
       }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      transporterStrapPoints   =   [
+         {
+            x   =   0.411
+            y   =   0.868
+            z   =   5.522
+         },
+         {
+            x   =   -0.411
+            y   =   0.868
+            z   =   5.522
+         },
+         {
+            x   =   0.5
+            y   =   0.095
+            z   =   3.373
+         },
+         {
+            x   =   -0.5
+            y   =   0.095
+            z   =   3.373
+         },
+         {
+            x   =   -0.5
+            y   =   0.095
+            z   =   1.78
+         },
+         {
+            x   =   0.5
+            y   =   0.095
+            z   =   1.78
+         },
+         {
+            x   =   -0.5
+            y   =   0.095
+            z   =   0.175
+         },
+         {
+            x   =   0.5
+            y   =   0.095
+            z   =   0.175
+         },
+         {
+            x   =   -0.5
+            y   =   0.095
+            z   =   -1.421
+         },
+         {
+            x   =   0.5
+            y   =   0.095
+            z   =   -1.421
+         },
+         {
+            x   =   -0.5
+            y   =   0.095
+            z   =   -3.008
+         },
+         {
+            x   =   0.5
+            y   =   0.095
+            z   =   -3.008
+         },
+         {
+            x   =   -0.5
+            y   =   0.095
+            z   =   -4.6
+         },
+         {
+            x   =   0.5
+            y   =   0.095
+            z   =   -4.6
+         },
+         {
+            x   =   -0.5
+            y   =   0.095
+            z   =   -6.193
+         },
+         {
+            x   =   0.5
+            y   =   0.095
+            z   =   -6.193
+         }
+      ]
+   }
+   prop_phys_shape_checker   =   {
+   }
+   prop_truck_constraint   =   {
+      wheelLock   =   {
+         __type   =   "TruckWheelDesc"
+      }
+      hookDesc   =   {
+         type   =   {
+            properties   =   {
+               geom   =   {
+                  nameTpl   =   "vehicle_hook_01"
+               }
+               prop_strap_hook   =   {
+                  strapOffset   =   {
+                     z   =   0.05
+                     __type   =   "Vector3d"
+                  }
+               }
+            }
+            __type   =   "strap_hook"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapDesc   =   {
+         type   =   {
+            __type   =   "chain_trail_01"
+         }
+         __type   =   "IactorDesc"
+      }
+      strapName   =   "chain_trail_01"
    }
    prop_transporter_recovery   =   {
       linkedAreaSize   =   {
