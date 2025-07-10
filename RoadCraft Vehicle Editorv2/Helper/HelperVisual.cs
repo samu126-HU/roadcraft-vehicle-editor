@@ -3,19 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using static RoadCraft_Vehicle_Editorv2.Helper.HelperBackend;
 
 namespace RoadCraft_Vehicle_Editorv2.Helper
 {
     public class HelperVisual
     {
-        //categorize
+        #region Categorization
+
         public static string CategorizeVehicle(string fileName)
         {
             string name = fileName.ToLowerInvariant();
-            //filter NPC vehicles/unusable vehicles
             string[] npcKeywords = { "nota_allegro", "civilian", "4317dl_cargo_old", "voron_3327_dumptruck" };
             if (npcKeywords.Any(k => name.Contains(k)))
                 return "Other";
@@ -27,7 +26,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
             if (name.Contains("scout")) return "Scouts";
             if (name.Contains("dumptruck")) return "Dumptrucks";
             if (name.Contains("scout")) return "Scouts";
-            if ((name.Contains("cargo") || name.Contains("transporter")) && !name.Contains("trailer")) return "Cargo"; //filter out wayfarer trailer as that is not the main
+            if ((name.Contains("cargo") || name.Contains("transporter")) && !name.Contains("trailer")) return "Cargo";
 
             if (name.Contains("harvester") ||
                 name.Contains("mulcher") ||
@@ -41,7 +40,10 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
             return "Other";
         }
 
-        //prettify
+        #endregion
+
+        #region Name Formatting
+
         public static string PrettyVehicleName(string fileName)
         {
             if (fileName.StartsWith("auto_"))
@@ -52,6 +54,10 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                                .Replace("_", " ");
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fileName.ToLower());
         }
+
+        #endregion
+
+        #region ListBox Items
 
         public class ListBoxItem
         {
@@ -72,7 +78,10 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
             public override string ToString() => Category;
         }
 
-        // save 3 options: file, pak, folder
+        #endregion
+
+        #region Save Option Dialog
+
         public static class SaveOptionDialog
         {
             public static SaveOption ShowDialog(string fileName)
@@ -82,7 +91,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                     form.Text = "Save Options";
                     form.FormBorderStyle = FormBorderStyle.FixedDialog;
                     form.StartPosition = FormStartPosition.CenterParent;
-                    form.ClientSize = new Size(520, 220);
+                    form.ClientSize = new System.Drawing.Size(520, 220);
                     form.MinimizeBox = false;
                     form.MaximizeBox = false;
                     form.ShowInTaskbar = false;
@@ -91,7 +100,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                     {
                         Text = "How would you like to save your changes?",
                         AutoSize = false,
-                        TextAlign = ContentAlignment.MiddleCenter,
+                        TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
                         Dock = DockStyle.Top,
                         Height = 40
                     };
@@ -128,7 +137,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                         AutoSize = false,
                         Width = 320,
                         Height = 32,
-                        TextAlign = ContentAlignment.MiddleLeft,
+                        TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
                         Anchor = AnchorStyles.Left
                     };
 
@@ -146,7 +155,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                         AutoSize = false,
                         Width = 320,
                         Height = 32,
-                        TextAlign = ContentAlignment.MiddleLeft,
+                        TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
                         Anchor = AnchorStyles.Left
                     };
 
@@ -164,7 +173,7 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                         AutoSize = false,
                         Width = 320,
                         Height = 32,
-                        TextAlign = ContentAlignment.MiddleLeft,
+                        TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
                         Anchor = AnchorStyles.Left
                     };
 
@@ -193,9 +202,15 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
             }
         }
 
+        #endregion
+
+        #region Parser Comparison
+
         public static bool AreParsersEqual(ClsParser a, ClsParser b)
         {
             return a.ToClsString().Replace("\r\n", "\n") == b.ToClsString().Replace("\r\n", "\n");
         }
+
+        #endregion
     }
 }
