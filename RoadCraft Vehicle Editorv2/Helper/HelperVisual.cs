@@ -192,5 +192,10 @@ namespace RoadCraft_Vehicle_Editorv2.Helper
                 }
             }
         }
+
+        public static bool AreParsersEqual(ClsParser a, ClsParser b)
+        {
+            return a.ToClsString().Replace("\r\n", "\n") == b.ToClsString().Replace("\r\n", "\n");
+        }
     }
 }

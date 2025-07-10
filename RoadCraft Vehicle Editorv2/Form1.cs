@@ -14,6 +14,10 @@ namespace RoadCraft_Vehicle_Editorv2
     {
         private HelperBackend backend = new();
         private CheckBox checkBoxShowGears;
+        private readonly Dictionary<string, ClsParser> originalParsers = new();
+        private readonly Dictionary<string, ClsParser> editedParsers = new();
+        private readonly HashSet<string> editedVehicles = new();
+        private string? lastSelectedVehicle = null;
 
         public Form1()
         {
@@ -99,75 +103,109 @@ namespace RoadCraft_Vehicle_Editorv2
 
         private void SaveButton_Click(object? sender, EventArgs e)
         {
-            if (listBox1.SelectedItem is not HelperVisual.ListBoxItem vehicle)
+            SaveCurrentVehicleEdits();
+
+            if (editedVehicles.Count == 0)
             {
-                MessageBox.Show("No vehicle selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No vehicles have been edited.", "Nothing to Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            var saveOption = HelperVisual.SaveOptionDialog.ShowDialog(vehicle.Value);
+            var saveOption = HelperVisual.SaveOptionDialog.ShowDialog(string.Join(", ", editedVehicles));
             if (saveOption == HelperBackend.SaveOption.Cancel) return;
 
             string vehiclesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vehicles");
-            string fileName = vehicle.Value + ".cls";
-            string filePath = Path.Combine(vehiclesDir, fileName);
-
-            if (!File.Exists(filePath))
-            {
-                MessageBox.Show("Vehicle file not found: " + filePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            var parser = new ClsParser(File.ReadAllText(filePath));
-            UpdateParserFromPanel(parser);
 
             if (saveOption == HelperBackend.SaveOption.File)
             {
-                using var sfd = new SaveFileDialog { Filter = "Vehicle files (*.cls)|*.cls", FileName = fileName };
-                if (sfd.ShowDialog() != DialogResult.OK) return;
-                if (Path.GetFullPath(sfd.FileName).StartsWith(Path.GetFullPath(vehiclesDir), StringComparison.OrdinalIgnoreCase))
+                foreach (var vehicleName in editedVehicles)
                 {
-                    MessageBox.Show("Cannot overwrite original files. Please save elsewhere.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    string fileName = vehicleName + ".cls";
+                    using var sfd = new SaveFileDialog
+                    {
+                        Filter = "Vehicle files (*.cls)|*.cls",
+                        FileName = fileName,
+                        Title = $"Save {fileName}"
+                    };
+                    if (sfd.ShowDialog() != DialogResult.OK) continue;
+                    if (Path.GetFullPath(sfd.FileName).StartsWith(Path.GetFullPath(vehiclesDir), StringComparison.OrdinalIgnoreCase))
+                    {
+                        MessageBox.Show("Cannot overwrite original files. Please save elsewhere.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        continue;
+                    }
+                    File.WriteAllText(sfd.FileName, editedParsers[vehicleName].ToClsString());
                 }
-                File.WriteAllText(sfd.FileName, parser.ToClsString());
-                MessageBox.Show($"Saved to {sfd.FileName}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("All edited vehicles saved to file(s).", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (saveOption == HelperBackend.SaveOption.Pak)
             {
                 using var ofd = new OpenFileDialog { Filter = "PAK files (*.pak)|*.pak", Title = "Select default_other.pak" };
                 if (ofd.ShowDialog() != DialogResult.OK) return;
+                string pakPath = ofd.FileName;
 
-                string tempClsPath = Path.GetTempFileName();
-                File.WriteAllText(tempClsPath, parser.ToClsString());
+                foreach (var vehicleName in editedVehicles)
+                {
+                    string tempClsPath = Path.GetTempFileName();
+                    File.WriteAllText(tempClsPath, editedParsers[vehicleName].ToClsString());
 
-                string entryName = $"ssl/autogen_designer_wizard/trucks/{vehicle.Value}/{vehicle.Value}.cls";
-                try
-                {
-                    backend.AddOrReplaceFileInPak(ofd.FileName, tempClsPath, entryName);
-                    MessageBox.Show($"Saved to {ofd.FileName}\n(entry: {entryName})", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string entryName = $"ssl/autogen_designer_wizard/trucks/{vehicleName}/{vehicleName}.cls";
+                    try
+                    {
+                        backend.AddOrReplaceFileInPak(pakPath, tempClsPath, entryName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to save {vehicleName} to .pak: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        if (File.Exists(tempClsPath))
+                            File.Delete(tempClsPath);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Failed to save to .pak: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    if (File.Exists(tempClsPath))
-                        File.Delete(tempClsPath);
-                }
+                MessageBox.Show("All edited vehicles saved to .pak.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (saveOption == HelperBackend.SaveOption.Folder)
             {
                 using var fbd = new FolderBrowserDialog { Description = "Select a folder to export the mod structure" };
                 if (fbd.ShowDialog() != DialogResult.OK) return;
 
-                string exportDir = Path.Combine(fbd.SelectedPath, "ssl", "autogen_designer_wizard", "trucks", vehicle.Value);
-                Directory.CreateDirectory(exportDir);
-                string exportPath = Path.Combine(exportDir, $"{vehicle.Value}.cls");
-                File.WriteAllText(exportPath, parser.ToClsString());
-                MessageBox.Show($"Exported to {exportPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                foreach (var vehicleName in editedVehicles)
+                {
+                    string exportDir = Path.Combine(fbd.SelectedPath, "ssl", "autogen_designer_wizard", "trucks", vehicleName);
+                    Directory.CreateDirectory(exportDir);
+                    string exportPath = Path.Combine(exportDir, $"{vehicleName}.cls");
+                    File.WriteAllText(exportPath, editedParsers[vehicleName].ToClsString());
+                }
+                MessageBox.Show("All edited vehicles exported to folder structure.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+            editedVehicles.Clear();
+            editedParsers.Clear();
+            originalParsers.Clear();
+            listBox1.Invalidate();
+        }
+
+        private void SaveCurrentVehicleEdits()
+        {
+            if (lastSelectedVehicle is not string vehicleName) return;
+            if (!editedParsers.TryGetValue(vehicleName, out var parser)) return;
+
+            UpdateParserFromPanel(parser);
+
+            if (originalParsers.TryGetValue(vehicleName, out var original))
+            {
+                if (!HelperVisual.AreParsersEqual(original, parser))
+                {
+                    editedVehicles.Add(vehicleName);
+                }
+                else
+                {
+                    editedVehicles.Remove(vehicleName);
+                }
+            }
+
+            listBox1.Invalidate();
         }
 
         private void Form1_Load(object? sender, EventArgs e)
@@ -184,7 +222,12 @@ namespace RoadCraft_Vehicle_Editorv2
             if (!Directory.Exists(vehiclesDir)) return;
 
             var categorized = Directory.GetFiles(vehiclesDir, "*.cls")
-                .Select(f => new { FileName = Path.GetFileNameWithoutExtension(f), Category = HelperVisual.CategorizeVehicle(Path.GetFileNameWithoutExtension(f)), PrettyName = HelperVisual.PrettyVehicleName(Path.GetFileNameWithoutExtension(f)) })
+                .Select(f => new
+                {
+                    FileName = Path.GetFileNameWithoutExtension(f),
+                    Category = HelperVisual.CategorizeVehicle(Path.GetFileNameWithoutExtension(f)),
+                    PrettyName = HelperVisual.PrettyVehicleName(Path.GetFileNameWithoutExtension(f))
+                })
                 .GroupBy(x => x.Category)
                 .OrderBy(g => g.Key == "Other" ? 1 : 0).ThenBy(g => g.Key);
 
@@ -210,28 +253,59 @@ namespace RoadCraft_Vehicle_Editorv2
                 using var font = new Font(e.Font ?? Font, FontStyle.Bold);
                 TextRenderer.DrawText(e.Graphics, $"★ {header.Category.ToUpper()}", font, e.Bounds, Color.MediumSlateBlue, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
             }
-            else if (item is HelperVisual.ListBoxItem)
+            else if (item is HelperVisual.ListBoxItem listBoxItem)
             {
-                using var font = new Font(e.Font ?? Font, FontStyle.Regular);
-                TextRenderer.DrawText(e.Graphics, $"   {item}", font, e.Bounds, e.ForeColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+                bool isEdited = editedVehicles.Contains(listBoxItem.Value);
+                using var font = new Font(e.Font ?? Font, isEdited ? FontStyle.Bold : FontStyle.Regular);
+                string display = isEdited ? $"● {listBoxItem}" : $"   {listBoxItem}";
+                Color textColor = isEdited ? Color.OrangeRed : e.ForeColor;
+                TextRenderer.DrawText(e.Graphics, display, font, e.Bounds, textColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
             }
             e.DrawFocusRectangle();
         }
 
         private void listBox1_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            if (lastSelectedVehicle != null)
+            {
+                SaveCurrentVehicleEdits();
+            }
+
             panel1.AutoScroll = false;
             panel1.Controls.Clear();
             panel1.AutoScroll = true;
 
-            if (listBox1.SelectedItem is not HelperVisual.ListBoxItem vehicle) return;
+            if (listBox1.SelectedItem is not HelperVisual.ListBoxItem vehicle)
+            {
+                lastSelectedVehicle = null;
+                return;
+            }
 
             panel1.Controls.Add(checkBoxShowGears);
 
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vehicles", vehicle.Value + ".cls");
-            if (!File.Exists(filePath)) return;
+            if (!File.Exists(filePath))
+            {
+                lastSelectedVehicle = null;
+                return;
+            }
 
-            var parser = new ClsParser(File.ReadAllText(filePath));
+            ClsParser parser;
+            if (editedParsers.TryGetValue(vehicle.Value, out var cachedParser))
+            {
+                parser = cachedParser;
+            }
+            else
+            {
+                var original = new ClsParser(File.ReadAllText(filePath));
+                var editable = new ClsParser(File.ReadAllText(filePath));
+                originalParsers[vehicle.Value] = original;
+                editedParsers[vehicle.Value] = editable;
+                parser = editable;
+            }
+
+            lastSelectedVehicle = vehicle.Value;
+
             int y = checkBoxShowGears.Bottom + 10;
             int labelWidth = 200, controlWidth = 200, height = 24, spacing = 6;
             bool showGears = checkBoxShowGears.Checked;
@@ -284,6 +358,7 @@ namespace RoadCraft_Vehicle_Editorv2
 
                     panel1.Controls.Add(new Label { Text = setting.PrettyName, Location = new Point(10, y), Width = labelWidth, Height = height, TextAlign = ContentAlignment.MiddleLeft });
                     Control editor = CreateEditorControl(setting.Path, setting.Path, displayValue, controlWidth, height, y);
+                    AttachEditEvents(editor, vehicle.Value);
                     panel1.Controls.Add(editor);
                     y += height + spacing;
                     controlsAddedForThisSetting++;
@@ -304,6 +379,7 @@ namespace RoadCraft_Vehicle_Editorv2
                         {
                             panel1.Controls.Add(new Label { Text = setting.PrettyName, Location = new Point(10, y), Width = labelWidth, Height = height, TextAlign = ContentAlignment.MiddleLeft });
                             Control editor = CreateEditorControl(setting.Path, actualPath, value, controlWidth, height, y);
+                            AttachEditEvents(editor, vehicle.Value);
                             panel1.Controls.Add(editor);
                             y += height + spacing;
                             controlsAddedForThisSetting++;
@@ -321,6 +397,7 @@ namespace RoadCraft_Vehicle_Editorv2
                         string labelText = setting.PrettyName.Replace("{i+1}", (j + 1).ToString()).Replace("{i}", j.ToString());
                         panel1.Controls.Add(new Label { Text = labelText, Location = new Point(10, y), Width = labelWidth, Height = height, TextAlign = ContentAlignment.MiddleLeft });
                         Control editor = CreateEditorControl(setting.Path, actualPath, values[j], controlWidth, height, y);
+                        AttachEditEvents(editor, vehicle.Value);
                         panel1.Controls.Add(editor);
                         y += height + spacing;
                         controlsAddedForThisSetting++;
@@ -334,6 +411,7 @@ namespace RoadCraft_Vehicle_Editorv2
                     {
                         panel1.Controls.Add(new Label { Text = setting.PrettyName, Location = new Point(10, y), Width = labelWidth, Height = height, TextAlign = ContentAlignment.MiddleLeft });
                         Control editor = CreateEditorControl(setting.Path, setting.Path, value, controlWidth, height, y);
+                        AttachEditEvents(editor, vehicle.Value);
                         panel1.Controls.Add(editor);
                         y += height + spacing;
                         controlsAddedForThisSetting++;
@@ -349,6 +427,19 @@ namespace RoadCraft_Vehicle_Editorv2
             }
 
             panel1.PerformLayout();
+        }
+
+        private void AttachEditEvents(Control editor, string vehicleName)
+        {
+            void handler(object? s, EventArgs e)
+            {
+                SaveCurrentVehicleEdits();
+            }
+
+            if (editor is TextBox tb) tb.TextChanged += handler;
+            else if (editor is CheckBox cb) cb.CheckedChanged += handler;
+            else if (editor is NumericUpDown nud) nud.ValueChanged += handler;
+            else if (editor is ComboBox cmb) cmb.SelectedIndexChanged += handler;
         }
 
         private Control CreateEditorControl(string originalPath, string actualPath, object? value, int width, int height, int y)
@@ -397,4 +488,4 @@ namespace RoadCraft_Vehicle_Editorv2
             return control;
         }
     }
-}
+}               
