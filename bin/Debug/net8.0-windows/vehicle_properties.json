@@ -1,0 +1,197 @@
+[
+  {
+    "Path": "properties.prop_truck_rb.engine.params.torque",
+    "Category": "General",
+    "DisplayName": "Torque",
+    "Description": "The torque of the truck"
+  },
+  {
+    "Path": "properties.prop_truck_gearbox_controller.awdMode",
+    "Category": "General",
+    "DisplayName": "AWD",
+    "Description": "All-wheel drive mode",
+    "Options": [
+      "ALWAYS_ON",
+      "ALWAYS_OFF",
+      "CONTROLLED"
+    ]
+  },
+  {
+    "Path": "properties.prop_truck_gearbox_controller.difflockMode",
+    "Category": "General",
+    "DisplayName": "Diff Lock",
+    "Description": "Differential lock mode",
+    "Options": [
+      "ALWAYS_ON",
+      "ALWAYS_OFF",
+      "CONTROLLED"
+    ]
+  },
+  {
+    "Path": "properties.prop_truck_gearbox_controller.isLowGearAvailable",
+    "Category": "General",
+    "DisplayName": "Low Gear",
+    "Description": "Whether low gear is available"
+  },
+  {
+    "Path": "properties.prop_truck_constraint_view.controllableConstraints[*]",
+    "Filter": "{constraintName = dump}",
+    "TargetProperty": "angularSpeed",
+    "Category": "Dump",
+    "DisplayName": "Dump Tilt Speed",
+    "Description": "Speed of dump tilt movement"
+  },
+  {
+    "Path": "properties.prop_truck_rb.maxSteerSpeed",
+    "Category": "Steering",
+    "DisplayName": "Maximum Steering Speed",
+    "Description": "Maximum steering speed"
+  },
+  {
+    "Path": "properties.prop_truck_rb.backSteerSpeed",
+    "Category": "Steering",
+    "DisplayName": "Back Steer Speed",
+    "Description": "Back steering speed"
+  },
+  {
+    "Path": "properties.prop_ik.movementspeedXZ",
+    "Category": "Crane",
+    "DisplayName": "Crane Horizontal Speed",
+    "Description": "Horizontal movement speed of the crane"
+  },
+  {
+    "Path": "properties.prop_ik.movementspeedY",
+    "Category": "Crane",
+    "DisplayName": "Crane Vertical Speed",
+    "Description": "Vertical movement speed of the crane"
+  },
+  {
+    "Path": "properties.prop_truck_flattener.flattener.size.x",
+    "Category": "Working Width",
+    "DisplayName": "Dozer Working Width",
+    "Description": "Working width of the dozer",
+    "ShowIf": "dozer"
+  },
+  {
+    "Path": "properties.prop_truck_asphalt_roller.asphaltRoller.size.x",
+    "Category": "Working Width",
+    "DisplayName": "Asphalt Roller Working Width",
+    "Description": "Working width of the asphalt roller",
+    "ShowIf": "roller",
+    "MultiPath": [
+      "properties.prop_truck_asphalt_roller.asphaltRoller.rollUpRearSize.x",
+      "properties.prop_truck_asphalt_roller.asphaltRoller.rollUpForwardSize.x"
+    ]
+  },
+  {
+    "Path": "properties.prop_truck_asphalter.asphalter.size.x",
+    "Category": "Working Width",
+    "DisplayName": "Asphalter Working Width",
+    "Description": "Working width of the asphalter",
+    "ShowIf": "paver"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.clutchSwitchTime",
+    "Category": "Gears",
+    "DisplayName": "Clutch Switch Time",
+    "Description": "Time to switch clutch"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.defaultGearSwitchDelay",
+    "Category": "Gears",
+    "DisplayName": "Default Gear Switch Delay",
+    "Description": "Default delay for gear switching"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.upperGearSwitchDelayBase",
+    "Category": "Gears",
+    "DisplayName": "Upper Gear Switch Delay Base",
+    "Description": "Base delay for upper gear switching"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.upperGearSwitchDelayGearNumMultiplier",
+    "Category": "Gears",
+    "DisplayName": "Upper Gear Switch Delay Multiplier",
+    "Description": "Multiplier for upper gear switch delay"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.downGearSwitchDelay",
+    "Category": "Gears",
+    "DisplayName": "Down Gear Switch Delay",
+    "Description": "Delay for down gear switching"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.neutralGearSwitchingDelay",
+    "Category": "Gears",
+    "DisplayName": "Neutral Switching Delay",
+    "Description": "Delay for neutral gear switching"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.highGear.angularVelocity",
+    "Category": "Gears",
+    "DisplayName": "High Gear Angular Velocity",
+    "Description": "Angular velocity of high gear"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.highGear.gearRatio",
+    "Category": "Gears",
+    "DisplayName": "High Gear Gear Ratio",
+    "Description": "Gear ratio of high gear"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.lowRangeGear.angularVelocity",
+    "Category": "Gears",
+    "DisplayName": "Low Gear Angular Velocity",
+    "Description": "Angular velocity of low gear"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.lowRangeGear.gearRatio",
+    "Category": "Gears",
+    "DisplayName": "Low Gear Gear Ratio",
+    "Description": "Gear ratio of low gear"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.reverseGear.angularVelocity",
+    "Category": "Gears",
+    "DisplayName": "Reverse Gear Angular Velocity",
+    "Description": "Angular velocity of reverse gear"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.reverseGear.gearRatio",
+    "Category": "Gears",
+    "DisplayName": "Reverse Gear Gear Ratio",
+    "Description": "Gear ratio of reverse gear"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.gears[*].angularVelocity",
+    "Category": "Gears",
+    "DisplayName": "Gear {i+1} Angular Velocity",
+    "Description": "Angular velocity of gear {i+1}",
+    "TableGroup": "Gears"
+  },
+  {
+    "Path": "properties.prop_truck_rb.gearbox.params.gears[*].gearRatio",
+    "Category": "Gears",
+    "DisplayName": "Gear {i+1} Gear Ratio",
+    "Description": "Gear ratio of gear {i+1}",
+    "TableGroup": "Gears"
+  },
+  {
+    "Path": "properties.prop_truck_view_winch_controller.winch.maxLength",
+    "Category": "Winch",
+    "DisplayName": "Winch Maximum Length",
+    "Description": "Sets how far the winch reaches."
+  },
+  {
+    "Path": "properties.prop_truck_view_winch_controller.winch.pullStrength",
+    "Category": "Winch",
+    "DisplayName": "Winch Pull Strength",
+    "Description": "Sets the strength of the winch."
+  },
+  {
+    "Path": "properties.prop_truck_view_winch_controller.winchPullSpeed",
+    "Category": "Winch",
+    "DisplayName": "Winch Pull Speed",
+    "Description": "Sets how fast the winch pulls."
+  }
+]

@@ -1,0 +1,1513 @@
+=== FIRST-CHANCE ArgumentException #1 ===
+Time: 2025-07-16 17:57:41.379
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #2 ===
+Time: 2025-07-16 17:57:41.484
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #3 ===
+Time: 2025-07-16 17:57:41.511
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #4 ===
+Time: 2025-07-16 17:57:41.537
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #5 ===
+Time: 2025-07-16 17:57:41.563
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #6 ===
+Time: 2025-07-16 17:57:41.595
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #7 ===
+Time: 2025-07-16 17:57:41.625
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #8 ===
+Time: 2025-07-16 17:57:41.650
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #9 ===
+Time: 2025-07-16 17:57:41.675
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #10 ===
+Time: 2025-07-16 17:57:41.700
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #11 ===
+Time: 2025-07-16 17:57:41.731
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #12 ===
+Time: 2025-07-16 17:57:41.759
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #13 ===
+Time: 2025-07-16 17:57:41.782
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #14 ===
+Time: 2025-07-16 17:57:41.805
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #15 ===
+Time: 2025-07-16 17:57:41.858
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #16 ===
+Time: 2025-07-16 17:57:41.885
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #17 ===
+Time: 2025-07-16 17:57:41.912
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #18 ===
+Time: 2025-07-16 17:57:41.939
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #19 ===
+Time: 2025-07-16 17:57:41.965
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #20 ===
+Time: 2025-07-16 17:57:41.989
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #21 ===
+Time: 2025-07-16 17:57:42.012
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #22 ===
+Time: 2025-07-16 17:57:42.035
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #23 ===
+Time: 2025-07-16 17:57:42.059
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #24 ===
+Time: 2025-07-16 17:57:42.083
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #25 ===
+Time: 2025-07-16 17:57:42.115
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #26 ===
+Time: 2025-07-16 17:57:42.141
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #27 ===
+Time: 2025-07-16 17:57:42.168
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ArgumentException #28 ===
+Time: 2025-07-16 17:57:42.194
+Thread: 1
+Exception Type: System.ArgumentException
+Message: Invalid array index: 'SOUND'
+Parameter Name: null
+Source: ClsParser.Library
+Target Site: ParseQuery
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.ParseQuery(String query) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 428
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__12_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:90
+  1: ClsFileParser.ParseQuery
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:428
+  2: ClsFileParser.Query
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:144
+  3: Properties.DoesPropertyPathExist
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:283
+  4: <>c__DisplayClass6_0.<GetPropertiesForVehicle>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:196
+  5: WhereListIterator`1.ToList
+  6: Properties.GetPropertiesForVehicle
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:199
+  7: Properties.GetCategorizedProperties
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Properties.cs:211
+  8: MainActivity.CreateVehiclePropertyEditor
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:455
+  9: <VehicleList_SelectedIndexChanged>d__19.MoveNext
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:435
+  10: ExecutionContext.RunInternal
+  11: AsyncStateMachineBox`1.MoveNext
+  12: <>c.<OutputWaitEtwEvents>b__12_0
+  13: RuntimeMethodHandle.InvokeMethod
+  14: MethodBaseInvoker.InvokeDirectByRefWithFewArgs
+  15: MethodBaseInvoker.InvokeWithOneArg
+  16: Delegate.DynamicInvokeImpl
+  17: Control.InvokeMarshaledCallbackDo
+  18: Control.InvokeMarshaledCallbackHelper
+  19: ExecutionContext.RunInternal
+  20: Control.InvokeMarshaledCallbacks
+  21: Control.WndProc
+  22: NativeWindow.Callback
+  23: PInvoke.DispatchMessage
+  24: ComponentManager.Microsoft.Office.IMsoComponentManager.FPushMessageLoop
+  25: ThreadContext.RunMessageLoopInner
+  26: ThreadContext.RunMessageLoop
+  27: Program.Main
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\Program.cs:18
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE LexerNoViableAltException #3 ===
+Time: 2025-07-16 22:00:14.737
+Thread: 12
+Exception Type: Antlr4.Runtime.LexerNoViableAltException
+Message: Exception of type 'Antlr4.Runtime.LexerNoViableAltException' was thrown.
+Source: Antlr4.Runtime
+Target Site: Match
+Stack Trace:
+   at Antlr4.Runtime.Atn.LexerATNSimulator.Match(ICharStream input, Int32 mode)
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__16_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:126
+  1: LexerATNSimulator.Match
+  2: Lexer.NextToken
+  3: BufferedTokenStream.Fetch
+  4: BufferedTokenStream.Sync
+  5: BufferedTokenStream.Setup
+  6: Parser.EnterRule
+  7: ClsParser.file
+      File: C:\Users\andra\source\repos\ClsParser.Library\obj\Debug\net8.0\ClsParser.cs:131
+  8: ClsFileParser.Parse
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:53
+  9: <>c__DisplayClass29_1.<LoadVehicleDataAsync>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:799
+  10: ExecutionContext.RunFromThreadPoolDispatchLoop
+  11: Task.ExecuteWithThreadLocal
+  12: ThreadPoolWorkQueue.Dispatch
+  13: WorkerThread.WorkerThreadStart
+=== END EXCEPTION DETAILS ===
+
+=== FIRST-CHANCE ClsParseException #4 ===
+Time: 2025-07-16 22:00:14.858
+Thread: 12
+Exception Type: ClsParser.Library.ClsParseException
+Message: === PARSING ERRORS ===
+Lexer Errors:
+  Line 1, Column 0: token recognition error at: '﻿'
+
+Source: ClsParser.Library
+Target Site: Parse
+Stack Trace:
+   at ClsParser.Library.ClsFileParser.Parse(String input) in C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:line 79
+
+=== DETAILED CALL STACK ===
+  0: <>c.<SetupGlobalExceptionHandling>b__16_0
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:126
+  1: ClsFileParser.Parse
+      File: C:\Users\andra\source\repos\ClsParser.Library\ClsFileParser.cs:79
+  2: <>c__DisplayClass29_1.<LoadVehicleDataAsync>b__1
+      File: C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\MainActivity.cs:799
+  3: ExecutionContext.RunFromThreadPoolDispatchLoop
+  4: Task.ExecuteWithThreadLocal
+  5: ThreadPoolWorkQueue.Dispatch
+  6: WorkerThread.WorkerThreadStart
+=== END EXCEPTION DETAILS ===
+

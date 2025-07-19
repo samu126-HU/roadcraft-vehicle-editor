@@ -1,0 +1,24 @@
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.exe
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.deps.json
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.runtimeconfig.json
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.dll
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.pdb
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.csproj.GenerateResource.cache
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.AssemblyInfoInputs.cache
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.AssemblyInfo.cs
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.csproj.CoreCompileInputs.cache
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.dll
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\refint\RoadCraft Vehicle Editor v2 - new edition.dll
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.pdb
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.genruntimeconfig.cache
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\ref\RoadCraft Vehicle Editor v2 - new edition.dll
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft_Vehicle_Editor_v2___new_edition.MainActivity.resources
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft_Vehicle_Editor_v2___new_edition.SettingsActivity.resources
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\Antlr4.Runtime.dll
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\ClsParser.Library.dll
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\ClsParser.Library.pdb
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft Vehicle Editor v2 - new edition.csproj.AssemblyReference.cache
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraf.1EAC8A4A.Up2Date
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\bin\Debug\net8.0-windows\vehicle_properties.json
+C:\Users\andra\source\repos\RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition\obj\Debug\net8.0-windows\RoadCraft_Vehicle_Editor_v2___new_edition.SaveOptionsDialog.resources
