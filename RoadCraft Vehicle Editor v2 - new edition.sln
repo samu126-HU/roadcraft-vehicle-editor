@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadCraft Vehicle Editor v2 - new edition", "RoadCraft Vehicle Editor v2 - new edition\RoadCraft Vehicle Editor v2 - new edition.csproj", "{CE70FDF8-C513-405D-B972-4D13F9B6B558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsParser.Library", "..\ClsParser.Library\ClsParser.Library.csproj", "{4415A96D-4573-EA9B-2B25-898D08ADFAC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE70FDF8-C513-405D-B972-4D13F9B6B558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE70FDF8-C513-405D-B972-4D13F9B6B558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE70FDF8-C513-405D-B972-4D13F9B6B558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE70FDF8-C513-405D-B972-4D13F9B6B558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4415A96D-4573-EA9B-2B25-898D08ADFAC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4415A96D-4573-EA9B-2B25-898D08ADFAC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4415A96D-4573-EA9B-2B25-898D08ADFAC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4415A96D-4573-EA9B-2B25-898D08ADFAC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9EA9C8E-9733-40A8-AD79-EE066138A821}
+	EndGlobalSection
+EndGlobal
